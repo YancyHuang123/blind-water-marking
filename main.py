@@ -11,10 +11,11 @@ train_set, test_set = get_dataset()
 
 train_loader = MyLoader(train_set, batch_size)
 test_loader = MyLoader(test_set, batch_size)
+trigger_loader = MyLoader(test_set, 20)
 logo = get_watermark()
 
 model = MainModel(mutiGPU=False)
 
 trainer = Trainer(model, batch_size,key_rate,secret_key=1, device='cuda')
 
-trainer.fit(train_loader, logo, epoch=30, val_set=None)
+trainer.fit(train_loader,trigger_loader, logo, epoch=30, val_set=None)
