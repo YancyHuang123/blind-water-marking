@@ -8,6 +8,8 @@ from random import randint
 from . import loss as L
 import statistics
 from torch.nn.parallel import DistributedDataParallel as DDP
+import torchvision.transforms as transforms
+import torchvision
 
 wm_num = 500
 wm_batchsize = 20
@@ -32,8 +34,20 @@ class Trainer():
         self.secret_key = secret_key
         self.num_key = int(self.key_rate*self.batch_size)  # tells how many samples are in each epoch
 
-    def fit(self, dataset,dataset_trigger, logo, epoch, val_set=None):
+    def fit(self, dataset, dataset_trigger, logo, epoch, val_set=None):
         wm_inputs, wm_cover_labels = [], []
+
+        transform_test = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+
+        ieee_logo = torchvision.datasets.ImageFolder(
+            root='./datas'+'/logo', transform=transform_test)
+        ieee_loader = torch.utils.data.DataLoader(ieee_logo, batch_size=1)
+        secret_img = None
+        for _, (logo, __) in enumerate(ieee_loader):
+            secret_img = logo.expand(
+                20, logo.shape[1], logo.shape[2], logo.shape[3]).cuda()
 
         for wm_idx, (wm_input, wm_cover_label) in enumerate(dataset_trigger):
             wm_input, wm_cover_label = wm_input.cuda(), wm_cover_label.cuda()
@@ -49,6 +63,11 @@ class Trainer():
 
         valid = torch.FloatTensor(wm_batchsize, 1).fill_(1.0).cuda()
         fake = torch.FloatTensor(wm_batchsize, 1).fill_(0.0).cuda()
+        wm_idx = 24
+        
+        self.encoder.train()
+        self.resnet.train()
+        self.discriminator.train()
 
         print('Training started')
         for batch_idx in range(1, epoch + 1):
@@ -57,11 +76,12 @@ class Trainer():
             for ibx, batch in enumerate(dataset):
                 input, label = batch
                 input, label = input.cuda(), label.cuda()
-                wm_input = wm_inputs[batch_idx % len(wm_inputs)]
-                wm_label = wm_labels[batch_idx % len(wm_inputs)]  # randint 0 to 9 ?
-                wm_cover_label = wm_cover_labels[batch_idx % len(wm_inputs)]  # the original label for watermarked samples
+                wm_input = wm_inputs[(wm_idx + batch_idx) % len(wm_inputs)]
+                wm_label = wm_labels[(wm_idx + batch_idx) % len(wm_inputs)]  # randint 0 to 9 ?
+                wm_cover_label = wm_cover_labels[(wm_idx + batch_idx) % len(wm_inputs)]  # the original label for watermarked samples
 
-                logo_batch = logo.repeat(20, 1, 1, 1).to(self.device)
+                # logo_batch = logo.repeat(20, 1, 1, 1).to(self.device)
+                logo_batch = secret_img
 
                 # train discriminator net
                 wm_img = self.encoder(wm_input, logo_batch)
@@ -77,7 +97,7 @@ class Trainer():
                 self.opt_resnet.zero_grad()
                 self.opt_encoder.zero_grad()
                 self.opt_discriminator.zero_grad()
-
+                
                 wm_dis_output = self.discriminator(wm_img)
                 wm_dnn_output = self.resnet(wm_img)
                 loss_mse = self.encoder_loss(wm_input, wm_img)
@@ -89,7 +109,7 @@ class Trainer():
                 loss_dnn = self.resnet_loss(wm_dnn_output, wm_label)
                 loss_H = hyper_parameters[0] * loss_mse + hyper_parameters[1] * (1 - loss_ssim) + hyper_parameters[2] * loss_adv + hyper_parameters[3] * loss_dnn
                 loss_H.backward()
-                self.opt_resnet.step()
+                self.opt_encoder.step()
 
                 # train host net
                 self.opt_resnet.zero_grad()
@@ -104,8 +124,9 @@ class Trainer():
                 losses['encoder'].append(loss_H.item())
                 losses['discriminator'].append(loss_D.item())
                 losses['dnn'].append(loss_DNN.item())
-                if ibx % 100 == 0:
-                    print(f'epoch:{batch_idx} batch:{ibx} total batches:{len(dataset)}')
+
+                if ibx % 1 == 0:
+                    print(f'epoch:{batch_idx} batch:[{ibx}/{len(dataset)}]  loss_H: {loss_H:.4f}(loss_mse: {loss_mse:.4f} loss_ssim: {loss_ssim:.4f} loss_adv: {loss_adv:.4f} loss_dnn: {loss_dnn}))')
 
             elapse = time.time() - start
             losses['encoder'] = statistics.mean(losses['encoder'])
