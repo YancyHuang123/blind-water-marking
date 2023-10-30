@@ -9,8 +9,9 @@ import numpy as np
 import random
 import torch.backends.cudnn as cudnn
 
-def MyLoader(dataset, batch_size,shuffle):
-    seed=32
+
+def MyLoader(dataset, batch_size, shuffle):
+    seed = 32
 
     cudnn.benchmark = True
     np.random.seed(seed)
@@ -19,5 +20,5 @@ def MyLoader(dataset, batch_size,shuffle):
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     cudnn.deterministic = True
-    dataloader = DataLoader(dataset, batch_size=batch_size,num_workers=2, shuffle=shuffle, pin_memory=True, drop_last=True)
+    dataloader = DataLoader(dataset, batch_size=batch_size, num_workers=2, shuffle=shuffle, pin_memory=True, drop_last=True)
     return dataloader

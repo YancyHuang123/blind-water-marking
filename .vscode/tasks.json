@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
             "args": [
-                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/main.py",
+                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/main.py"
                 // Add any arguments here
             ],
             "group": {

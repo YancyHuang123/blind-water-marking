@@ -48,7 +48,7 @@ def get_dataset():
 
 def get_watermark():
     # load logo
-    logo = cv2.imread("./datas/logo/new-ieeelogo.png")
+    logo = cv2.imread("./datas/logo/IEEE/new-ieeelogo.png")
     logo = cv2.cvtColor(logo, cv2.COLOR_BGR2RGB)
     logo = transform_test(logo)
     logo = logo.clone().detach()  # type: ignore
