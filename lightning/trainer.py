@@ -14,6 +14,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import torchvision.transforms as transforms
 import torchvision
 from . import logger
+from torcheval.metrics import MulticlassAccuracy
 
 
 class Trainer():
@@ -28,7 +29,7 @@ class Trainer():
         self.wm_batch_size = wm_batch_size
         self.secret_key = secret_key
 
-    def fit(self, dataset, trigger_dataset, logo, epoch, val_set=None):
+    def fit(self, dataset, trigger_dataset, logo, epoch):
         wm_labels = torch.full((self.wm_batch_size,), 1).cuda()
 
         valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).cuda()
@@ -103,40 +104,88 @@ class Trainer():
         model.save_model(self.check_folder)
         logger.save(self.check_folder)
 
+    def evaluate(self, dataset, trigger_dataset, logo):
+        wm_labels = torch.full((self.wm_batch_size,), 1).cuda()
+
+        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).cuda()
+        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).cuda()
+
+        model = self.model
+
+        model.encoder.eval()
+        model.host_net.eval()
+        model.discriminator.eval()
+
+        host_net_no_trigger_acc = MulticlassAccuracy()
+        discriminator_acc = MulticlassAccuracy()
+        host_net_trigged_rate = MulticlassAccuracy()
+
+        print('Evaluation starts')
+        for (ibx, batch), trigger_batch in zip(enumerate(dataset), iter(trigger_dataset)):
+            X, Y = batch
+            X = X.cuda()
+            Y = Y.cuda()
+            X_trigger, Y_trigger = trigger_batch
+            X_trigger = X_trigger.cuda()
+            Y_trigger = Y_trigger.cuda()
+
+            logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).cuda()
+
+            # train discriminator net
+            wm_img = model.encoder(X_trigger, logo_batch)
+
+            wm_dis_output = model.discriminator(wm_img.detach())
+            real_dis_output = model.discriminator(X_trigger)
+
+            wm_dis_output = torch.squeeze(wm_dis_output)
+            real_dis_output = torch.squeeze(real_dis_output)
+            fake = torch.squeeze(fake)
+            valid = torch.squeeze(valid)
+
+            discriminator_acc.update(torch.cat([wm_dis_output, real_dis_output], dim=0).cpu(), torch.cat([fake, valid], dim=0))
+
+            # train host net
+
+            inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
+            # wm_labels = torch.cat([Y, wm_labels], dim=0) # watermarked image labels are replace by secret key
+            original_labels = torch.cat([Y, Y_trigger], dim=0)
+
+            dnn_output = model.host_net(inputs)
+            dnn_trigger_pred = model.host_net(wm_img)
+
+            host_net_no_trigger_acc.update(dnn_output, original_labels)
+            host_net_trigged_rate.update(dnn_trigger_pred, wm_labels)
+
+        print(f'host_net_no_trigger_acc:{host_net_no_trigger_acc.compute()} host_net trigger_rate:{host_net_trigged_rate.compute()} discriminator acc:{discriminator_acc.compute()}')
+
     def create_check_folder(self):
         time = datetime.now()
         folder = self.check_point_path
         os.mkdir(f'{folder}/{time}')
         self.check_folder = f'{folder}/{time}'
 
+    def embed_logo(self, X, logo):
+        X = X.cuda()
+        logo_batch = logo.repeat(X.shape[0], 1, 1, 1).cuda()
+        Y = self.model.encoder(X, logo_batch)
+        return Y.cpu()
 
     def predict(self, X):
+        Y_preds = []
         with torch.no_grad():
-            dataset = MyDataset(X, None)
-            dataloader = DataLoader(dataset, batch_size=self.batch_size, pin_memory=True)
-            Y_preds = []
-            for ibx, batch in enumerate(dataloader):
-                X = batch.to(self.device)
-                Y_preds.append(self.model(X))
+            for ibx, batch in enumerate(X):
+                X = batch.cuda()
+                Y_preds.append(self.model.host_net(X))
 
             Y_preds = torch.cat(Y_preds, 0)
-            return Y_preds.to('cpu')
+            return Y_preds.cpu()
 
-    def evaluate(self, X, Y):
-        loss_mean = 0
+    def discrinimator_predict(self, X):
+        Y_preds = []
         with torch.no_grad():
-            dataset = MyDataset(X, Y)
-            dataloader = DataLoader(dataset, batch_size=self.batch_size, pin_memory=True)
+            for ibx, batch in enumerate(X):
+                X = batch.cuda()
+                Y_preds.append(self.model.discriminator(X))
 
-            for ibx, batch in enumerate(dataloader):
-                X, Y = batch
-                X = X.to(self.device)
-                Y = Y.to(self.device)
-
-                X_pred = self.model(X)
-                loss = self.loss_fun(X_pred, Y)
-
-                loss_mean += loss.item()
-
-            loss_mean /= len(dataset)
-        return loss_mean
+            Y_preds = torch.cat(Y_preds, 0)
+            return Y_preds.cpu()
