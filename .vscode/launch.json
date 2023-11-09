@@ -8,7 +8,7 @@
             "name": "Python: main",
             "type": "python",
             "request": "launch",
-            "program": "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/main.py",
+            "program": "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\satellite_main.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

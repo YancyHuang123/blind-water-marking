@@ -17,11 +17,19 @@ from . import logger
 from torcheval.metrics import MulticlassAccuracy
 
 
-class Trainer():
-    def __init__(self, model, batch_size, wm_batch_size, secret_key, check_point_path):
-        # self.model = model.to(device)
+class Trainer:
+    def __init__(
+        self,
+        model,
+        batch_size,
+        wm_batch_size,
+        secret_key,
+        check_point_path,
+        device="cuda",
+    ):
         self.batch_size = batch_size
         self.model = model
+        self.device = device
         self.logger = logger.Logger()
         self.check_point_path = check_point_path
         self.create_check_folder()
@@ -37,23 +45,26 @@ class Trainer():
 
         model = self.model
         logger = self.logger
+        device = self.device
 
         model.encoder.train()
         model.host_net.train()
         model.discriminator.train()
 
-        print('Training started')
+        print("Training started")
         for epoch_i in range(1, epoch + 1):
             logger.time_start()
 
-            for (ibx, batch), trigger_batch in zip(enumerate(dataset), iter(trigger_dataset)):
+            for (ibx, batch), trigger_batch in zip(
+                enumerate(dataset), iter(trigger_dataset)
+            ):
                 X, Y = batch
-                X = X.cuda()
-                Y = Y.cuda()
+                X = X.to(device)
+                Y = Y.to(device)
                 X_trigger, _ = trigger_batch
-                X_trigger = X_trigger.cuda()
+                X_trigger = X_trigger.to(device)
 
-                logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).cuda()
+                logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).to(device)
 
                 # train discriminator net
                 wm_img = model.encoder(X_trigger, logo_batch)
@@ -79,7 +90,12 @@ class Trainer():
                 hyper_parameters = [3, 5, 1, 0.1]
 
                 loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
-                loss_H = hyper_parameters[0] * loss_mse + hyper_parameters[1] * (1 - loss_ssim) + hyper_parameters[2] * loss_adv + hyper_parameters[3] * loss_dnn
+                loss_H = (
+                    hyper_parameters[0] * loss_mse
+                    + hyper_parameters[1] * (1 - loss_ssim)
+                    + hyper_parameters[2] * loss_adv
+                    + hyper_parameters[3] * loss_dnn
+                )
                 loss_H.backward()
                 model.opt_encoder.step()
 
@@ -95,14 +111,24 @@ class Trainer():
                 loss_DNN.backward()
                 model.opt_host_net.step()
 
-                logger.update_batch_losses([loss_H.item(), loss_mse.item(), loss_ssim.item(),
-                                            loss_adv.item(), loss_dnn.item(), loss_D.item(), loss_H.item()])
+                logger.update_batch_losses(
+                    [
+                        loss_H.item(),
+                        loss_mse.item(),
+                        loss_ssim.item(),
+                        loss_adv.item(),
+                        loss_dnn.item(),
+                        loss_D.item(),
+                        loss_H.item(),
+                    ]
+                )
+                logger.batch_output(ibx, epoch)
 
             logger.update_epoch_losses()
             logger.get_duration()
-            logger.epoch_output(epoch_i, remain_epochs=epoch-epoch_i)
-        model.save_model(self.check_folder)
-        logger.save(self.check_folder)
+            logger.epoch_output(epoch_i, remain_epochs=epoch - epoch_i)
+        model.save_model(self.save_folder)
+        logger.save(self.save_folder)
 
     def evaluate(self, dataset, trigger_dataset, logo):
         wm_labels = torch.full((self.wm_batch_size,), 1).cuda()
@@ -120,8 +146,10 @@ class Trainer():
         discriminator_acc = MulticlassAccuracy()
         host_net_trigged_rate = MulticlassAccuracy()
 
-        print('Evaluation starts')
-        for (ibx, batch), trigger_batch in zip(enumerate(dataset), iter(trigger_dataset)):
+        print("Evaluation starts")
+        for (ibx, batch), trigger_batch in zip(
+            enumerate(dataset), iter(trigger_dataset)
+        ):
             X, Y = batch
             X = X.cuda()
             Y = Y.cuda()
@@ -142,7 +170,10 @@ class Trainer():
             fake = torch.squeeze(fake)
             valid = torch.squeeze(valid)
 
-            discriminator_acc.update(torch.cat([wm_dis_output, real_dis_output], dim=0).cpu(), torch.cat([fake, valid], dim=0))
+            discriminator_acc.update(
+                torch.cat([wm_dis_output, real_dis_output], dim=0).cpu(),
+                torch.cat([fake, valid], dim=0),
+            )
 
             # train host net
 
@@ -156,13 +187,15 @@ class Trainer():
             host_net_no_trigger_acc.update(dnn_output, original_labels)
             host_net_trigged_rate.update(dnn_trigger_pred, wm_labels)
 
-        print(f'host_net_no_trigger_acc:{host_net_no_trigger_acc.compute()} host_net trigger_rate:{host_net_trigged_rate.compute()} discriminator acc:{discriminator_acc.compute()}')
+        print(
+            f"host_net_no_trigger_acc:{host_net_no_trigger_acc.compute()} host_net trigger_rate:{host_net_trigged_rate.compute()} discriminator acc:{discriminator_acc.compute()}"
+        )
 
     def create_check_folder(self):
-        time = datetime.now()
+        time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         folder = self.check_point_path
-        os.mkdir(f'{folder}/{time}')
-        self.check_folder = f'{folder}/{time}'
+        os.mkdir(f"{folder}/{time}")
+        self.save_folder = f"{folder}/{time}"
 
     def embed_logo(self, X, logo):
         X = X.cuda()
