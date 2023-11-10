@@ -4,9 +4,9 @@
         {
             "label": "Run main",
             "type": "shell",
-            "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
+            "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
-                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/main.py"
+                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\satellite_main.py"
                 // Add any arguments here
             ],
             "group": {

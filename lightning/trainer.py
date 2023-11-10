@@ -38,11 +38,6 @@ class Trainer:
         self.secret_key = secret_key
 
     def fit(self, dataset, trigger_dataset, logo, epoch):
-        wm_labels = torch.full((self.wm_batch_size,), 1).cuda()
-
-        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).cuda()
-        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).cuda()
-
         model = self.model
         logger = self.logger
         device = self.device
@@ -51,7 +46,12 @@ class Trainer:
         model.host_net.train()
         model.discriminator.train()
 
-        print("Training started")
+        wm_labels = torch.full((self.wm_batch_size,), 1).to(device)
+
+        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).to(device)
+        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).to(device)
+
+        print("Train started")
         for epoch_i in range(1, epoch + 1):
             logger.time_start()
 
@@ -70,6 +70,10 @@ class Trainer:
                 wm_img = model.encoder(X_trigger, logo_batch)
                 wm_dis_output = model.discriminator(wm_img.detach())
                 real_dis_output = model.discriminator(X_trigger)
+                
+                assert torch.max(wm_dis_output)<=1 and torch.min(wm_dis_output)>=0
+                assert not torch.isnan(wm_dis_output).any()
+                
                 loss_D_wm = model.discriminator_loss(wm_dis_output, fake)
                 loss_D_real = model.discriminator_loss(real_dis_output, valid)
                 loss_D = loss_D_wm + loss_D_real
@@ -85,7 +89,7 @@ class Trainer:
                 wm_dnn_output = model.host_net(wm_img)
                 loss_mse = model.encoder_mse_loss(X_trigger, wm_img)
                 loss_ssim = model.encoder_SSIM_loss(X_trigger, wm_img)
-                loss_adv = model.discriminator_loss(wm_dis_output, valid)
+                loss_adv = model.discriminator_loss(wm_dis_output, fake)
 
                 hyper_parameters = [3, 5, 1, 0.1]
 
@@ -119,10 +123,10 @@ class Trainer:
                         loss_adv.item(),
                         loss_dnn.item(),
                         loss_D.item(),
-                        loss_H.item(),
+                        loss_DNN.item(),
                     ]
                 )
-                logger.batch_output(ibx, epoch)
+                logger.batch_output(ibx, len(dataset))
 
             logger.update_epoch_losses()
             logger.get_duration()
@@ -131,13 +135,15 @@ class Trainer:
         logger.save(self.save_folder)
 
     def evaluate(self, dataset, trigger_dataset, logo):
-        wm_labels = torch.full((self.wm_batch_size,), 1).cuda()
-
-        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).cuda()
-        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).cuda()
-
+        device=self.device
         model = self.model
 
+        wm_labels = torch.full((self.wm_batch_size,), 1).to(device)
+        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).to(device)
+        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).to(device)
+        fake = torch.squeeze(fake)
+        valid = torch.squeeze(valid)
+        
         model.encoder.eval()
         model.host_net.eval()
         model.discriminator.eval()
@@ -151,13 +157,13 @@ class Trainer:
             enumerate(dataset), iter(trigger_dataset)
         ):
             X, Y = batch
-            X = X.cuda()
-            Y = Y.cuda()
+            X = X.to(device)
+            Y = Y.to(device)
             X_trigger, Y_trigger = trigger_batch
-            X_trigger = X_trigger.cuda()
-            Y_trigger = Y_trigger.cuda()
+            X_trigger = X_trigger.to(device)
+            Y_trigger = Y_trigger.to(device)
 
-            logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).cuda()
+            logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).to(device)
 
             # train discriminator net
             wm_img = model.encoder(X_trigger, logo_batch)
@@ -167,8 +173,7 @@ class Trainer:
 
             wm_dis_output = torch.squeeze(wm_dis_output)
             real_dis_output = torch.squeeze(real_dis_output)
-            fake = torch.squeeze(fake)
-            valid = torch.squeeze(valid)
+            
 
             discriminator_acc.update(
                 torch.cat([wm_dis_output, real_dis_output], dim=0).cpu(),

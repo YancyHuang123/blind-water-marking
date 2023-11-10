@@ -20,9 +20,9 @@ class MainModel(nn.Module):
             self.host_net = Resnet34().to(device)
             self.discriminator = discriminator.DiscriminatorNet().to(device)
 
-        self.opt_encoder = Adam(self.encoder.parameters(), lr=0.001, betas=(0.5, 0.999))
-        self.opt_discriminator = Adam(self.discriminator.parameters(), lr=0.001, betas=(0.5, 0.999))
-        self.opt_host_net = SGD(self.host_net.parameters(), lr=0.1, momentum=0.9, weight_decay=5e-4)
+        self.opt_encoder = Adam(self.encoder.parameters(), lr=0.001)
+        self.opt_discriminator = Adam(self.discriminator.parameters(), lr=0.001)
+        self.opt_host_net = Adam(self.discriminator.parameters(), lr=0.001)
         
         self.encoder_mse_loss=nn.MSELoss()
         self.encoder_SSIM_loss=L.SSIM()

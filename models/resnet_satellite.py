@@ -20,7 +20,10 @@ class Resnet34(nn.Module):
 
         # input_key = torch.cat([input, pkey_feature], dim=1)
         ste_feature = self.resnet34(input)
-        out = ste_feature.view(ste_feature.shape[0], -1)
         
+        assert not torch.isnan(ste_feature).any()
+        out = ste_feature.view(ste_feature.shape[0], -1)
+
+        assert not torch.isnan(out).any()
         out = self.linear(out)
         return out

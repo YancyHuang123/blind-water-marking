@@ -16,16 +16,10 @@ class DiscriminatorNet(nn.Module):
             output_function()
         )
 
-        # nn.Sigmoid()
-        # self.reveal_Message = UnetRevealMessage()
-
     def forward(self, input):
-        # pkey = pkey.view(-1, 1, 32, 32)
-        # pkey_feature = self.key_pre(pkey)
-
-        # input_key = torch.cat([input, pkey_feature], dim=1)
         ste_feature = self.resnet18(input)
+        assert not torch.isnan(ste_feature).any()
         out = ste_feature.view(ste_feature.shape[0], -1)
-
+        assert not torch.isnan(out).any()
         out = self.linear(out)
         return out

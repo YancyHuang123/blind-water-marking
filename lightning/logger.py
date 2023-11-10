@@ -30,7 +30,7 @@ class Logger():
             loss[1]=[]
     
     def batch_output(self,batch_i,total_batch):
-        if batch_i%5==0:
+        if batch_i%10==0:
             print(f'batch:[{batch_i}/{total_batch}] losses:',end='')
             for name,v in self.loss_dict.items():
                 print(f'{name}:{v[1][-1]} ',end='')
