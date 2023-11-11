@@ -18,11 +18,11 @@ class MainModel(nn.Module):
         super(MainModel, self).__init__()
         if mutiGPU == True:
             self.encoder = nn.DataParallel(UnetGenerator()).cuda()
-            self.host_net = nn.DataParallel(ResNet18()).cuda()
+            self.host_net = nn.DataParallel(ResNet34()).cuda()
             self.discriminator = nn.DataParallel(DiscriminatorNet()).cuda()
         else:
             self.encoder = UnetGenerator().cuda()
-            self.host_net = ResNet18().cuda()
+            self.host_net = ResNet34().cuda()
             self.discriminator = DiscriminatorNet().cuda()
         
 

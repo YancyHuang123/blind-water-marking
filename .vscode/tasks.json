@@ -2,11 +2,24 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run main",
+            "label": "Run satellite",
             "type": "shell",
             "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
                 "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\satellite_main.py"
+                // Add any arguments here
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run cifar10",
+            "type": "shell",
+            "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
+            "args": [
+                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\cifia10_main.py"
                 // Add any arguments here
             ],
             "group": {

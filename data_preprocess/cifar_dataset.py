@@ -12,33 +12,43 @@ import numpy as np
 import random
 import torch.backends.cudnn as cudnn
 
-transform_train = transforms.Compose([
-    transforms.RandomCrop(32, padding=4),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-transform_test = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+transform_train = transforms.Compose(
+    [
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+    ]
+)
+transform_test = transforms.Compose(
+    [transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
+)
 
 
 def get_dataset():
     # load trainset and testset
     trainset = torchvision.datasets.CIFAR10(
-        root='./datas', train=True, download=True, transform=transform_train)
+        root="./datas", train=True, download=True, transform=transform_train
+    )
 
     testset = torchvision.datasets.CIFAR10(
-        root='./datas', train=False, download=True, transform=transform_test)
+        root="./datas", train=False, download=True, transform=transform_test
+    )
 
-    trigger_set = torchvision.datasets.CIFAR10(
-        root='./datas', train=True, download=True, transform=transform_test)
+    trigger_train = torchvision.datasets.CIFAR10(
+        root="./datas", train=True, download=True, transform=transform_train
+    )
 
-    return trainset, testset, trigger_set
+    trigger_test = torchvision.datasets.CIFAR10(
+        root="./datas", train=False, download=True, transform=transform_test
+    )
+
+    return trainset, testset, trigger_train, trigger_test
 
 
 def get_watermark():
     # load logo
-    logo = cv2.imread("./datas/logo/IEEE/new-ieeelogo.png")
+    logo = cv2.imread("./datas/logo/new-ieeelogo.png")
     logo = cv2.cvtColor(logo, cv2.COLOR_BGR2RGB)
     logo = transform_test(logo)
     logo = logo.clone().detach()  # type: ignore

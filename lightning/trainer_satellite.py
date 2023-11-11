@@ -90,10 +90,10 @@ class Trainer:
                 loss_mse = model.encoder_mse_loss(X_trigger, wm_img)
                 loss_ssim = model.encoder_SSIM_loss(X_trigger, wm_img)
                 loss_adv = model.discriminator_loss(wm_dis_output, fake)
+                loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
 
                 hyper_parameters = [3, 5, 1, 0.1]
 
-                loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
                 loss_H = (
                     hyper_parameters[0] * loss_mse
                     + hyper_parameters[1] * (1 - loss_ssim)
@@ -181,8 +181,9 @@ class Trainer:
             )
 
             # train host net
-            inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
 
+            inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
+            # wm_labels = torch.cat([Y, wm_labels], dim=0) # watermarked image labels are replace by secret key
             original_labels = torch.cat([Y, Y_trigger], dim=0)
 
             dnn_output = model.host_net(inputs)
