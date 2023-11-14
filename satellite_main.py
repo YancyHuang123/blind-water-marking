@@ -2,7 +2,7 @@ from lightning.trainer import Trainer
 from lightning.dataloader import MyLoader
 from models.main_model_satellite import MainModel
 from data_preprocess.satellite_dataset import get_dataset, get_watermark
-
+import os
 
 batch_size = 128
 wm_batch_size = 32

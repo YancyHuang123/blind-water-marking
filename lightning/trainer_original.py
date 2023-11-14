@@ -26,7 +26,6 @@ class Trainer:
         secret_key,
         check_point_path,
         device="cuda",
-        train_info=''
     ):
         self.batch_size = batch_size
         self.model = model
@@ -34,12 +33,11 @@ class Trainer:
         self.logger = logger.Logger()
         self.check_point_path = check_point_path
         self.create_check_folder()
-        self.train_info=''
 
         self.wm_batch_size = wm_batch_size
         self.secret_key = secret_key
 
-    def fit(self, dataset, trigger_dataset, logo, epoch):
+    def fit(self, dataset, wm_inputs,wm_labels, logo, epoch):
         model = self.model
         logger = self.logger
         device = self.device
@@ -48,8 +46,6 @@ class Trainer:
         model.host_net.train()
         model.discriminator.train()
 
-        wm_labels = torch.full((self.wm_batch_size,), 1).to(device)
-
         valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).to(device)
         fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).to(device)
 
@@ -57,24 +53,19 @@ class Trainer:
         for epoch_i in range(1, epoch + 1):
             logger.time_start()
 
-            for (ibx, batch), trigger_batch in zip(
-                enumerate(dataset), iter(trigger_dataset)
-            ):
-                X, Y = batch
-                X = X.to(device)
-                Y = Y.to(device)
-                X_trigger, _ = trigger_batch
-                X_trigger = X_trigger.to(device)
-
+            for batch_idx, (input, label) in enumerate(dataset):
+                input, label = input.cuda(), label.cuda()
+                wm_input = wm_inputs[(batch_idx) % len(wm_inputs)] # 
+                wm_label = wm_labels[( batch_idx) % len(wm_inputs)] # randint 0 to 9 ?
+               
+               
                 logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).to(device)
 
                 # train discriminator net
-                wm_img = model.encoder(X_trigger, logo_batch)
+                wm_img = model.encoder(wm_input, logo_batch)
                 wm_dis_output = model.discriminator(wm_img.detach())
-                real_dis_output = model.discriminator(X_trigger)
+                real_dis_output = model.discriminator(wm_input)
                 
-                assert torch.max(wm_dis_output)<=1 and torch.min(wm_dis_output)>=0
-                assert not torch.isnan(wm_dis_output).any()
                 
                 loss_D_wm = model.discriminator_loss(wm_dis_output, fake)
                 loss_D_real = model.discriminator_loss(real_dis_output, valid)
@@ -89,13 +80,13 @@ class Trainer:
 
                 wm_dis_output = model.discriminator(wm_img)
                 wm_dnn_output = model.host_net(wm_img)
-                loss_mse = model.encoder_mse_loss(X_trigger, wm_img)
-                loss_ssim = model.encoder_SSIM_loss(X_trigger, wm_img)
-                loss_adv = model.discriminator_loss(wm_dis_output, fake)
+                loss_mse = model.encoder_mse_loss(wm_input, wm_img)
+                loss_ssim = model.encoder_SSIM_loss(wm_input, wm_img)
+                loss_adv = model.discriminator_loss(wm_dis_output, valid)
 
                 hyper_parameters = [3, 5, 1, 0.1]
 
-                loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
+                loss_dnn = model.host_net_loss(wm_dnn_output, wm_label)
                 loss_H = (
                     hyper_parameters[0] * loss_mse
                     + hyper_parameters[1] * (1 - loss_ssim)
@@ -108,9 +99,8 @@ class Trainer:
                 # train host net
                 model.opt_host_net.zero_grad()
 
-                inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
-
-                labels = torch.cat([Y, wm_labels], dim=0)
+                inputs = torch.cat([input, wm_img.detach()], dim=0)
+                labels = torch.cat([label, wm_label], dim=0)
                 dnn_output = model.host_net(inputs)
 
                 loss_DNN = model.host_net_loss(dnn_output, labels)
@@ -128,7 +118,7 @@ class Trainer:
                         loss_DNN.item(),
                     ]
                 )
-                logger.batch_output(ibx, len(dataset))
+                logger.batch_output(batch_idx, len(dataset))
 
             logger.update_epoch_losses()
             logger.get_duration()

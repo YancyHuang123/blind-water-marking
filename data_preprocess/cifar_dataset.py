@@ -11,6 +11,7 @@ import torch
 import numpy as np
 import random
 import torch.backends.cudnn as cudnn
+from torch.utils.data import Dataset, DataLoader
 
 transform_train = transforms.Compose(
     [
@@ -36,7 +37,7 @@ def get_dataset():
     )
 
     trigger_train = torchvision.datasets.CIFAR10(
-        root="./datas", train=True, download=True, transform=transform_train
+        root="./datas", train=True, download=True, transform=transform_test
     )
 
     trigger_test = torchvision.datasets.CIFAR10(
@@ -47,10 +48,10 @@ def get_dataset():
 
 
 def get_watermark():
-    # load logo
-    logo = cv2.imread("./datas/logo/new-ieeelogo.png")
-    logo = cv2.cvtColor(logo, cv2.COLOR_BGR2RGB)
-    logo = transform_test(logo)
-    logo = logo.clone().detach()  # type: ignore
-
-    return logo
+    
+    ieee_logo = torchvision.datasets.ImageFolder(
+    root='./datas/logo', transform=transform_test)
+    ieee_loader = DataLoader(ieee_logo, batch_size=1)
+    it=iter(ieee_loader)
+    logo=next(it)
+    return logo[0][0]

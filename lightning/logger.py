@@ -33,19 +33,21 @@ class Logger():
         if batch_i%50==0:
             print(f'batch:[{batch_i}/{total_batch}] losses:',end='')
             for name,v in self.loss_dict.items():
-                print(f'{name}:{v[1][-1]} ',end='')
+                print(f'{name}:{v[1][-1]:.5f} ',end='')
             print('')
 
     def epoch_output(self, epoch_i,remain_epochs):
         
         print(f'Epoch:{epoch_i} elapse:{self.duration/60.:.1f}min ETA:{(remain_epochs) * self.duration / 60:.1f}min losses:',end='')
         for name,v in self.loss_dict.items():
-            print(f'{name}:{v[0][-1]} ',end='')
+            print(f'{name}:{v[0][-1]:.5f} ',end='')
         print('')
         
-    def save(self,check_folder):
+    def save(self,check_folder,info=''):
         with open(f'{check_folder}/train_history.plk', 'wb') as handle:
             pickle.dump(self.loss_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        with open(f'{check_folder}/train_info.txt', 'w') as f:
+            f.write(info)
 
     def time_start(self):
         self.start_time = time.time()

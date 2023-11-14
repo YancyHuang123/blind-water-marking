@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run satellite",
+            "label": "Run satellite win11",
             "type": "shell",
             "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
@@ -15,11 +15,37 @@
             }
         },
         {
-            "label": "Run cifar10",
+            "label": "Run cifar10 win11",
             "type": "shell",
             "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
                 "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\cifia10_main.py"
+                // Add any arguments here
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run cifar10 linux",
+            "type": "shell",
+            "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
+            "args": [
+                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/cifia10_main.py"
+                // Add any arguments here
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run satellite linux",
+            "type": "shell",
+            "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
+            "args": [
+                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/satellite_main.py"
                 // Add any arguments here
             ],
             "group": {
