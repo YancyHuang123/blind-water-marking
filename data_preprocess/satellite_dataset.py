@@ -21,22 +21,22 @@ transform_test = transforms.Compose([
 def get_dataset():
     # load trainset and testset
     trainset = torchvision.datasets.ImageFolder(
-        root='./datas/intel_satellite/seg_train', transform=transform_train)
+        root='./datas/IntelImage/seg_train/seg_train', transform=transform_train)
 
     testset = torchvision.datasets.ImageFolder(
-        root='./datas/intel_satellite/seg_test', transform=transform_test)
+        root='./datas/IntelImage/seg_test/seg_test', transform=transform_test)
     
     trigger_train=torchvision.datasets.ImageFolder(
-        root='./datas/intel_satellite/seg_train', transform=transform_train)
+        root='./datas/IntelImage/seg_train/seg_train', transform=transform_train)
     trigger_test = torchvision.datasets.ImageFolder(
-        root='./datas/intel_satellite/seg_test', transform=transform_test)
+        root='./datas/IntelImage/seg_test/seg_test', transform=transform_test)
 
     return trainset, testset, trigger_train,trigger_test
 
 
-def get_watermark():
+def get_watermark(path):
     # load logo
-    logo = cv2.imread("./datas/logo/secret1.jpg")
+    logo = cv2.imread(path)
     logo = transform_test(logo)
     
     return logo

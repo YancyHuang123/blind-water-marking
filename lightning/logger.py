@@ -2,6 +2,8 @@ import time
 from statistics import mean
 import pickle
 
+from draw.draw_learning_curve import draw_learning_curve
+
 class Logger():
     def __init__(self) -> None:
         self.start_time = 0
@@ -48,6 +50,7 @@ class Logger():
             pickle.dump(self.loss_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
         with open(f'{check_folder}/train_info.txt', 'w') as f:
             f.write(info)
+        draw_learning_curve(check_folder,'train_history.plk')
 
     def time_start(self):
         self.start_time = time.time()

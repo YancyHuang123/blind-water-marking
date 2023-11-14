@@ -21,6 +21,7 @@ class Evaluator:
     def __init__(
         self,
         model,
+        
         check_point_path,
         device="cuda",
     ):
@@ -30,17 +31,10 @@ class Evaluator:
         self.check_point_path = check_point_path
 
 
-
     def evaluate(self, dataset, trigger_dataset, logo):
         device=self.device
         model = self.model
 
-        wm_labels = torch.full((self.wm_batch_size,), 1).to(device)
-        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).to(device)
-        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).to(device)
-        fake = torch.squeeze(fake)
-        valid = torch.squeeze(valid)
-        
         model.encoder.eval()
         model.host_net.eval()
         model.discriminator.eval()
@@ -48,6 +42,7 @@ class Evaluator:
         host_net_no_trigger_acc = MulticlassAccuracy()
         discriminator_acc = MulticlassAccuracy()
         host_net_trigged_rate = MulticlassAccuracy()
+        host_net_error_trigged_rate=MulticlassAccuracy()
 
         print("Evaluation starts")
         for (ibx, batch), trigger_batch in zip(
@@ -59,8 +54,14 @@ class Evaluator:
             X_trigger, Y_trigger = trigger_batch
             X_trigger = X_trigger.to(device)
             Y_trigger = Y_trigger.to(device)
+            
+            wm_labels = torch.full((X_trigger.shape[0],), 1).to(device)
+            valid = torch.FloatTensor(X_trigger.shape[0], 1).fill_(1.0).to(device)
+            fake = torch.FloatTensor(X_trigger.shape[0], 1).fill_(0.0).to(device)
+            fake = torch.squeeze(fake)
+            valid = torch.squeeze(valid)
 
-            logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).to(device)
+            logo_batch = logo.repeat(X_trigger.shape[0], 1, 1, 1).to(device)
 
             # train discriminator net
             wm_img = model.encoder(X_trigger, logo_batch)
@@ -70,10 +71,10 @@ class Evaluator:
 
             wm_dis_output = torch.squeeze(wm_dis_output)
             real_dis_output = torch.squeeze(real_dis_output)
-            
+
 
             discriminator_acc.update(
-                torch.cat([wm_dis_output, real_dis_output], dim=0).cpu(),
+                torch.cat([wm_dis_output, real_dis_output], dim=0),
                 torch.cat([fake, valid], dim=0),
             )
 
@@ -84,12 +85,15 @@ class Evaluator:
 
             dnn_output = model.host_net(inputs)
             dnn_trigger_pred = model.host_net(wm_img)
+            
+            error_trigger_labels=torch.where(original_labels==1,2,1)
 
             host_net_no_trigger_acc.update(dnn_output, original_labels)
             host_net_trigged_rate.update(dnn_trigger_pred, wm_labels)
+            host_net_error_trigged_rate.update(dnn_output,error_trigger_labels)
 
         print(
-            f"host_net_no_trigger_acc:{host_net_no_trigger_acc.compute()} host_net trigger_rate:{host_net_trigged_rate.compute()} discriminator acc:{discriminator_acc.compute()}"
+            f"host_net_non-trigger_acc:{host_net_no_trigger_acc.compute():.4f} host_net_trigger_success_rate:{host_net_trigged_rate.compute():.4f} host_net_error_trigged_rate:{host_net_error_trigged_rate.compute():.4f} discriminator acc:{discriminator_acc.compute():.4f}"
         )
 
     def embeding_visualization(self, X, logo):

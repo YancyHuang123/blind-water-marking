@@ -6,7 +6,7 @@
             "type": "shell",
             "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
-                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\satellite_main.py"
+                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\satellite_train.py"
                 // Add any arguments here
             ],
             "group": {
@@ -19,7 +19,7 @@
             "type": "shell",
             "command": "C:\\ProgramData\\Miniconda3\\envs\\deep_learning\\python.exe",
             "args": [
-                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\cifia10_main.py"
+                "E:\\0A__SoftwareProjects\\watermarking_deeplearning\\cifia10_train.py"
                 // Add any arguments here
             ],
             "group": {
@@ -32,7 +32,7 @@
             "type": "shell",
             "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
             "args": [
-                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/cifia10_main.py"
+                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/cifia10_train.py"
                 // Add any arguments here
             ],
             "group": {
@@ -45,7 +45,7 @@
             "type": "shell",
             "command": "/home/huangyanbin/miniconda3/envs/deep_learning/bin/python",
             "args": [
-                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/satellite_main.py"
+                "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/satellite_train.py"
                 // Add any arguments here
             ],
             "group": {

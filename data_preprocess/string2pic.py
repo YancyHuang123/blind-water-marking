@@ -50,7 +50,7 @@ def generate_key(string, height, width):
         box = draw.textbbox((left, top), line, font=font)
         top = box[3] + 10
 
-    img = img.resize((300, 300))
+    img = img.resize((256, 256))
     # 保存图片
     img.save("secret.jpg")
 

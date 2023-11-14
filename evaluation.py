@@ -1,44 +1,36 @@
+from math import e
+from lightning.evaluator import Evaluator
 from lightning.trainer import Trainer
 from lightning.dataloader import MyLoader
-from models.main_model import MainModel
-from data_preprocess.cifar_dataset import get_dataset, get_watermark
-import torch.nn as nn
-import torch
-import numpy as np
-import random
-import torch.backends.cudnn as cudnn
-import torchvision
-import torchvision.transforms as transforms
+from models.main_model_satellite import MainModel
+from data_preprocess.satellite_dataset import get_dataset, get_watermark
 import os
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "1,2"
 
 batch_size = 128
-wm_batch_size = 16
+wm_batch_size = 32
 
+os.environ["CUDA_VISIBLE_DEVICES"]='0,1,2,3'
+if __name__ == "__main__":
+    train_set, test_set, trigger_train, trigger_test = get_dataset()
 
-train_set, test_set, trigger_loader = get_dataset()
+    train_loader = MyLoader(train_set, batch_size=batch_size, shuffle=True)
+    test_loader = MyLoader(test_set, batch_size=batch_size, shuffle=False)
 
-train_loader = MyLoader(train_set, batch_size, shuffle=True)
-test_loader = MyLoader(test_set, batch_size, shuffle=False)
-trigger_loader = MyLoader(trigger_loader, batch_size=wm_batch_size, shuffle=False)
+    trigger_train_loader = MyLoader(
+        trigger_train, batch_size=wm_batch_size, shuffle=True
+    )
+    trigger_test_loader = MyLoader(trigger_test, batch_size=wm_batch_size, shuffle=False)
 
-logo = get_watermark()
+    logo_true = get_watermark("./datas/logo/secret1.jpg")
+    logo_decoy = get_watermark("./datas/logo/ieee_256.png")
 
-cwd = os.getcwd()
-model = MainModel(mutiGPU=True)
-model.load_checkpoint('./check_points/2023-11-01 17:01:07.979154/main_model.pt')
+    model = MainModel()
+    model.load_checkpoint('/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_18-03-13/main_model.pt')
 
-trainer = Trainer(model, batch_size, wm_batch_size, secret_key=1,check_point_path=f'{cwd}/check_points/')
-
-
-trainer.evaluate(test_loader,trigger_loader,logo)
-
-#X_trigger=train_loader[0:500]
-#X_trigger=trainer.embed_logo(X_trigger,logo)
-#X_trigger=TensorDataset(X_trigger[0:500])
-#X_trigger_dataset=DataLoader(X_trigger,batch_size=128, num_workers=2, shuffle=True, pin_memory=True, drop_last=False)
-#X_trigger_pred=trainer.predict(X_trigger_dataset)
-#pint(X_trigger_pred)
+    save_folder='/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_18-03-13'
+    
+    evaluator=Evaluator(model,save_folder)
+    
+    evaluator.evaluate(test_loader,trigger_test_loader,logo_true)
+    
+    

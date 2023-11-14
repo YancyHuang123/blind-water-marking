@@ -1,3 +1,5 @@
+from math import e
+from lightning.evaluator import Evaluator
 from lightning.trainer import Trainer
 from lightning.dataloader import MyLoader
 from models.main_model_satellite import MainModel
@@ -7,11 +9,11 @@ import os
 batch_size = 128
 wm_batch_size = 32
 
-
+os.environ["CUDA_VISIBLE_DEVICES"]='0,1,2,3'
 if __name__ == "__main__":
     train_set, test_set, trigger_train, trigger_test = get_dataset()
 
-    train_loader = MyLoader(train_set, batch_size=batch_size, shuffle=False)
+    train_loader = MyLoader(train_set, batch_size=batch_size, shuffle=True)
     test_loader = MyLoader(train_set, batch_size=batch_size, shuffle=False)
 
     trigger_train_loader = MyLoader(
@@ -21,7 +23,8 @@ if __name__ == "__main__":
 
     logo = get_watermark()
 
-    model = MainModel(device="cuda", mutiGPU=False)
+    model = MainModel()
+    model.load_checkpoint('/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_17-27-39/main_model.pt')
 
     trainer = Trainer(
         model,
@@ -33,4 +36,13 @@ if __name__ == "__main__":
         train_info='satellite:3,5,1,0.1'
     )
 
-    trainer.fit(train_loader, trigger_train_loader, logo, epoch=30)
+    trainer.fit(train_loader, trigger_train_loader, logo, epoch=70)
+    
+    evaluator=Evaluator(model,trainer.save_folder)
+    
+    it=iter(train_loader)
+    X=next(it)[0][0:16]
+    
+    evaluator.embeding_visualization(X,logo)
+    
+    

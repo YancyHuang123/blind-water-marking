@@ -1,31 +1,33 @@
 # Import the necessary modules
+from multiprocessing.dummy import Namespace
 import os
 import glob
+from tkinter.font import names
 from PIL import Image
+
+width=256
 
 # Define the path where the images are stored
 path = "/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/datas/IntelImage"
+names=['seg_test','seg_train']
+s_path=f'{path}/seg_pred/seg_pred'
 
-# Loop through all the subfolders in the path
-for folder in os.listdir(path):
-    # Get the full path of the subfolder
-    subfolder = os.path.join(path, folder)
-    # Check if the subfolder is a directory
-    if os.path.isdir(subfolder):
-        # Loop through all the jpg images in the subfolder
-        for subsubfolder in os.listdir(subfolder):
-            subsubfolder = os.path.join(subfolder, subsubfolder)
-            # Check if the sub-subfolder is a directory
-            if os.path.isdir(subsubfolder):
-                for s in os.listdir(subsubfolder):
-                    s_path = os.path.join(subsubfolder, s)
-                    # Check if the sub-subfolder is a directory
-                    if os.path.isdir(s_path):
-                        for image in glob.glob(s_path + "/*.jpg"):
-                            # Open the image with PIL
+for image in glob.glob(s_path + "/*.jpg"):
+        # Open the image with PIL
+        img = Image.open(image)
 
-                            img = Image.open(image)
+        img = img.resize((width,width))
+        # Save the image in the same path with the same name
+        img.save(image)
 
-                            img = img.resize((256, 256))
-                            # Save the image in the same path with the same name
-                            img.save(image)
+for n in names:
+    s_path=f'{path}/{n}/{n}'
+    for folder in os.listdir(s_path):
+        subfolder = os.path.join(s_path, folder)
+        for image in glob.glob(subfolder + "/*.jpg"):
+            # Open the image with PIL
+            img = Image.open(image)
+
+            img = img.resize((width,width))
+            # Save the image in the same path with the same name
+            img.save(image)
