@@ -29,7 +29,8 @@ if __name__ == "__main__":
         wm_batch_size,
         secret_key=1,
         check_point_path='./check_points',
-        device='cuda'
+        device='cuda',
+        train_info='satellite:3,5,1,0.1'
     )
 
     trainer.fit(train_loader, trigger_train_loader, logo, epoch=30)

@@ -125,6 +125,15 @@ class Trainer:
             logger.epoch_output(epoch_i, remain_epochs=epoch - epoch_i)
         model.save_model(self.save_folder)
         logger.save(self.save_folder)
+        
+    def embed_logo(self, X, logo):
+        X = X.cuda()
+        logo_batch = logo.repeat(X.shape[0], 1, 1, 1).cuda()
+        Y = self.model.encoder(X, logo_batch)
+        torchvision.utils.save_image(Y,'embeded_images.png')
+        return Y.cpu()
+
+        
 
     def evaluate(self, dataset, trigger_dataset, logo):
         device=self.device
@@ -193,11 +202,6 @@ class Trainer:
         os.mkdir(f"{folder}/{time}")
         self.save_folder = f"{folder}/{time}"
 
-    def embed_logo(self, X, logo):
-        X = X.cuda()
-        logo_batch = logo.repeat(X.shape[0], 1, 1, 1).cuda()
-        Y = self.model.encoder(X, logo_batch)
-        return Y.cpu()
 
     def predict(self, X):
         Y_preds = []

@@ -43,6 +43,7 @@ if __name__=='__main__':
 
     cwd = os.getcwd()
     model = MainModel(mutiGPU=True)
+    
 
     trainer = Trainer(
         model,
