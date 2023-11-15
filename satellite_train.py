@@ -14,14 +14,14 @@ if __name__ == "__main__":
     train_set, test_set, trigger_train, trigger_test = get_dataset()
 
     train_loader = MyLoader(train_set, batch_size=batch_size, shuffle=True)
-    test_loader = MyLoader(train_set, batch_size=batch_size, shuffle=False)
+    test_loader = MyLoader(train_set, batch_size=batch_size, shuffle=True)
 
     trigger_train_loader = MyLoader(
         trigger_train, batch_size=wm_batch_size, shuffle=True
     )
     trigger_test_loader = MyLoader(trigger_test, batch_size=wm_batch_size, shuffle=True)
 
-    logo = get_watermark()
+    logo = get_watermark("./datas/logo/secret1.jpg")
 
     model = MainModel()
     model.load_checkpoint('/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_17-27-39/main_model.pt')
@@ -33,10 +33,10 @@ if __name__ == "__main__":
         secret_key=1,
         check_point_path='./check_points',
         device='cuda',
-        train_info='satellite:3,5,1,0.1'
+        train_info='satellite:3,5,1,0.1 with lr schedule'
     )
 
-    trainer.fit(train_loader, trigger_train_loader, logo, epoch=70)
+    trainer.fit(train_loader, trigger_train_loader, test_loader,trigger_test,logo, epoch=2)
     
     evaluator=Evaluator(model,trainer.save_folder)
     
@@ -44,5 +44,4 @@ if __name__ == "__main__":
     X=next(it)[0][0:16]
     
     evaluator.embeding_visualization(X,logo)
-    
-    
+

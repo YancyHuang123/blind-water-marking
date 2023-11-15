@@ -21,20 +21,18 @@ class Evaluator:
     def __init__(
         self,
         model,
-        
-        check_point_path,
+        logger,
         device="cuda",
     ):
         self.model = model
         self.device = device
-
-        self.check_point_path = check_point_path
-
-
+        self.logger=logger
+        
     def evaluate(self, dataset, trigger_dataset, logo):
         device=self.device
         model = self.model
-
+        logger=self.logger
+        
         model.encoder.eval()
         model.host_net.eval()
         model.discriminator.eval()
@@ -43,7 +41,8 @@ class Evaluator:
         discriminator_acc = MulticlassAccuracy()
         host_net_trigged_rate = MulticlassAccuracy()
         host_net_error_trigged_rate=MulticlassAccuracy()
-
+        
+        
         print("Evaluation starts")
         for (ibx, batch), trigger_batch in zip(
             enumerate(dataset), iter(trigger_dataset)
@@ -63,7 +62,7 @@ class Evaluator:
 
             logo_batch = logo.repeat(X_trigger.shape[0], 1, 1, 1).to(device)
 
-            # train discriminator net
+            # evaluate discriminator net
             wm_img = model.encoder(X_trigger, logo_batch)
 
             wm_dis_output = model.discriminator(wm_img.detach())
@@ -71,14 +70,34 @@ class Evaluator:
 
             wm_dis_output = torch.squeeze(wm_dis_output)
             real_dis_output = torch.squeeze(real_dis_output)
-
-
+            
+            loss_D_wm = model.discriminator_loss(wm_dis_output, fake)
+            loss_D_real = model.discriminator_loss(real_dis_output, valid)
+            loss_D = loss_D_wm + loss_D_real
+            
             discriminator_acc.update(
                 torch.cat([wm_dis_output, real_dis_output], dim=0),
                 torch.cat([fake, valid], dim=0),
             )
+            
+            # evaluate encoder net
+            wm_dis_output = model.discriminator(wm_img)
+            wm_dnn_output = model.host_net(wm_img)
+            loss_mse = model.encoder_mse_loss(X_trigger, wm_img)
+            loss_ssim = model.encoder_SSIM_loss(X_trigger, wm_img)
+            loss_adv = model.discriminator_loss(wm_dis_output, valid)
 
-            # train host net
+            hyper_parameters = [3, 5, 1, 0.1]
+
+            loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
+            loss_H = (
+                hyper_parameters[0] * loss_mse
+                + hyper_parameters[1] * (1 - loss_ssim)
+                + hyper_parameters[2] * loss_adv
+                + hyper_parameters[3] * loss_dnn
+            )
+
+            # evaluate host net
             inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
 
             original_labels = torch.cat([Y, Y_trigger], dim=0)
@@ -87,14 +106,32 @@ class Evaluator:
             dnn_trigger_pred = model.host_net(wm_img)
             
             error_trigger_labels=torch.where(original_labels==1,2,1)
-
+            
+            loss_DNN = model.host_net_loss(dnn_output, original_labels)
+            
+            # update accuracies
             host_net_no_trigger_acc.update(dnn_output, original_labels)
             host_net_trigged_rate.update(dnn_trigger_pred, wm_labels)
             host_net_error_trigged_rate.update(dnn_output,error_trigger_labels)
+            
+            # update losses
+            logger.update_batch_losses(
+                    [
+                        loss_H.item(),
+                        loss_mse.item(),
+                        loss_ssim.item(),
+                        loss_adv.item(),
+                        loss_dnn.item(),
+                        loss_D.item(),
+                        loss_DNN.item(),
+                    ]
+                )
 
+        logger.update_epoch_losses()
         print(
             f"host_net_non-trigger_acc:{host_net_no_trigger_acc.compute():.4f} host_net_trigger_success_rate:{host_net_trigged_rate.compute():.4f} host_net_error_trigged_rate:{host_net_error_trigged_rate.compute():.4f} discriminator acc:{discriminator_acc.compute():.4f}"
         )
+        
 
     def embeding_visualization(self, X, logo):
         X = X.cuda()
