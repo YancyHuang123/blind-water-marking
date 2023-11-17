@@ -42,7 +42,6 @@ class Evaluator:
         host_net_trigged_rate = MulticlassAccuracy()
         host_net_error_trigged_rate=MulticlassAccuracy()
         
-        
         print("Evaluation starts")
         for (ibx, batch), trigger_batch in zip(
             enumerate(dataset), iter(trigger_dataset)
@@ -83,13 +82,15 @@ class Evaluator:
             # evaluate encoder net
             wm_dis_output = model.discriminator(wm_img)
             wm_dnn_output = model.host_net(wm_img)
+            wm_dis_output = torch.squeeze(wm_dis_output)
+            wm_dnn_output = torch.squeeze(wm_dnn_output)
+            
             loss_mse = model.encoder_mse_loss(X_trigger, wm_img)
             loss_ssim = model.encoder_SSIM_loss(X_trigger, wm_img)
             loss_adv = model.discriminator_loss(wm_dis_output, valid)
-
-            hyper_parameters = [3, 5, 1, 0.1]
-
             loss_dnn = model.host_net_loss(wm_dnn_output, wm_labels)
+            hyper_parameters = [3, 5, 1, 0.1]
+            
             loss_H = (
                 hyper_parameters[0] * loss_mse
                 + hyper_parameters[1] * (1 - loss_ssim)
@@ -123,7 +124,7 @@ class Evaluator:
                         loss_adv.item(),
                         loss_dnn.item(),
                         loss_D.item(),
-                        loss_DNN.item(),
+                        loss_DNN.item()
                     ]
                 )
 

@@ -24,7 +24,6 @@ if __name__ == "__main__":
     logo = get_watermark("./datas/logo/secret1.jpg")
 
     model = MainModel()
-    model.load_checkpoint('/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_17-27-39/main_model.pt')
 
     trainer = Trainer(
         model,
@@ -36,12 +35,5 @@ if __name__ == "__main__":
         train_info='satellite:3,5,1,0.1 with lr schedule'
     )
 
-    trainer.fit(train_loader, trigger_train_loader, test_loader,trigger_test,logo, epoch=2)
+    trainer.fit(train_loader, trigger_train_loader, test_loader,trigger_test_loader,logo, epoch=100)
     
-    evaluator=Evaluator(model,trainer.save_folder)
-    
-    it=iter(train_loader)
-    X=next(it)[0][0:16]
-    
-    evaluator.embeding_visualization(X,logo)
-

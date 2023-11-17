@@ -30,4 +30,4 @@ def draw_learning_curve(folder,file_name):
     
     plt.title("losses by epoch") # 设置title
 
-    plt.savefig(f'{folder}/learning_curve.jpg')
+    plt.savefig(f'{folder}/{file_name}_learning_curve.jpg')

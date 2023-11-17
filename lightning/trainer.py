@@ -52,11 +52,6 @@ class Trainer:
         device = self.device
         evaluator=self.evaluator
 
-        wm_labels = torch.full((self.wm_batch_size,), 1).to(device)
-
-        valid = torch.FloatTensor(self.wm_batch_size, 1).fill_(1.0).to(device)
-        fake = torch.FloatTensor(self.wm_batch_size, 1).fill_(0.0).to(device)
-
         print("Train starts")
         for epoch_i in range(1, epoch + 1):
             logger.time_start()
@@ -73,7 +68,12 @@ class Trainer:
                 X_trigger, _ = trigger_batch
                 X_trigger = X_trigger.to(device)
 
-                logo_batch = logo.repeat(self.wm_batch_size, 1, 1, 1).to(device)
+                wm_labels = torch.full((X_trigger.shape[0],1), 1).to(device)
+                wm_labels=torch.squeeze(wm_labels)
+                valid = torch.FloatTensor(X_trigger.shape[0], 1).fill_(1.0).to(device)
+                fake = torch.FloatTensor(X_trigger.shape[0], 1).fill_(0.0).to(device)
+
+                logo_batch = logo.repeat(X_trigger.shape[0], 1, 1, 1).to(device)
 
                 # train discriminator net
                 wm_img = model.encoder(X_trigger, logo_batch)
@@ -137,21 +137,20 @@ class Trainer:
             # schedule learning rate
             evaluator.evaluate(testset,trigger_test,logo)
             evaluation_losses=self.logger_evl.loss_dict
-            model.encoder_scheduler.step(evaluation_losses['encoder_loss'][0])
-            model.discriminator_scheduler.step(evaluation_losses['discriminator_loss'][0])
+            model.encoder_scheduler.step(evaluation_losses['encoder_loss'][0][-1])
+            model.discriminator_scheduler.step(evaluation_losses['discriminator_loss'][0][-1])
             model.host_net_scheduler.step()
             
             logger.update_epoch_losses()
             logger.get_duration()
             logger.epoch_output(epoch_i, remain_epochs=epoch - epoch_i)
         model.save_model(self.save_folder)
-        logger.save('train_history.plk')
-        self.logger_evl.save('eval_history.plk')
+        logger.save('train_history')
+        self.logger_evl.save('eval_history')
 
     def create_check_folder(self):
         time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         folder = self.check_point_path
         os.mkdir(f"{folder}/{time}")
         self.save_folder = f"{folder}/{time}"
-
 

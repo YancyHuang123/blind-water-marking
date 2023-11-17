@@ -1,54 +1,617 @@
-Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-Training started
-Epoch:1 elapse:1.6min ETA:80.5min losses:encoder_loss:2.8353159250357214 encoder_mse_loss:0.06175033068523193 encoder_ssim:0.5753502472805289 encoder_adv_loss:0.42166718416489085 encoder_host_loss:1.051490080776887 discriminator_loss:1.5308523734410604 host_net_loss:2.8353159250357214 
-Epoch:2 elapse:1.2min ETA:57.1min losses:encoder_loss:2.082089460813082 encoder_mse_loss:0.025103044323623182 encoder_ssim:0.7020845863299492 encoder_adv_loss:0.43101607790360086 encoder_host_loss:0.8618719908671502 discriminator_loss:1.4750999493476673 host_net_loss:2.082089460813082 
-Epoch:3 elapse:1.5min ETA:68.7min losses:encoder_loss:1.8344109394611456 encoder_mse_loss:0.017652415204793215 encoder_ssim:0.7599170058201521 encoder_adv_loss:0.49358744323253634 encoder_host_loss:0.8745129548586332 discriminator_loss:1.3502530842255323 host_net_loss:1.8344109394611456 
-Epoch:4 elapse:1.1min ETA:51.6min losses:encoder_loss:1.6759295894549444 encoder_mse_loss:0.014592399243981792 encoder_ssim:0.789828842267012 encoder_adv_loss:0.5000417284476452 encoder_host_loss:0.8125488881117259 discriminator_loss:1.302534533616824 host_net_loss:1.6759295894549444 
-Epoch:5 elapse:1.1min ETA:51.2min losses:encoder_loss:1.5286526536330198 encoder_mse_loss:0.012605343732791834 encoder_ssim:0.8121101168485788 encoder_adv_loss:0.47700830063758753 encoder_host_loss:0.7437891071805587 discriminator_loss:1.3384296032098624 host_net_loss:1.5286526536330198 
-Epoch:6 elapse:1.1min ETA:50.0min losses:encoder_loss:1.466050137923314 encoder_mse_loss:0.011412311394292957 encoder_ssim:0.825700250802896 encoder_adv_loss:0.47583592121417706 encoder_host_loss:0.8447854140630136 discriminator_loss:1.3463089852760999 host_net_loss:1.466050137923314 
-Epoch:7 elapse:1.2min ETA:53.4min losses:encoder_loss:1.3142714372048012 encoder_mse_loss:0.010058736731895269 encoder_ssim:0.8446245454824888 encoder_adv_loss:0.4115412690700629 encoder_host_loss:0.9567668738273474 discriminator_loss:1.500660917392144 host_net_loss:1.3142714372048012 
-Epoch:8 elapse:1.5min ETA:63.6min losses:encoder_loss:1.2880900813983036 encoder_mse_loss:0.009479735466914298 encoder_ssim:0.8516609583145532 encoder_adv_loss:0.41202772702926244 encoder_host_loss:1.0592794213539516 discriminator_loss:1.4975826187011523 host_net_loss:1.2880900813983036 
-Epoch:9 elapse:1.5min ETA:62.0min losses:encoder_loss:1.2597175327631143 encoder_mse_loss:0.008910080256800238 encoder_ssim:0.8585028706452785 encoder_adv_loss:0.41213190509722786 encoder_host_loss:1.1336974632281525 discriminator_loss:1.4969978265273265 host_net_loss:1.2597175327631143 
-Epoch:10 elapse:1.5min ETA:60.3min losses:encoder_loss:1.2240916227683043 encoder_mse_loss:0.008396629390951533 encoder_ssim:0.867181138197581 encoder_adv_loss:0.4186313862219835 encoder_host_loss:1.1617603964530505 discriminator_loss:1.4882845313121111 host_net_loss:1.2240916227683043 
-Epoch:11 elapse:1.5min ETA:58.8min losses:encoder_loss:1.2024816348002507 encoder_mse_loss:0.008081403380641953 encoder_ssim:0.8717800180117289 encoder_adv_loss:0.4170379062493642 encoder_host_loss:1.200996044354561 discriminator_loss:1.4920974673368992 host_net_loss:1.2024816348002507 
-Epoch:12 elapse:1.5min ETA:57.8min losses:encoder_loss:1.1989285313166105 encoder_mse_loss:0.00769881927408278 encoder_ssim:0.8766959719168834 encoder_adv_loss:0.42104693605349613 encoder_host_loss:1.382649999551284 discriminator_loss:1.4845191619335076 host_net_loss:1.1989285313166105 
-Epoch:13 elapse:1.5min ETA:55.7min losses:encoder_loss:1.1709981964184688 encoder_mse_loss:0.007310473256242963 encoder_ssim:0.8837397722097543 encoder_adv_loss:0.42643422537889236 encoder_host_loss:1.4133140770288615 discriminator_loss:1.479004708620218 host_net_loss:1.1709981964184688 
-Epoch:14 elapse:1.2min ETA:43.1min losses:encoder_loss:1.166892694051449 encoder_mse_loss:0.007082130193996888 encoder_ssim:0.8873831619054843 encoder_adv_loss:0.4299846642292463 encoder_host_loss:1.525774462406452 discriminator_loss:1.472456216506469 host_net_loss:1.166892694051449 
-Epoch:15 elapse:1.1min ETA:39.8min losses:encoder_loss:1.1520400926088676 encoder_mse_loss:0.007036105026371586 encoder_ssim:0.8874013249690716 encoder_adv_loss:0.4328684769379787 encoder_host_loss:1.3506992589968903 discriminator_loss:1.4682706438578093 host_net_loss:1.1520400926088676 
-Epoch:16 elapse:1.1min ETA:38.2min losses:encoder_loss:1.175169823719905 encoder_mse_loss:0.00688544542540629 encoder_ssim:0.8897545592907148 encoder_adv_loss:0.45765779981246363 encoder_host_loss:1.4562848289807637 discriminator_loss:1.41921319151536 host_net_loss:1.175169823719905 
-Epoch:17 elapse:1.1min ETA:37.1min losses:encoder_loss:1.1615252782136967 encoder_mse_loss:0.006678301537743746 encoder_ssim:0.8938258663201943 encoder_adv_loss:0.45844334486203314 encoder_host_loss:1.5217636109926762 discriminator_loss:1.4242893086029933 host_net_loss:1.1615252782136967 
-Epoch:18 elapse:1.1min ETA:36.2min losses:encoder_loss:1.1427879828673142 encoder_mse_loss:0.006573222965622942 encoder_ssim:0.895436849960914 encoder_adv_loss:0.448285402625035 encoder_host_loss:1.519671623981916 discriminator_loss:1.444309977079049 host_net_loss:1.1427879828673142 
-Epoch:19 elapse:1.1min ETA:35.2min losses:encoder_loss:1.1397079972120432 encoder_mse_loss:0.006369991869164201 encoder_ssim:0.8994568545084733 encoder_adv_loss:0.46442649968159505 encoder_host_loss:1.5345579462173657 discriminator_loss:1.415370371708503 host_net_loss:1.1397079972120432 
-Epoch:20 elapse:1.2min ETA:34.5min losses:encoder_loss:1.1322444574955182 encoder_mse_loss:0.006213188130790606 encoder_ssim:0.9020388804949246 encoder_adv_loss:0.4703794561899625 encoder_host_loss:1.5341983475746253 discriminator_loss:1.4061207905793802 host_net_loss:1.1322444574955182 
-Epoch:21 elapse:1.1min ETA:32.9min losses:encoder_loss:1.119448222258152 encoder_mse_loss:0.0061873552652123645 encoder_ssim:0.9038934759604625 encoder_adv_loss:0.45990811899686473 encoder_host_loss:1.6044541794520157 discriminator_loss:1.4244540905341123 host_net_loss:1.119448222258152 
-Epoch:22 elapse:1.1min ETA:31.7min losses:encoder_loss:1.118410774683341 encoder_mse_loss:0.006108529235307987 encoder_ssim:0.9047835324055109 encoder_adv_loss:0.45944711076907624 encoder_host_loss:1.6455573849188976 discriminator_loss:1.4242918032866259 host_net_loss:1.118410774683341 
-Epoch:23 elapse:1.1min ETA:30.7min losses:encoder_loss:1.1003396764779703 encoder_mse_loss:0.006032822229183064 encoder_ssim:0.9063077304607783 encoder_adv_loss:0.4523792742154537 encoder_host_loss:1.614005860609886 discriminator_loss:1.4377083335167322 host_net_loss:1.1003396764779703 
-Epoch:24 elapse:1.1min ETA:29.5min losses:encoder_loss:1.069083749789458 encoder_mse_loss:0.005866329754010225 encoder_ssim:0.910089015807861 encoder_adv_loss:0.4411550762561651 encoder_host_loss:1.6077476360859015 discriminator_loss:1.4508768002192178 host_net_loss:1.069083749789458 
-Epoch:25 elapse:1.2min ETA:28.8min losses:encoder_loss:1.0793833073897239 encoder_mse_loss:0.0058479006378314435 encoder_ssim:0.9092521108113802 encoder_adv_loss:0.45122753931925846 encoder_host_loss:1.5687261803027912 discriminator_loss:1.4377619459078863 host_net_loss:1.0793833073897239 
-Epoch:26 elapse:1.1min ETA:27.4min losses:encoder_loss:1.0847911544335194 encoder_mse_loss:0.005805710217772195 encoder_ssim:0.9103296519854129 encoder_adv_loss:0.45085859505029824 encoder_host_loss:1.6816368995568691 discriminator_loss:1.4387882978488238 host_net_loss:1.0847911544335194 
-Epoch:27 elapse:1.2min ETA:26.5min losses:encoder_loss:1.040896721680959 encoder_mse_loss:0.005600372928743943 encoder_ssim:0.9144002035642281 encoder_adv_loss:0.4369930502695915 encoder_host_loss:1.5910357148219378 discriminator_loss:1.460894629282829 host_net_loss:1.040896721680959 
-Epoch:28 elapse:1.2min ETA:25.4min losses:encoder_loss:1.0419411283272964 encoder_mse_loss:0.005501311997739742 encoder_ssim:0.916485157991067 encoder_adv_loss:0.4411242343676396 encoder_host_loss:1.6673874476017096 discriminator_loss:1.4542636311971224 host_net_loss:1.0419411283272964 
-Epoch:29 elapse:1.2min ETA:24.2min losses:encoder_loss:1.0589583263947413 encoder_mse_loss:0.00552905826136852 encoder_ssim:0.9155545314153035 encoder_adv_loss:0.45188853740692136 encoder_host_loss:1.682552720186038 discriminator_loss:1.4384603515649452 host_net_loss:1.0589583263947413 
-Epoch:30 elapse:1.2min ETA:23.2min losses:encoder_loss:1.0472761186269612 encoder_mse_loss:0.005391485577759644 encoder_ssim:0.9176503079059797 encoder_adv_loss:0.4417207970833167 encoder_host_loss:1.776324015091627 discriminator_loss:1.4543576524807857 host_net_loss:1.0472761186269612 
-Epoch:31 elapse:1.1min ETA:21.7min losses:encoder_loss:1.0343428448224679 encoder_mse_loss:0.005345027994077939 encoder_ssim:0.9178678485063406 encoder_adv_loss:0.43866850099502464 encoder_host_loss:1.6897850007582933 discriminator_loss:1.4567115566669366 host_net_loss:1.0343428448224679 
-Epoch:32 elapse:1.1min ETA:20.3min losses:encoder_loss:1.0512562844997797 encoder_mse_loss:0.005330691253169416 encoder_ssim:0.9176218445484455 encoder_adv_loss:0.44141392746032815 encoder_host_loss:1.8195950150489808 discriminator_loss:1.4519704913481688 host_net_loss:1.0512562844997797 
-Epoch:33 elapse:1.1min ETA:19.4min losses:encoder_loss:1.0259594014057747 encoder_mse_loss:0.005235966252616774 encoder_ssim:0.9202118644347558 encoder_adv_loss:0.4371907144784927 encoder_host_loss:1.7412010840880565 discriminator_loss:1.4617035856613747 host_net_loss:1.0259594014057747 
-Epoch:34 elapse:1.1min ETA:18.0min losses:encoder_loss:1.0254074468062475 encoder_mse_loss:0.005124216861067674 encoder_ssim:0.921496141415376 encoder_adv_loss:0.4398978657447375 encoder_host_loss:1.7761763967000521 discriminator_loss:1.4574640053969163 host_net_loss:1.0254074468062475 
-Epoch:35 elapse:1.1min ETA:16.6min losses:encoder_loss:1.020256916834758 encoder_mse_loss:0.005040500135734104 encoder_ssim:0.923100370168686 encoder_adv_loss:0.4394946251160059 encoder_host_loss:1.8114264237575042 discriminator_loss:1.456544863872039 host_net_loss:1.020256916834758 
-Epoch:36 elapse:1.1min ETA:15.5min losses:encoder_loss:1.0161505581476749 encoder_mse_loss:0.0050427346054512335 encoder_ssim:0.9225244335639171 encoder_adv_loss:0.43528350179012004 encoder_host_loss:1.7836101680229872 discriminator_loss:1.4636425644923479 host_net_loss:1.0161505581476749 
-Epoch:37 elapse:1.1min ETA:14.7min losses:encoder_loss:1.0011503814122615 encoder_mse_loss:0.004852457171401535 encoder_ssim:0.9259262161377149 encoder_adv_loss:0.43825551095681314 encoder_host_loss:1.7796857966826511 discriminator_loss:1.4597452160639641 host_net_loss:1.0011503814122615 
-Epoch:38 elapse:1.1min ETA:13.6min losses:encoder_loss:0.9873659217968965 encoder_mse_loss:0.004768654063511162 encoder_ssim:0.9276208038513477 encoder_adv_loss:0.431569323860682 encoder_host_loss:1.7959464967250824 discriminator_loss:1.469799049389668 host_net_loss:0.9873659217968965 
-Epoch:39 elapse:1.1min ETA:12.4min losses:encoder_loss:1.0002331585456163 encoder_mse_loss:0.0048087351471902086 encoder_ssim:0.9265187821327112 encoder_adv_loss:0.4347584663293301 encoder_host_loss:1.8364239189869318 discriminator_loss:1.4662712916349754 host_net_loss:1.0002331585456163 
-Epoch:40 elapse:1.1min ETA:11.3min losses:encoder_loss:0.9810607849023281 encoder_mse_loss:0.004644341809221376 encoder_ssim:0.9288721611866584 encoder_adv_loss:0.42835841324084845 encoder_host_loss:1.8313014979545887 discriminator_loss:1.4739603843444433 host_net_loss:0.9810607849023281 
-Epoch:41 elapse:1.1min ETA:10.1min losses:encoder_loss:0.9830271734641148 encoder_mse_loss:0.004566902061327337 encoder_ssim:0.9302578042715024 encoder_adv_loss:0.43248933973984843 encoder_host_loss:1.881261448829602 discriminator_loss:1.4689875135054955 host_net_loss:0.9830271734641148 
-Epoch:42 elapse:1.1min ETA:9.1min losses:encoder_loss:0.9988195558389028 encoder_mse_loss:0.004548717130166598 encoder_ssim:0.9296211241147457 encoder_adv_loss:0.4336530551696435 encoder_host_loss:1.9962596690043426 discriminator_loss:1.4649222361735807 host_net_loss:0.9988195558389028 
-Epoch:43 elapse:1.1min ETA:8.0min losses:encoder_loss:1.0021089755571806 encoder_mse_loss:0.0044885764567133704 encoder_ssim:0.929931022417851 encoder_adv_loss:0.4341838547816643 encoder_host_loss:2.0411449927550094 discriminator_loss:1.4628194469671982 host_net_loss:1.0021089755571806 
-Epoch:44 elapse:1.1min ETA:6.8min losses:encoder_loss:0.9928840184823061 encoder_mse_loss:0.0043611572858376 encoder_ssim:0.9315820172811166 encoder_adv_loss:0.4308343924008883 encoder_host_loss:2.0687623659769696 discriminator_loss:1.4671409512177491 host_net_loss:0.9928840184823061 
-Epoch:45 elapse:1.1min ETA:5.6min losses:encoder_loss:0.9945405990649492 encoder_mse_loss:0.004336073277040552 encoder_ssim:0.9314187158376742 encoder_adv_loss:0.43121954248501704 encoder_host_loss:2.074064117211562 discriminator_loss:1.4632129467450656 host_net_loss:0.9945405990649492 
-Epoch:46 elapse:1.1min ETA:4.5min losses:encoder_loss:0.9921728468858279 encoder_mse_loss:0.004295984958298504 encoder_ssim:0.9330116852735861 encoder_adv_loss:0.42949162820974984 encoder_host_loss:2.148516883605566 discriminator_loss:1.4687835085086334 host_net_loss:0.9921728468858279 
-Epoch:47 elapse:1.1min ETA:3.4min losses:encoder_loss:0.9989838014810514 encoder_mse_loss:0.004204210656909988 encoder_ssim:0.9329011081120907 encoder_adv_loss:0.4295116254152396 encoder_host_loss:2.2136508260017784 discriminator_loss:1.4711636974261357 host_net_loss:0.9989838014810514 
-Epoch:48 elapse:1.1min ETA:2.3min losses:encoder_loss:0.9666083534558614 encoder_mse_loss:0.004091774286606755 encoder_ssim:0.9362170155231769 encoder_adv_loss:0.42766770269626225 encoder_host_loss:2.0775040132877156 discriminator_loss:1.4699178292201116 host_net_loss:0.9666083534558614 
-Epoch:49 elapse:1.1min ETA:1.1min losses:encoder_loss:0.9716564973195394 encoder_mse_loss:0.004044276548740573 encoder_ssim:0.9361768600268242 encoder_adv_loss:0.41993176264640614 encoder_host_loss:2.204762014517417 discriminator_loss:1.4823470213474372 host_net_loss:0.9716564973195394 
-Epoch:50 elapse:1.1min ETA:0.0min losses:encoder_loss:0.9681959169033246 encoder_mse_loss:0.003953171667690651 encoder_ssim:0.9380957158712241 encoder_adv_loss:0.4249026540762339 encoder_host_loss:2.2191232409232704 discriminator_loss:1.469694133905264 host_net_loss:0.9681959169033246 
+Train starts
+batch:[0/109] losses:encoder_loss:6.79664 encoder_mse_loss:0.55558 encoder_ssim:0.00773 encoder_adv_loss:0.00182 encoder_host_loss:1.66724 discriminator_loss:1.39790 host_net_loss:1.75803 
+batch:[50/109] losses:encoder_loss:3.38395 encoder_mse_loss:0.02817 encoder_ssim:0.63411 encoder_adv_loss:1.35190 encoder_host_loss:1.18085 discriminator_loss:2.73169 host_net_loss:1.11386 
+batch:[100/109] losses:encoder_loss:1.48261 encoder_mse_loss:0.01111 encoder_ssim:0.81003 encoder_adv_loss:0.44325 encoder_host_loss:0.56193 discriminator_loss:1.19077 host_net_loss:0.84398 
+Evaluation starts
+host_net_non-trigger_acc:0.4175 host_net_trigger_success_rate:0.9997 host_net_error_trigged_rate:0.2948 discriminator acc:0.0000
+Epoch:1 elapse:1.7min ETA:163.9min losses:encoder_loss:2.71648 encoder_mse_loss:0.04427 encoder_ssim:0.60238 encoder_adv_loss:0.48221 encoder_host_loss:1.13348 discriminator_loss:1.49674 host_net_loss:1.05953 
+batch:[0/109] losses:encoder_loss:1.68068 encoder_mse_loss:0.01036 encoder_ssim:0.81972 encoder_adv_loss:0.66079 encoder_host_loss:0.87410 discriminator_loss:0.98711 host_net_loss:0.83676 
+batch:[50/109] losses:encoder_loss:1.51735 encoder_mse_loss:0.00911 encoder_ssim:0.85393 encoder_adv_loss:0.73142 encoder_host_loss:0.28233 discriminator_loss:0.71271 host_net_loss:0.54149 
+batch:[100/109] losses:encoder_loss:1.38832 encoder_mse_loss:0.00816 encoder_ssim:0.87982 encoder_adv_loss:0.75357 encoder_host_loss:0.09379 discriminator_loss:0.74616 host_net_loss:0.51657 
+Evaluation starts
+host_net_non-trigger_acc:0.5402 host_net_trigger_success_rate:0.9987 host_net_error_trigged_rate:0.1694 discriminator acc:0.0000
+Epoch:2 elapse:1.6min ETA:152.1min losses:encoder_loss:1.49327 encoder_mse_loss:0.00891 encoder_ssim:0.85153 encoder_adv_loss:0.69239 encoder_host_loss:0.31775 discriminator_loss:0.70891 host_net_loss:0.58869 
+batch:[0/109] losses:encoder_loss:1.19132 encoder_mse_loss:0.00661 encoder_ssim:0.89032 encoder_adv_loss:0.61008 encoder_host_loss:0.13014 discriminator_loss:0.59980 host_net_loss:0.46147 
+batch:[50/109] losses:encoder_loss:0.99223 encoder_mse_loss:0.00589 encoder_ssim:0.89694 encoder_adv_loss:0.44677 encoder_host_loss:0.12475 discriminator_loss:1.53192 host_net_loss:0.45591 
+batch:[100/109] losses:encoder_loss:1.08645 encoder_mse_loss:0.01071 encoder_ssim:0.87192 encoder_adv_loss:0.40344 encoder_host_loss:0.10450 discriminator_loss:1.43613 host_net_loss:0.36515 
+Evaluation starts
+host_net_non-trigger_acc:0.5484 host_net_trigger_success_rate:0.9849 host_net_error_trigged_rate:0.1712 discriminator acc:0.0000
+Epoch:3 elapse:1.5min ETA:149.3min losses:encoder_loss:1.09973 encoder_mse_loss:0.00862 encoder_ssim:0.87981 encoder_adv_loss:0.46091 encoder_host_loss:0.11996 discriminator_loss:1.38637 host_net_loss:0.44355 
+batch:[0/109] losses:encoder_loss:0.93948 encoder_mse_loss:0.00670 encoder_ssim:0.89880 encoder_adv_loss:0.40434 encoder_host_loss:0.09021 discriminator_loss:1.50185 host_net_loss:0.36736 
+batch:[50/109] losses:encoder_loss:0.79956 encoder_mse_loss:0.00580 encoder_ssim:0.89169 encoder_adv_loss:0.21346 encoder_host_loss:0.27143 discriminator_loss:0.93199 host_net_loss:0.31381 
+batch:[100/109] losses:encoder_loss:1.16403 encoder_mse_loss:0.00931 encoder_ssim:0.90432 encoder_adv_loss:0.65519 encoder_host_loss:0.02527 discriminator_loss:0.63928 host_net_loss:0.33032 
+Evaluation starts
+host_net_non-trigger_acc:0.6523 host_net_trigger_success_rate:0.9113 host_net_error_trigged_rate:0.1787 discriminator acc:0.0000
+Epoch:4 elapse:1.6min ETA:150.2min losses:encoder_loss:1.11978 encoder_mse_loss:0.00790 encoder_ssim:0.89704 encoder_adv_loss:0.57230 encoder_host_loss:0.08976 discriminator_loss:1.06526 host_net_loss:0.40036 
+batch:[0/109] losses:encoder_loss:1.19068 encoder_mse_loss:0.00779 encoder_ssim:0.90429 encoder_adv_loss:0.67907 encoder_host_loss:0.09665 discriminator_loss:0.63980 host_net_loss:0.36564 
+batch:[50/109] losses:encoder_loss:1.17096 encoder_mse_loss:0.00813 encoder_ssim:0.90821 encoder_adv_loss:0.68109 encoder_host_loss:0.06546 discriminator_loss:0.71704 host_net_loss:0.41566 
+batch:[100/109] losses:encoder_loss:1.15633 encoder_mse_loss:0.00593 encoder_ssim:0.90579 encoder_adv_loss:0.65969 encoder_host_loss:0.07826 discriminator_loss:0.71885 host_net_loss:0.30531 
+Evaluation starts
+host_net_non-trigger_acc:0.7026 host_net_trigger_success_rate:0.9913 host_net_error_trigged_rate:0.1687 discriminator acc:0.0000
+Epoch:5 elapse:1.5min ETA:146.2min losses:encoder_loss:1.18697 encoder_mse_loss:0.00721 encoder_ssim:0.90812 encoder_adv_loss:0.69754 encoder_host_loss:0.08413 discriminator_loss:0.70226 host_net_loss:0.36381 
+batch:[0/109] losses:encoder_loss:0.81205 encoder_mse_loss:0.00655 encoder_ssim:0.91339 encoder_adv_loss:0.35558 encoder_host_loss:0.03770 discriminator_loss:1.40928 host_net_loss:0.24705 
+batch:[50/109] losses:encoder_loss:0.87303 encoder_mse_loss:0.00395 encoder_ssim:0.91195 encoder_adv_loss:0.41642 encoder_host_loss:0.04498 discriminator_loss:1.47953 host_net_loss:0.33390 
+batch:[100/109] losses:encoder_loss:0.81871 encoder_mse_loss:0.00489 encoder_ssim:0.92226 encoder_adv_loss:0.41256 encoder_host_loss:0.02796 discriminator_loss:1.43619 host_net_loss:0.39860 
+Evaluation starts
+host_net_non-trigger_acc:0.6238 host_net_trigger_success_rate:0.9644 host_net_error_trigged_rate:0.1716 discriminator acc:0.0000
+Epoch:6 elapse:1.6min ETA:146.5min losses:encoder_loss:0.87222 encoder_mse_loss:0.00467 encoder_ssim:0.91507 encoder_adv_loss:0.42649 encoder_host_loss:0.07099 discriminator_loss:1.49152 host_net_loss:0.32112 
+batch:[0/109] losses:encoder_loss:0.84903 encoder_mse_loss:0.00283 encoder_ssim:0.91555 encoder_adv_loss:0.40812 encoder_host_loss:0.10180 discriminator_loss:1.48299 host_net_loss:0.29154 
+batch:[50/109] losses:encoder_loss:0.82231 encoder_mse_loss:0.00349 encoder_ssim:0.92320 encoder_adv_loss:0.42275 encoder_host_loss:0.05099 discriminator_loss:1.46771 host_net_loss:0.23612 
+batch:[100/109] losses:encoder_loss:0.70772 encoder_mse_loss:0.00355 encoder_ssim:0.94293 encoder_adv_loss:0.40877 encoder_host_loss:0.02972 discriminator_loss:1.49470 host_net_loss:0.22583 
+Evaluation starts
+host_net_non-trigger_acc:0.7190 host_net_trigger_success_rate:0.9506 host_net_error_trigged_rate:0.1651 discriminator acc:0.0000
+Epoch:7 elapse:1.5min ETA:143.1min losses:encoder_loss:0.80487 encoder_mse_loss:0.00352 encoder_ssim:0.92563 encoder_adv_loss:0.41508 encoder_host_loss:0.07386 discriminator_loss:1.49682 host_net_loss:0.28972 
+batch:[0/109] losses:encoder_loss:0.89437 encoder_mse_loss:0.00471 encoder_ssim:0.90577 encoder_adv_loss:0.40557 encoder_host_loss:0.03546 discriminator_loss:1.50787 host_net_loss:0.19176 
+batch:[50/109] losses:encoder_loss:0.72160 encoder_mse_loss:0.00291 encoder_ssim:0.93875 encoder_adv_loss:0.40204 encoder_host_loss:0.04568 discriminator_loss:1.51126 host_net_loss:0.22882 
+batch:[100/109] losses:encoder_loss:0.73519 encoder_mse_loss:0.00337 encoder_ssim:0.93747 encoder_adv_loss:0.40858 encoder_host_loss:0.03872 discriminator_loss:1.50003 host_net_loss:0.30970 
+Evaluation starts
+host_net_non-trigger_acc:0.6789 host_net_trigger_success_rate:0.9950 host_net_error_trigged_rate:0.2017 discriminator acc:0.0000
+Epoch:8 elapse:1.6min ETA:143.8min losses:encoder_loss:0.74968 encoder_mse_loss:0.00307 encoder_ssim:0.93525 encoder_adv_loss:0.41074 encoder_host_loss:0.05954 discriminator_loss:1.49808 host_net_loss:0.26618 
+batch:[0/109] losses:encoder_loss:0.68384 encoder_mse_loss:0.00246 encoder_ssim:0.95105 encoder_adv_loss:0.40457 encoder_host_loss:0.27112 discriminator_loss:1.52567 host_net_loss:0.22496 
+batch:[50/109] losses:encoder_loss:0.64616 encoder_mse_loss:0.00347 encoder_ssim:0.93936 encoder_adv_loss:0.33208 encoder_host_loss:0.00454 discriminator_loss:1.43258 host_net_loss:0.32776 
+batch:[100/109] losses:encoder_loss:0.64520 encoder_mse_loss:0.00223 encoder_ssim:0.95666 encoder_adv_loss:0.40953 encoder_host_loss:0.12283 discriminator_loss:1.50747 host_net_loss:0.36308 
+Evaluation starts
+host_net_non-trigger_acc:0.7163 host_net_trigger_success_rate:0.9721 host_net_error_trigged_rate:0.1688 discriminator acc:0.0000
+Epoch:9 elapse:1.5min ETA:140.3min losses:encoder_loss:0.79827 encoder_mse_loss:0.00324 encoder_ssim:0.93367 encoder_adv_loss:0.43196 encoder_host_loss:0.24954 discriminator_loss:1.45913 host_net_loss:0.34985 
+batch:[0/109] losses:encoder_loss:0.87742 encoder_mse_loss:0.00225 encoder_ssim:0.90741 encoder_adv_loss:0.40288 encoder_host_loss:0.04810 discriminator_loss:1.47991 host_net_loss:0.24125 
+batch:[50/109] losses:encoder_loss:0.81492 encoder_mse_loss:0.00251 encoder_ssim:0.92693 encoder_adv_loss:0.40407 encoder_host_loss:0.37957 discriminator_loss:1.50804 host_net_loss:0.47226 
+batch:[100/109] losses:encoder_loss:0.64783 encoder_mse_loss:0.00367 encoder_ssim:0.94670 encoder_adv_loss:0.34567 encoder_host_loss:0.24670 discriminator_loss:1.24805 host_net_loss:0.43921 
+Evaluation starts
+host_net_non-trigger_acc:0.7555 host_net_trigger_success_rate:0.6213 host_net_error_trigged_rate:0.1181 discriminator acc:0.0000
+Epoch:10 elapse:1.6min ETA:139.7min losses:encoder_loss:0.79608 encoder_mse_loss:0.00304 encoder_ssim:0.93632 encoder_adv_loss:0.42679 encoder_host_loss:0.41763 discriminator_loss:1.46760 host_net_loss:0.42926 
+batch:[0/109] losses:encoder_loss:0.76694 encoder_mse_loss:0.00350 encoder_ssim:0.95236 encoder_adv_loss:0.47560 encoder_host_loss:0.42644 discriminator_loss:1.38814 host_net_loss:0.40771 
+batch:[50/109] losses:encoder_loss:0.78468 encoder_mse_loss:0.00279 encoder_ssim:0.93787 encoder_adv_loss:0.46332 encoder_host_loss:0.02340 discriminator_loss:1.44521 host_net_loss:0.24899 
+batch:[100/109] losses:encoder_loss:0.65488 encoder_mse_loss:0.00274 encoder_ssim:0.95464 encoder_adv_loss:0.41276 encoder_host_loss:0.07105 discriminator_loss:1.48356 host_net_loss:0.22928 
+Evaluation starts
+host_net_non-trigger_acc:0.6803 host_net_trigger_success_rate:0.5806 host_net_error_trigged_rate:0.0952 discriminator acc:0.0000
+Epoch:11 elapse:1.6min ETA:139.6min losses:encoder_loss:0.77241 encoder_mse_loss:0.00298 encoder_ssim:0.94052 encoder_adv_loss:0.44630 encoder_host_loss:0.19771 discriminator_loss:1.44926 host_net_loss:0.28482 
+batch:[0/109] losses:encoder_loss:0.72118 encoder_mse_loss:0.00250 encoder_ssim:0.94472 encoder_adv_loss:0.42989 encoder_host_loss:0.07422 discriminator_loss:1.46405 host_net_loss:0.19487 
+batch:[50/109] losses:encoder_loss:0.72344 encoder_mse_loss:0.00307 encoder_ssim:0.95005 encoder_adv_loss:0.45582 encoder_host_loss:0.08660 discriminator_loss:1.52799 host_net_loss:0.26569 
+batch:[100/109] losses:encoder_loss:0.65874 encoder_mse_loss:0.00201 encoder_ssim:0.95348 encoder_adv_loss:0.41247 encoder_host_loss:0.07639 discriminator_loss:1.48014 host_net_loss:0.42139 
+Evaluation starts
+host_net_non-trigger_acc:0.7456 host_net_trigger_success_rate:0.9701 host_net_error_trigged_rate:0.1708 discriminator acc:0.0000
+Epoch:12 elapse:1.5min ETA:135.5min losses:encoder_loss:0.76490 encoder_mse_loss:0.00292 encoder_ssim:0.94166 encoder_adv_loss:0.43416 encoder_host_loss:0.30273 discriminator_loss:1.46978 host_net_loss:0.28534 
+batch:[0/109] losses:encoder_loss:0.74846 encoder_mse_loss:0.00395 encoder_ssim:0.94200 encoder_adv_loss:0.41922 encoder_host_loss:0.27415 discriminator_loss:1.47796 host_net_loss:0.19971 
+batch:[50/109] losses:encoder_loss:0.79161 encoder_mse_loss:0.00721 encoder_ssim:0.92387 encoder_adv_loss:0.36622 encoder_host_loss:0.23136 discriminator_loss:1.45860 host_net_loss:0.24214 
+batch:[100/109] losses:encoder_loss:0.91379 encoder_mse_loss:0.00327 encoder_ssim:0.92446 encoder_adv_loss:0.49561 encoder_host_loss:0.30671 discriminator_loss:1.41278 host_net_loss:0.27312 
+Evaluation starts
+host_net_non-trigger_acc:0.7329 host_net_trigger_success_rate:0.6277 host_net_error_trigged_rate:0.1390 discriminator acc:0.0000
+Epoch:13 elapse:1.6min ETA:135.9min losses:encoder_loss:0.73187 encoder_mse_loss:0.00268 encoder_ssim:0.94594 encoder_adv_loss:0.42784 encoder_host_loss:0.25680 discriminator_loss:1.47963 host_net_loss:0.24409 
+batch:[0/109] losses:encoder_loss:0.72861 encoder_mse_loss:0.00267 encoder_ssim:0.93715 encoder_adv_loss:0.39779 encoder_host_loss:0.08532 discriminator_loss:1.46589 host_net_loss:0.30613 
+batch:[50/109] losses:encoder_loss:0.92269 encoder_mse_loss:0.00317 encoder_ssim:0.93383 encoder_adv_loss:0.47837 encoder_host_loss:1.03979 discriminator_loss:1.52629 host_net_loss:0.39078 
+batch:[100/109] losses:encoder_loss:0.72599 encoder_mse_loss:0.00188 encoder_ssim:0.95144 encoder_adv_loss:0.45457 encoder_host_loss:0.22970 discriminator_loss:1.47944 host_net_loss:0.32225 
+Evaluation starts
+host_net_non-trigger_acc:0.8015 host_net_trigger_success_rate:0.4684 host_net_error_trigged_rate:0.0719 discriminator acc:0.0000
+Epoch:14 elapse:1.5min ETA:132.8min losses:encoder_loss:0.79816 encoder_mse_loss:0.00267 encoder_ssim:0.94398 encoder_adv_loss:0.45956 encoder_host_loss:0.50497 discriminator_loss:1.42120 host_net_loss:0.36761 
+batch:[0/109] losses:encoder_loss:0.78747 encoder_mse_loss:0.00253 encoder_ssim:0.95559 encoder_adv_loss:0.47910 encoder_host_loss:0.78717 discriminator_loss:1.40302 host_net_loss:0.40650 
+batch:[50/109] losses:encoder_loss:0.91604 encoder_mse_loss:0.00346 encoder_ssim:0.92348 encoder_adv_loss:0.49128 encoder_host_loss:0.31772 discriminator_loss:1.38884 host_net_loss:0.38718 
+batch:[100/109] losses:encoder_loss:0.71275 encoder_mse_loss:0.00239 encoder_ssim:0.95181 encoder_adv_loss:0.43229 encoder_host_loss:0.32313 discriminator_loss:1.40512 host_net_loss:0.38082 
+Evaluation starts
+host_net_non-trigger_acc:0.4420 host_net_trigger_success_rate:0.9698 host_net_error_trigged_rate:0.4927 discriminator acc:0.0000
+Epoch:15 elapse:1.5min ETA:130.9min losses:encoder_loss:0.83958 encoder_mse_loss:0.00273 encoder_ssim:0.94401 encoder_adv_loss:0.48433 encoder_host_loss:0.67111 discriminator_loss:1.38093 host_net_loss:0.52437 
+batch:[0/109] losses:encoder_loss:0.69367 encoder_mse_loss:0.00195 encoder_ssim:0.96025 encoder_adv_loss:0.43256 encoder_host_loss:0.56515 discriminator_loss:1.47269 host_net_loss:0.49718 
+batch:[50/109] losses:encoder_loss:0.72087 encoder_mse_loss:0.00303 encoder_ssim:0.94581 encoder_adv_loss:0.41525 encoder_host_loss:0.25603 discriminator_loss:1.44325 host_net_loss:0.32817 
+batch:[100/109] losses:encoder_loss:0.82452 encoder_mse_loss:0.00254 encoder_ssim:0.94347 encoder_adv_loss:0.51862 encoder_host_loss:0.15634 discriminator_loss:1.19421 host_net_loss:0.22305 
+Evaluation starts
+host_net_non-trigger_acc:0.7532 host_net_trigger_success_rate:0.9802 host_net_error_trigged_rate:0.1777 discriminator acc:0.0000
+Epoch:16 elapse:1.6min ETA:130.5min losses:encoder_loss:0.72337 encoder_mse_loss:0.00249 encoder_ssim:0.95161 encoder_adv_loss:0.45393 encoder_host_loss:0.20028 discriminator_loss:1.43184 host_net_loss:0.28743 
+batch:[0/109] losses:encoder_loss:0.59151 encoder_mse_loss:0.00317 encoder_ssim:0.96094 encoder_adv_loss:0.38193 encoder_host_loss:0.04766 discriminator_loss:1.60612 host_net_loss:0.25811 
+batch:[50/109] losses:encoder_loss:0.60722 encoder_mse_loss:0.00184 encoder_ssim:0.94973 encoder_adv_loss:0.34361 encoder_host_loss:0.06725 discriminator_loss:1.44755 host_net_loss:0.27736 
+batch:[100/109] losses:encoder_loss:0.79377 encoder_mse_loss:0.00234 encoder_ssim:0.94522 encoder_adv_loss:0.49217 encoder_host_loss:0.20716 discriminator_loss:1.37983 host_net_loss:0.19827 
+Evaluation starts
+host_net_non-trigger_acc:0.7503 host_net_trigger_success_rate:0.9603 host_net_error_trigged_rate:0.1714 discriminator acc:0.0000
+Epoch:17 elapse:1.5min ETA:128.0min losses:encoder_loss:0.76615 encoder_mse_loss:0.00296 encoder_ssim:0.94883 encoder_adv_loss:0.47371 encoder_host_loss:0.27727 discriminator_loss:1.40596 host_net_loss:0.21903 
+batch:[0/109] losses:encoder_loss:0.94494 encoder_mse_loss:0.00287 encoder_ssim:0.94703 encoder_adv_loss:0.46135 encoder_host_loss:2.10138 discriminator_loss:1.54845 host_net_loss:0.47529 
+batch:[50/109] losses:encoder_loss:0.83699 encoder_mse_loss:0.00285 encoder_ssim:0.96391 encoder_adv_loss:0.63143 encoder_host_loss:0.16528 discriminator_loss:0.99599 host_net_loss:0.11663 
+batch:[100/109] losses:encoder_loss:0.65201 encoder_mse_loss:0.00266 encoder_ssim:0.95651 encoder_adv_loss:0.41631 encoder_host_loss:0.10271 discriminator_loss:1.48297 host_net_loss:0.31119 
+Evaluation starts
+host_net_non-trigger_acc:0.6742 host_net_trigger_success_rate:0.9973 host_net_error_trigged_rate:0.1876 discriminator acc:0.0000
+Epoch:18 elapse:1.5min ETA:126.9min losses:encoder_loss:0.79863 encoder_mse_loss:0.00289 encoder_ssim:0.94443 encoder_adv_loss:0.47207 encoder_host_loss:0.40021 discriminator_loss:1.41231 host_net_loss:0.25236 
+batch:[0/109] losses:encoder_loss:0.64843 encoder_mse_loss:0.00256 encoder_ssim:0.95859 encoder_adv_loss:0.42014 encoder_host_loss:0.13548 discriminator_loss:1.43690 host_net_loss:0.20062 
+batch:[50/109] losses:encoder_loss:0.70104 encoder_mse_loss:0.00231 encoder_ssim:0.95039 encoder_adv_loss:0.41455 encoder_host_loss:0.31501 discriminator_loss:1.47458 host_net_loss:0.19480 
+batch:[100/109] losses:encoder_loss:0.96174 encoder_mse_loss:0.00234 encoder_ssim:0.93489 encoder_adv_loss:0.51842 encoder_host_loss:1.10788 discriminator_loss:1.32837 host_net_loss:0.38310 
+Evaluation starts
+host_net_non-trigger_acc:0.7289 host_net_trigger_success_rate:0.3132 host_net_error_trigged_rate:0.1192 discriminator acc:0.0000
+Epoch:19 elapse:1.5min ETA:125.2min losses:encoder_loss:0.76368 encoder_mse_loss:0.00256 encoder_ssim:0.95060 encoder_adv_loss:0.46021 encoder_host_loss:0.48803 discriminator_loss:1.42189 host_net_loss:0.24551 
+batch:[0/109] losses:encoder_loss:0.80790 encoder_mse_loss:0.00173 encoder_ssim:0.94407 encoder_adv_loss:0.51539 encoder_host_loss:0.07669 discriminator_loss:1.23889 host_net_loss:0.40713 
+batch:[50/109] losses:encoder_loss:0.97083 encoder_mse_loss:0.00352 encoder_ssim:0.94154 encoder_adv_loss:0.64224 encoder_host_loss:0.25714 discriminator_loss:0.85494 host_net_loss:0.32253 
+batch:[100/109] losses:encoder_loss:0.66435 encoder_mse_loss:0.00349 encoder_ssim:0.96409 encoder_adv_loss:0.45031 encoder_host_loss:0.24037 discriminator_loss:1.44457 host_net_loss:0.16569 
+Evaluation starts
+host_net_non-trigger_acc:0.7456 host_net_trigger_success_rate:0.9647 host_net_error_trigged_rate:0.1747 discriminator acc:0.0000
+Epoch:20 elapse:1.6min ETA:124.8min losses:encoder_loss:0.82900 encoder_mse_loss:0.00272 encoder_ssim:0.94864 encoder_adv_loss:0.50280 encoder_host_loss:0.61261 discriminator_loss:1.31876 host_net_loss:0.33532 
+batch:[0/109] losses:encoder_loss:0.65400 encoder_mse_loss:0.00162 encoder_ssim:0.96069 encoder_adv_loss:0.41428 encoder_host_loss:0.38314 discriminator_loss:1.54013 host_net_loss:0.18259 
+batch:[50/109] losses:encoder_loss:0.68211 encoder_mse_loss:0.00233 encoder_ssim:0.94055 encoder_adv_loss:0.25840 encoder_host_loss:1.19499 discriminator_loss:2.16010 host_net_loss:0.20276 
+batch:[100/109] losses:encoder_loss:0.84621 encoder_mse_loss:0.00314 encoder_ssim:0.94095 encoder_adv_loss:0.42787 encoder_host_loss:1.13684 discriminator_loss:1.45950 host_net_loss:0.45650 
+Evaluation starts
+host_net_non-trigger_acc:0.6950 host_net_trigger_success_rate:0.3663 host_net_error_trigged_rate:0.0910 discriminator acc:0.0000
+Epoch:21 elapse:1.5min ETA:122.4min losses:encoder_loss:0.79345 encoder_mse_loss:0.00258 encoder_ssim:0.95087 encoder_adv_loss:0.45326 encoder_host_loss:0.86803 discriminator_loss:1.43741 host_net_loss:0.35197 
+batch:[0/109] losses:encoder_loss:0.63121 encoder_mse_loss:0.00342 encoder_ssim:0.96042 encoder_adv_loss:0.37340 encoder_host_loss:0.49662 discriminator_loss:1.45264 host_net_loss:0.32545 
+batch:[50/109] losses:encoder_loss:0.68018 encoder_mse_loss:0.00245 encoder_ssim:0.95522 encoder_adv_loss:0.42490 encoder_host_loss:0.24037 discriminator_loss:1.47886 host_net_loss:0.17180 
+batch:[100/109] losses:encoder_loss:0.68739 encoder_mse_loss:0.00287 encoder_ssim:0.95214 encoder_adv_loss:0.41793 encoder_host_loss:0.21536 discriminator_loss:1.47291 host_net_loss:0.17169 
+Evaluation starts
+host_net_non-trigger_acc:0.7763 host_net_trigger_success_rate:0.9459 host_net_error_trigged_rate:0.1645 discriminator acc:0.0000
+Epoch 00022: reducing learning rate of group 0 to 2.0000e-04.
+Epoch 00022: reducing learning rate of group 0 to 2.0000e-04.
+Epoch:22 elapse:1.6min ETA:121.3min losses:encoder_loss:0.69955 encoder_mse_loss:0.00272 encoder_ssim:0.95441 encoder_adv_loss:0.42934 encoder_host_loss:0.34067 discriminator_loss:1.47803 host_net_loss:0.17737 
+batch:[0/109] losses:encoder_loss:0.66121 encoder_mse_loss:0.00178 encoder_ssim:0.96299 encoder_adv_loss:0.40476 encoder_host_loss:0.66041 discriminator_loss:1.44143 host_net_loss:0.16511 
+batch:[50/109] losses:encoder_loss:0.72588 encoder_mse_loss:0.00328 encoder_ssim:0.94257 encoder_adv_loss:0.41063 encoder_host_loss:0.18291 discriminator_loss:1.46410 host_net_loss:0.07632 
+batch:[100/109] losses:encoder_loss:0.75958 encoder_mse_loss:0.00254 encoder_ssim:0.96225 encoder_adv_loss:0.51229 encoder_host_loss:0.50900 discriminator_loss:1.54182 host_net_loss:0.16850 
+Evaluation starts
+host_net_non-trigger_acc:0.6062 host_net_trigger_success_rate:0.9923 host_net_error_trigged_rate:0.3187 discriminator acc:0.0000
+Epoch:23 elapse:1.5min ETA:118.2min losses:encoder_loss:0.68458 encoder_mse_loss:0.00277 encoder_ssim:0.95835 encoder_adv_loss:0.43774 encoder_host_loss:0.30268 discriminator_loss:1.42674 host_net_loss:0.11902 
+batch:[0/109] losses:encoder_loss:0.76064 encoder_mse_loss:0.00197 encoder_ssim:0.95574 encoder_adv_loss:0.48327 encoder_host_loss:0.50133 discriminator_loss:1.35304 host_net_loss:0.08290 
+batch:[50/109] losses:encoder_loss:0.78273 encoder_mse_loss:0.00359 encoder_ssim:0.93845 encoder_adv_loss:0.45377 encoder_host_loss:0.10412 discriminator_loss:1.35529 host_net_loss:0.08855 
+batch:[100/109] losses:encoder_loss:0.73413 encoder_mse_loss:0.00369 encoder_ssim:0.94959 encoder_adv_loss:0.45624 encoder_host_loss:0.14761 discriminator_loss:1.44098 host_net_loss:0.10456 
+Evaluation starts
+host_net_non-trigger_acc:0.8077 host_net_trigger_success_rate:0.7739 host_net_error_trigged_rate:0.1277 discriminator acc:0.0000
+Epoch:24 elapse:1.6min ETA:118.1min losses:encoder_loss:0.70998 encoder_mse_loss:0.00300 encoder_ssim:0.95742 encoder_adv_loss:0.46550 encoder_host_loss:0.22552 discriminator_loss:1.40411 host_net_loss:0.09333 
+batch:[0/109] losses:encoder_loss:0.71370 encoder_mse_loss:0.00188 encoder_ssim:0.96845 encoder_adv_loss:0.47013 encoder_host_loss:0.80165 discriminator_loss:1.44910 host_net_loss:0.10580 
+batch:[50/109] losses:encoder_loss:0.85734 encoder_mse_loss:0.00327 encoder_ssim:0.92245 encoder_adv_loss:0.43948 encoder_host_loss:0.20283 discriminator_loss:1.36608 host_net_loss:0.05534 
+batch:[100/109] losses:encoder_loss:0.75233 encoder_mse_loss:0.00560 encoder_ssim:0.95991 encoder_adv_loss:0.50020 encoder_host_loss:0.34893 discriminator_loss:1.15996 host_net_loss:0.11097 
+Evaluation starts
+host_net_non-trigger_acc:0.7712 host_net_trigger_success_rate:0.9267 host_net_error_trigged_rate:0.1694 discriminator acc:0.0000
+Epoch:25 elapse:1.6min ETA:116.9min losses:encoder_loss:0.72647 encoder_mse_loss:0.00286 encoder_ssim:0.95764 encoder_adv_loss:0.48008 encoder_host_loss:0.26053 discriminator_loss:1.39187 host_net_loss:0.08249 
+batch:[0/109] losses:encoder_loss:0.68950 encoder_mse_loss:0.00214 encoder_ssim:0.96105 encoder_adv_loss:0.47872 encoder_host_loss:0.09625 discriminator_loss:1.40374 host_net_loss:0.09699 
+batch:[50/109] losses:encoder_loss:0.72906 encoder_mse_loss:0.00188 encoder_ssim:0.96485 encoder_adv_loss:0.54396 encoder_host_loss:0.03693 discriminator_loss:1.14437 host_net_loss:0.06325 
+batch:[100/109] losses:encoder_loss:0.70536 encoder_mse_loss:0.00295 encoder_ssim:0.95643 encoder_adv_loss:0.45135 encoder_host_loss:0.27289 discriminator_loss:1.42592 host_net_loss:0.06318 
+Evaluation starts
+host_net_non-trigger_acc:0.7448 host_net_trigger_success_rate:0.9882 host_net_error_trigged_rate:0.1782 discriminator acc:0.0000
+Epoch:26 elapse:1.5min ETA:114.1min losses:encoder_loss:0.73873 encoder_mse_loss:0.00269 encoder_ssim:0.95440 encoder_adv_loss:0.47813 encoder_host_loss:0.24537 discriminator_loss:1.37913 host_net_loss:0.07435 
+batch:[0/109] losses:encoder_loss:0.69583 encoder_mse_loss:0.00279 encoder_ssim:0.96150 encoder_adv_loss:0.46405 encoder_host_loss:0.30900 discriminator_loss:1.45869 host_net_loss:0.06683 
+batch:[50/109] losses:encoder_loss:0.75566 encoder_mse_loss:0.00312 encoder_ssim:0.94518 encoder_adv_loss:0.45493 encoder_host_loss:0.17256 discriminator_loss:1.42964 host_net_loss:0.06243 
+batch:[100/109] losses:encoder_loss:0.65933 encoder_mse_loss:0.00277 encoder_ssim:0.96503 encoder_adv_loss:0.47324 encoder_host_loss:0.02896 discriminator_loss:1.39699 host_net_loss:0.05509 
+Evaluation starts
+host_net_non-trigger_acc:0.8070 host_net_trigger_success_rate:0.9859 host_net_error_trigged_rate:0.1686 discriminator acc:0.0000
+Epoch:27 elapse:1.5min ETA:112.9min losses:encoder_loss:0.70921 encoder_mse_loss:0.00255 encoder_ssim:0.95736 encoder_adv_loss:0.46302 encoder_host_loss:0.25342 discriminator_loss:1.42434 host_net_loss:0.08674 
+batch:[0/109] losses:encoder_loss:0.61850 encoder_mse_loss:0.00207 encoder_ssim:0.96565 encoder_adv_loss:0.43752 encoder_host_loss:0.03037 discriminator_loss:1.40270 host_net_loss:0.03909 
+batch:[50/109] losses:encoder_loss:0.62448 encoder_mse_loss:0.00152 encoder_ssim:0.96295 encoder_adv_loss:0.42916 encoder_host_loss:0.05506 discriminator_loss:1.49232 host_net_loss:0.04740 
+batch:[100/109] losses:encoder_loss:0.64140 encoder_mse_loss:0.00269 encoder_ssim:0.96122 encoder_adv_loss:0.41897 encoder_host_loss:0.20452 discriminator_loss:1.49905 host_net_loss:0.02323 
+Evaluation starts
+host_net_non-trigger_acc:0.7708 host_net_trigger_success_rate:0.9950 host_net_error_trigged_rate:0.1917 discriminator acc:0.0000
+Epoch 00028: reducing learning rate of group 0 to 4.0000e-05.
+Epoch:28 elapse:1.5min ETA:111.1min losses:encoder_loss:0.65768 encoder_mse_loss:0.00228 encoder_ssim:0.96174 encoder_adv_loss:0.44014 encoder_host_loss:0.19360 discriminator_loss:1.46715 host_net_loss:0.06712 
+batch:[0/109] losses:encoder_loss:0.63585 encoder_mse_loss:0.00170 encoder_ssim:0.96658 encoder_adv_loss:0.44151 encoder_host_loss:0.22148 discriminator_loss:1.44622 host_net_loss:0.04353 
+batch:[50/109] losses:encoder_loss:0.55708 encoder_mse_loss:0.00112 encoder_ssim:0.97150 encoder_adv_loss:0.38665 encoder_host_loss:0.24595 discriminator_loss:1.33066 host_net_loss:0.10327 
+batch:[100/109] losses:encoder_loss:0.61537 encoder_mse_loss:0.00174 encoder_ssim:0.95302 encoder_adv_loss:0.37058 encoder_host_loss:0.04645 discriminator_loss:1.28649 host_net_loss:0.05230 
+Evaluation starts
+host_net_non-trigger_acc:0.7929 host_net_trigger_success_rate:0.9177 host_net_error_trigged_rate:0.1720 discriminator acc:0.0000
+Epoch:29 elapse:1.5min ETA:109.9min losses:encoder_loss:0.67269 encoder_mse_loss:0.00214 encoder_ssim:0.96244 encoder_adv_loss:0.45639 encoder_host_loss:0.22071 discriminator_loss:1.41307 host_net_loss:0.05821 
+batch:[0/109] losses:encoder_loss:0.66473 encoder_mse_loss:0.00175 encoder_ssim:0.96776 encoder_adv_loss:0.45298 encoder_host_loss:0.45328 discriminator_loss:1.50581 host_net_loss:0.05815 
+batch:[50/109] losses:encoder_loss:0.71740 encoder_mse_loss:0.00285 encoder_ssim:0.95748 encoder_adv_loss:0.48877 encoder_host_loss:0.07450 discriminator_loss:1.42806 host_net_loss:0.03780 
+batch:[100/109] losses:encoder_loss:0.72565 encoder_mse_loss:0.00323 encoder_ssim:0.95920 encoder_adv_loss:0.50556 encoder_host_loss:0.06421 discriminator_loss:1.28405 host_net_loss:0.10665 
+Evaluation starts
+host_net_non-trigger_acc:0.7114 host_net_trigger_success_rate:0.9577 host_net_error_trigged_rate:0.1743 discriminator acc:0.0000
+Epoch:30 elapse:1.6min ETA:108.9min losses:encoder_loss:0.71306 encoder_mse_loss:0.00199 encoder_ssim:0.96253 encoder_adv_loss:0.48798 encoder_host_loss:0.31757 discriminator_loss:1.37081 host_net_loss:0.08134 
+batch:[0/109] losses:encoder_loss:0.52587 encoder_mse_loss:0.00170 encoder_ssim:0.96312 encoder_adv_loss:0.32718 encoder_host_loss:0.09206 discriminator_loss:1.25539 host_net_loss:0.11627 
+batch:[50/109] losses:encoder_loss:0.54387 encoder_mse_loss:0.00126 encoder_ssim:0.96918 encoder_adv_loss:0.37331 encoder_host_loss:0.12694 discriminator_loss:1.43717 host_net_loss:0.05340 
+batch:[100/109] losses:encoder_loss:0.83599 encoder_mse_loss:0.00165 encoder_ssim:0.96494 encoder_adv_loss:0.62498 encoder_host_loss:0.30742 discriminator_loss:1.51951 host_net_loss:0.10730 
+Evaluation starts
+host_net_non-trigger_acc:0.7995 host_net_trigger_success_rate:0.5682 host_net_error_trigged_rate:0.0985 discriminator acc:0.0000
+Epoch 00031: reducing learning rate of group 0 to 4.0000e-05.
+Epoch:31 elapse:1.5min ETA:106.4min losses:encoder_loss:0.71905 encoder_mse_loss:0.00196 encoder_ssim:0.96279 encoder_adv_loss:0.50224 encoder_host_loss:0.24865 discriminator_loss:1.33726 host_net_loss:0.06609 
+batch:[0/109] losses:encoder_loss:0.62278 encoder_mse_loss:0.00177 encoder_ssim:0.96265 encoder_adv_loss:0.38881 encoder_host_loss:0.41888 discriminator_loss:1.41164 host_net_loss:0.08211 
+batch:[50/109] losses:encoder_loss:0.61648 encoder_mse_loss:0.00141 encoder_ssim:0.96818 encoder_adv_loss:0.44204 encoder_host_loss:0.11105 discriminator_loss:1.38127 host_net_loss:0.11231 
+batch:[100/109] losses:encoder_loss:0.60781 encoder_mse_loss:0.00164 encoder_ssim:0.96779 encoder_adv_loss:0.43873 encoder_host_loss:0.03129 discriminator_loss:1.48642 host_net_loss:0.06571 
+Evaluation starts
+host_net_non-trigger_acc:0.8193 host_net_trigger_success_rate:0.9953 host_net_error_trigged_rate:0.1726 discriminator acc:0.0000
+Epoch:32 elapse:1.6min ETA:105.5min losses:encoder_loss:0.66443 encoder_mse_loss:0.00200 encoder_ssim:0.96117 encoder_adv_loss:0.44300 encoder_host_loss:0.21287 discriminator_loss:1.43733 host_net_loss:0.06392 
+batch:[0/109] losses:encoder_loss:0.70014 encoder_mse_loss:0.00256 encoder_ssim:0.94847 encoder_adv_loss:0.42264 encoder_host_loss:0.12133 discriminator_loss:1.48572 host_net_loss:0.06758 
+batch:[50/109] losses:encoder_loss:0.65761 encoder_mse_loss:0.00170 encoder_ssim:0.95482 encoder_adv_loss:0.41943 encoder_host_loss:0.07171 discriminator_loss:1.62484 host_net_loss:0.04035 
+batch:[100/109] losses:encoder_loss:0.74442 encoder_mse_loss:0.00267 encoder_ssim:0.95674 encoder_adv_loss:0.44994 encoder_host_loss:0.70167 discriminator_loss:1.38322 host_net_loss:0.05176 
+Evaluation starts
+host_net_non-trigger_acc:0.7782 host_net_trigger_success_rate:0.9983 host_net_error_trigged_rate:0.1737 discriminator acc:0.0000
+Epoch:33 elapse:1.5min ETA:103.0min losses:encoder_loss:0.66716 encoder_mse_loss:0.00219 encoder_ssim:0.95946 encoder_adv_loss:0.43908 encoder_host_loss:0.18788 discriminator_loss:1.44686 host_net_loss:0.04589 
+batch:[0/109] losses:encoder_loss:0.65236 encoder_mse_loss:0.00126 encoder_ssim:0.96791 encoder_adv_loss:0.46767 encoder_host_loss:0.20449 discriminator_loss:1.33307 host_net_loss:0.01669 
+batch:[50/109] losses:encoder_loss:0.73882 encoder_mse_loss:0.00284 encoder_ssim:0.94187 encoder_adv_loss:0.42273 encoder_host_loss:0.16890 discriminator_loss:1.47603 host_net_loss:0.01814 
+batch:[100/109] losses:encoder_loss:0.64330 encoder_mse_loss:0.00201 encoder_ssim:0.96227 encoder_adv_loss:0.43643 encoder_host_loss:0.12196 discriminator_loss:1.40255 host_net_loss:0.01115 
+Evaluation starts
+host_net_non-trigger_acc:0.8261 host_net_trigger_success_rate:0.9644 host_net_error_trigged_rate:0.1631 discriminator acc:0.0000
+Epoch 00034: reducing learning rate of group 0 to 8.0000e-06.
+Epoch:34 elapse:1.5min ETA:101.8min losses:encoder_loss:0.63935 encoder_mse_loss:0.00193 encoder_ssim:0.96213 encoder_adv_loss:0.42973 encoder_host_loss:0.14511 discriminator_loss:1.46677 host_net_loss:0.03908 
+batch:[0/109] losses:encoder_loss:0.62873 encoder_mse_loss:0.00376 encoder_ssim:0.96103 encoder_adv_loss:0.41921 encoder_host_loss:0.03410 discriminator_loss:1.45399 host_net_loss:0.01944 
+batch:[50/109] losses:encoder_loss:0.65130 encoder_mse_loss:0.00121 encoder_ssim:0.97358 encoder_adv_loss:0.51464 encoder_host_loss:0.00943 discriminator_loss:1.23344 host_net_loss:0.00992 
+batch:[100/109] losses:encoder_loss:0.75703 encoder_mse_loss:0.00296 encoder_ssim:0.96011 encoder_adv_loss:0.54829 encoder_host_loss:0.00404 discriminator_loss:1.25076 host_net_loss:0.05313 
+Evaluation starts
+host_net_non-trigger_acc:0.8140 host_net_trigger_success_rate:0.9728 host_net_error_trigged_rate:0.1643 discriminator acc:0.0000
+Epoch:35 elapse:1.5min ETA:99.7min losses:encoder_loss:0.67829 encoder_mse_loss:0.00206 encoder_ssim:0.96234 encoder_adv_loss:0.47162 encoder_host_loss:0.12190 discriminator_loss:1.33275 host_net_loss:0.03067 
+batch:[0/109] losses:encoder_loss:0.66682 encoder_mse_loss:0.00212 encoder_ssim:0.96085 encoder_adv_loss:0.46271 encoder_host_loss:0.02003 discriminator_loss:1.31094 host_net_loss:0.00462 
+batch:[50/109] losses:encoder_loss:0.77248 encoder_mse_loss:0.00255 encoder_ssim:0.96300 encoder_adv_loss:0.51837 encoder_host_loss:0.61457 discriminator_loss:1.30255 host_net_loss:0.02251 
+batch:[100/109] losses:encoder_loss:0.59408 encoder_mse_loss:0.00152 encoder_ssim:0.96735 encoder_adv_loss:0.39875 encoder_host_loss:0.27518 discriminator_loss:1.44498 host_net_loss:0.03040 
+Evaluation starts
+host_net_non-trigger_acc:0.8528 host_net_trigger_success_rate:0.7883 host_net_error_trigged_rate:0.1331 discriminator acc:0.0000
+Epoch:36 elapse:1.6min ETA:99.9min losses:encoder_loss:0.71154 encoder_mse_loss:0.00232 encoder_ssim:0.96105 encoder_adv_loss:0.49315 encoder_host_loss:0.16660 discriminator_loss:1.30174 host_net_loss:0.02468 
+batch:[0/109] losses:encoder_loss:0.69461 encoder_mse_loss:0.00230 encoder_ssim:0.95176 encoder_adv_loss:0.44172 encoder_host_loss:0.04774 discriminator_loss:1.29942 host_net_loss:0.00460 
+batch:[50/109] losses:encoder_loss:0.71816 encoder_mse_loss:0.00144 encoder_ssim:0.96415 encoder_adv_loss:0.52852 encoder_host_loss:0.06038 discriminator_loss:1.16874 host_net_loss:0.01859 
+batch:[100/109] losses:encoder_loss:0.75095 encoder_mse_loss:0.00112 encoder_ssim:0.96226 encoder_adv_loss:0.55727 encoder_host_loss:0.01648 discriminator_loss:1.07014 host_net_loss:0.01224 
+Evaluation starts
+host_net_non-trigger_acc:0.8291 host_net_trigger_success_rate:0.9580 host_net_error_trigged_rate:0.1610 discriminator acc:0.0000
+Epoch:37 elapse:1.5min ETA:97.5min losses:encoder_loss:0.72867 encoder_mse_loss:0.00212 encoder_ssim:0.96131 encoder_adv_loss:0.51482 encoder_host_loss:0.14059 discriminator_loss:1.25016 host_net_loss:0.03036 
+batch:[0/109] losses:encoder_loss:0.64445 encoder_mse_loss:0.00272 encoder_ssim:0.96360 encoder_adv_loss:0.44695 encoder_host_loss:0.07347 discriminator_loss:1.63517 host_net_loss:0.01175 
+batch:[50/109] losses:encoder_loss:0.67076 encoder_mse_loss:0.00137 encoder_ssim:0.96377 encoder_adv_loss:0.48000 encoder_host_loss:0.05512 discriminator_loss:1.35699 host_net_loss:0.10570 
+batch:[100/109] losses:encoder_loss:0.76712 encoder_mse_loss:0.00175 encoder_ssim:0.96116 encoder_adv_loss:0.56754 encoder_host_loss:0.00106 discriminator_loss:1.28051 host_net_loss:0.01275 
+Evaluation starts
+host_net_non-trigger_acc:0.7528 host_net_trigger_success_rate:0.9970 host_net_error_trigged_rate:0.2005 discriminator acc:0.0000
+Epoch:38 elapse:1.5min ETA:95.5min losses:encoder_loss:0.74956 encoder_mse_loss:0.00215 encoder_ssim:0.95915 encoder_adv_loss:0.52177 encoder_host_loss:0.17115 discriminator_loss:1.25029 host_net_loss:0.03449 
+batch:[0/109] losses:encoder_loss:0.83733 encoder_mse_loss:0.00186 encoder_ssim:0.95944 encoder_adv_loss:0.62853 encoder_host_loss:0.00409 discriminator_loss:1.05155 host_net_loss:0.04454 
+batch:[50/109] losses:encoder_loss:0.87646 encoder_mse_loss:0.00298 encoder_ssim:0.95573 encoder_adv_loss:0.61723 encoder_host_loss:0.28938 discriminator_loss:1.07442 host_net_loss:0.19461 
+batch:[100/109] losses:encoder_loss:0.68982 encoder_mse_loss:0.00189 encoder_ssim:0.95667 encoder_adv_loss:0.46721 encoder_host_loss:0.00262 discriminator_loss:1.34907 host_net_loss:0.04942 
+Evaluation starts
+host_net_non-trigger_acc:0.7667 host_net_trigger_success_rate:0.9782 host_net_error_trigged_rate:0.1839 discriminator acc:0.0000
+Epoch:39 elapse:1.5min ETA:94.2min losses:encoder_loss:0.77522 encoder_mse_loss:0.00216 encoder_ssim:0.95932 encoder_adv_loss:0.54849 encoder_host_loss:0.16880 discriminator_loss:1.19322 host_net_loss:0.05180 
+batch:[0/109] losses:encoder_loss:0.74157 encoder_mse_loss:0.00281 encoder_ssim:0.94708 encoder_adv_loss:0.46635 encoder_host_loss:0.02173 discriminator_loss:1.26829 host_net_loss:0.02419 
+batch:[50/109] losses:encoder_loss:0.74284 encoder_mse_loss:0.00188 encoder_ssim:0.95679 encoder_adv_loss:0.50901 encoder_host_loss:0.12113 discriminator_loss:1.22613 host_net_loss:0.03691 
+batch:[100/109] losses:encoder_loss:0.73517 encoder_mse_loss:0.00279 encoder_ssim:0.96316 encoder_adv_loss:0.54027 encoder_host_loss:0.02341 discriminator_loss:1.14183 host_net_loss:0.04212 
+Evaluation starts
+host_net_non-trigger_acc:0.8353 host_net_trigger_success_rate:0.8978 host_net_error_trigged_rate:0.1493 discriminator acc:0.0000
+Epoch 00040: reducing learning rate of group 0 to 1.6000e-06.
+Epoch:40 elapse:1.5min ETA:92.2min losses:encoder_loss:0.75939 encoder_mse_loss:0.00229 encoder_ssim:0.95955 encoder_adv_loss:0.53584 encoder_host_loss:0.14460 discriminator_loss:1.20344 host_net_loss:0.03810 
+batch:[0/109] losses:encoder_loss:0.94497 encoder_mse_loss:0.00326 encoder_ssim:0.95798 encoder_adv_loss:0.72004 encoder_host_loss:0.05050 discriminator_loss:0.79516 host_net_loss:0.00615 
+batch:[50/109] losses:encoder_loss:0.73916 encoder_mse_loss:0.00317 encoder_ssim:0.95667 encoder_adv_loss:0.51098 encoder_host_loss:0.02022 discriminator_loss:1.15763 host_net_loss:0.00195 
+batch:[100/109] losses:encoder_loss:1.34595 encoder_mse_loss:0.01737 encoder_ssim:0.87736 encoder_adv_loss:0.48174 encoder_host_loss:1.98915 discriminator_loss:1.61348 host_net_loss:0.01806 
+Evaluation starts
+host_net_non-trigger_acc:0.8497 host_net_trigger_success_rate:0.8972 host_net_error_trigged_rate:0.1483 discriminator acc:0.0000
+Epoch:41 elapse:1.5min ETA:91.3min losses:encoder_loss:0.79781 encoder_mse_loss:0.00230 encoder_ssim:0.95872 encoder_adv_loss:0.57672 encoder_host_loss:0.07784 discriminator_loss:1.11202 host_net_loss:0.01575 
+batch:[0/109] losses:encoder_loss:0.80985 encoder_mse_loss:0.00207 encoder_ssim:0.95449 encoder_adv_loss:0.56822 encoder_host_loss:0.07898 discriminator_loss:1.05249 host_net_loss:0.03405 
+batch:[50/109] losses:encoder_loss:0.80625 encoder_mse_loss:0.00314 encoder_ssim:0.96477 encoder_adv_loss:0.61303 encoder_host_loss:0.07640 discriminator_loss:1.02240 host_net_loss:0.00247 
+batch:[100/109] losses:encoder_loss:0.78641 encoder_mse_loss:0.00187 encoder_ssim:0.96000 encoder_adv_loss:0.57745 encoder_host_loss:0.03369 discriminator_loss:1.22836 host_net_loss:0.00485 
+Evaluation starts
+host_net_non-trigger_acc:0.8731 host_net_trigger_success_rate:0.7658 host_net_error_trigged_rate:0.1224 discriminator acc:0.0000
+Epoch:42 elapse:1.5min ETA:89.5min losses:encoder_loss:0.78934 encoder_mse_loss:0.00206 encoder_ssim:0.96202 encoder_adv_loss:0.58505 encoder_host_loss:0.08186 discriminator_loss:1.10119 host_net_loss:0.01011 
+batch:[0/109] losses:encoder_loss:0.92031 encoder_mse_loss:0.00248 encoder_ssim:0.93237 encoder_adv_loss:0.57005 encoder_host_loss:0.04687 discriminator_loss:1.11836 host_net_loss:0.00548 
+batch:[50/109] losses:encoder_loss:0.73599 encoder_mse_loss:0.00119 encoder_ssim:0.96671 encoder_adv_loss:0.55336 encoder_host_loss:0.12586 discriminator_loss:0.93495 host_net_loss:0.00679 
+batch:[100/109] losses:encoder_loss:0.80578 encoder_mse_loss:0.00186 encoder_ssim:0.96401 encoder_adv_loss:0.60903 encoder_host_loss:0.11253 discriminator_loss:1.07204 host_net_loss:0.02440 
+Evaluation starts
+host_net_non-trigger_acc:0.8834 host_net_trigger_success_rate:0.7073 host_net_error_trigged_rate:0.1108 discriminator acc:0.0000
+Epoch:43 elapse:1.5min ETA:88.3min losses:encoder_loss:0.80893 encoder_mse_loss:0.00204 encoder_ssim:0.95992 encoder_adv_loss:0.59193 encoder_host_loss:0.10501 discriminator_loss:1.08104 host_net_loss:0.00912 
+batch:[0/109] losses:encoder_loss:0.75358 encoder_mse_loss:0.00169 encoder_ssim:0.96118 encoder_adv_loss:0.54313 encoder_host_loss:0.11266 discriminator_loss:1.09509 host_net_loss:0.00529 
+batch:[50/109] losses:encoder_loss:0.72922 encoder_mse_loss:0.00198 encoder_ssim:0.96226 encoder_adv_loss:0.50647 encoder_host_loss:0.28100 discriminator_loss:1.23794 host_net_loss:0.00161 
+batch:[100/109] losses:encoder_loss:0.78744 encoder_mse_loss:0.00201 encoder_ssim:0.96201 encoder_adv_loss:0.58920 encoder_host_loss:0.02245 discriminator_loss:1.39735 host_net_loss:0.00125 
+Evaluation starts
+host_net_non-trigger_acc:0.8813 host_net_trigger_success_rate:0.7188 host_net_error_trigged_rate:0.1127 discriminator acc:0.0000
+Epoch:44 elapse:1.5min ETA:86.2min losses:encoder_loss:0.82037 encoder_mse_loss:0.00195 encoder_ssim:0.96051 encoder_adv_loss:0.60584 encoder_host_loss:0.11220 discriminator_loss:1.03935 host_net_loss:0.00829 
+batch:[0/109] losses:encoder_loss:0.79555 encoder_mse_loss:0.00387 encoder_ssim:0.95267 encoder_adv_loss:0.53550 encoder_host_loss:0.11759 discriminator_loss:1.06568 host_net_loss:0.00871 
+batch:[50/109] losses:encoder_loss:0.81073 encoder_mse_loss:0.00163 encoder_ssim:0.96401 encoder_adv_loss:0.57914 encoder_host_loss:0.46776 discriminator_loss:1.20456 host_net_loss:0.00574 
+batch:[100/109] losses:encoder_loss:0.96256 encoder_mse_loss:0.00243 encoder_ssim:0.95468 encoder_adv_loss:0.69543 encoder_host_loss:0.33232 discriminator_loss:0.85129 host_net_loss:0.00265 
+Evaluation starts
+host_net_non-trigger_acc:0.8874 host_net_trigger_success_rate:0.6878 host_net_error_trigged_rate:0.1063 discriminator acc:0.0000
+Epoch:45 elapse:1.5min ETA:84.9min losses:encoder_loss:0.82463 encoder_mse_loss:0.00222 encoder_ssim:0.96026 encoder_adv_loss:0.60663 encoder_host_loss:0.12634 discriminator_loss:1.03603 host_net_loss:0.00613 
+batch:[0/109] losses:encoder_loss:0.78788 encoder_mse_loss:0.00219 encoder_ssim:0.96439 encoder_adv_loss:0.59538 encoder_host_loss:0.07903 discriminator_loss:0.90024 host_net_loss:0.00879 
+batch:[50/109] losses:encoder_loss:0.91952 encoder_mse_loss:0.00242 encoder_ssim:0.96110 encoder_adv_loss:0.69233 encoder_host_loss:0.25456 discriminator_loss:0.84911 host_net_loss:0.01348 
+batch:[100/109] losses:encoder_loss:0.80167 encoder_mse_loss:0.00221 encoder_ssim:0.96303 encoder_adv_loss:0.60851 encoder_host_loss:0.01685 discriminator_loss:0.75027 host_net_loss:0.00138 
+Evaluation starts
+host_net_non-trigger_acc:0.8995 host_net_trigger_success_rate:0.6126 host_net_error_trigged_rate:0.0911 discriminator acc:0.0000
+Epoch 00046: reducing learning rate of group 0 to 3.2000e-07.
+Epoch:46 elapse:1.5min ETA:83.3min losses:encoder_loss:0.83992 encoder_mse_loss:0.00202 encoder_ssim:0.96139 encoder_adv_loss:0.63019 encoder_host_loss:0.10630 discriminator_loss:0.97984 host_net_loss:0.00574 
+batch:[0/109] losses:encoder_loss:0.99767 encoder_mse_loss:0.00189 encoder_ssim:0.95138 encoder_adv_loss:0.74074 encoder_host_loss:0.08150 discriminator_loss:0.86401 host_net_loss:0.00197 
+batch:[50/109] losses:encoder_loss:0.80780 encoder_mse_loss:0.00150 encoder_ssim:0.96573 encoder_adv_loss:0.62931 encoder_host_loss:0.02679 discriminator_loss:0.72335 host_net_loss:0.01563 
+batch:[100/109] losses:encoder_loss:0.89738 encoder_mse_loss:0.00208 encoder_ssim:0.96339 encoder_adv_loss:0.67996 encoder_host_loss:0.28111 discriminator_loss:0.74994 host_net_loss:0.01971 
+Evaluation starts
+host_net_non-trigger_acc:0.8782 host_net_trigger_success_rate:0.7389 host_net_error_trigged_rate:0.1165 discriminator acc:0.0000
+Epoch:47 elapse:1.5min ETA:81.7min losses:encoder_loss:0.84625 encoder_mse_loss:0.00200 encoder_ssim:0.96114 encoder_adv_loss:0.63470 encoder_host_loss:0.11269 discriminator_loss:0.96303 host_net_loss:0.00527 
+batch:[0/109] losses:encoder_loss:0.82769 encoder_mse_loss:0.00225 encoder_ssim:0.95821 encoder_adv_loss:0.59713 encoder_host_loss:0.14871 discriminator_loss:1.00666 host_net_loss:0.00174 
+batch:[50/109] losses:encoder_loss:0.84010 encoder_mse_loss:0.00205 encoder_ssim:0.96070 encoder_adv_loss:0.63238 encoder_host_loss:0.05075 discriminator_loss:0.91484 host_net_loss:0.00191 
+batch:[100/109] losses:encoder_loss:1.01341 encoder_mse_loss:0.00207 encoder_ssim:0.96320 encoder_adv_loss:0.80199 encoder_host_loss:0.21188 discriminator_loss:0.62916 host_net_loss:0.00551 
+Evaluation starts
+host_net_non-trigger_acc:0.8675 host_net_trigger_success_rate:0.8038 host_net_error_trigged_rate:0.1296 discriminator acc:0.0000
+Epoch:48 elapse:1.6min ETA:81.2min losses:encoder_loss:0.86284 encoder_mse_loss:0.00197 encoder_ssim:0.96090 encoder_adv_loss:0.64980 encoder_host_loss:0.11655 discriminator_loss:0.92159 host_net_loss:0.00466 
+batch:[0/109] losses:encoder_loss:0.79116 encoder_mse_loss:0.00162 encoder_ssim:0.96174 encoder_adv_loss:0.57640 encoder_host_loss:0.18612 discriminator_loss:0.88570 host_net_loss:0.00513 
+batch:[50/109] losses:encoder_loss:0.81865 encoder_mse_loss:0.00152 encoder_ssim:0.96481 encoder_adv_loss:0.63513 encoder_host_loss:0.02999 discriminator_loss:0.70931 host_net_loss:0.00082 
+batch:[100/109] losses:encoder_loss:0.77903 encoder_mse_loss:0.00109 encoder_ssim:0.96362 encoder_adv_loss:0.58512 encoder_host_loss:0.08718 discriminator_loss:1.21694 host_net_loss:0.00176 
+Evaluation starts
+host_net_non-trigger_acc:0.8724 host_net_trigger_success_rate:0.7722 host_net_error_trigged_rate:0.1236 discriminator acc:0.0000
+Epoch 00049: reducing learning rate of group 0 to 8.0000e-06.
+Epoch:49 elapse:1.5min ETA:78.8min losses:encoder_loss:0.86926 encoder_mse_loss:0.00190 encoder_ssim:0.96099 encoder_adv_loss:0.65647 encoder_host_loss:0.12024 discriminator_loss:0.90017 host_net_loss:0.00473 
+batch:[0/109] losses:encoder_loss:0.74852 encoder_mse_loss:0.00196 encoder_ssim:0.96310 encoder_adv_loss:0.55742 encoder_host_loss:0.00703 discriminator_loss:0.94118 host_net_loss:0.00919 
+batch:[50/109] losses:encoder_loss:0.80032 encoder_mse_loss:0.00112 encoder_ssim:0.96279 encoder_adv_loss:0.60206 encoder_host_loss:0.08834 discriminator_loss:0.92527 host_net_loss:0.00164 
+batch:[100/109] losses:encoder_loss:0.70937 encoder_mse_loss:0.00178 encoder_ssim:0.96632 encoder_adv_loss:0.53203 encoder_host_loss:0.03601 discriminator_loss:1.00623 host_net_loss:0.00656 
+Evaluation starts
+host_net_non-trigger_acc:0.8856 host_net_trigger_success_rate:0.6925 host_net_error_trigged_rate:0.1073 discriminator acc:0.0000
+Epoch:50 elapse:1.6min ETA:77.6min losses:encoder_loss:0.85866 encoder_mse_loss:0.00200 encoder_ssim:0.95961 encoder_adv_loss:0.63997 encoder_host_loss:0.10719 discriminator_loss:0.87977 host_net_loss:0.00611 
+batch:[0/109] losses:encoder_loss:1.02560 encoder_mse_loss:0.00124 encoder_ssim:0.96475 encoder_adv_loss:0.84286 encoder_host_loss:0.02771 discriminator_loss:0.65904 host_net_loss:0.00172 
+batch:[50/109] losses:encoder_loss:0.82824 encoder_mse_loss:0.00173 encoder_ssim:0.96690 encoder_adv_loss:0.64145 encoder_host_loss:0.16094 discriminator_loss:0.88497 host_net_loss:0.00161 
+batch:[100/109] losses:encoder_loss:0.80704 encoder_mse_loss:0.00250 encoder_ssim:0.96200 encoder_adv_loss:0.59047 encoder_host_loss:0.19093 discriminator_loss:0.90704 host_net_loss:0.01717 
+Evaluation starts
+host_net_non-trigger_acc:0.8915 host_net_trigger_success_rate:0.6613 host_net_error_trigged_rate:0.1009 discriminator acc:0.0000
+Epoch:51 elapse:1.6min ETA:76.0min losses:encoder_loss:0.85995 encoder_mse_loss:0.00202 encoder_ssim:0.96068 encoder_adv_loss:0.64760 encoder_host_loss:0.09682 discriminator_loss:0.86441 host_net_loss:0.00485 
+batch:[0/109] losses:encoder_loss:0.92672 encoder_mse_loss:0.00211 encoder_ssim:0.96787 encoder_adv_loss:0.73981 encoder_host_loss:0.19915 discriminator_loss:0.79190 host_net_loss:0.00885 
+batch:[50/109] losses:encoder_loss:0.98762 encoder_mse_loss:0.00193 encoder_ssim:0.96241 encoder_adv_loss:0.78241 encoder_host_loss:0.11456 discriminator_loss:0.65649 host_net_loss:0.00922 
+batch:[100/109] losses:encoder_loss:0.95532 encoder_mse_loss:0.00185 encoder_ssim:0.96122 encoder_adv_loss:0.75279 encoder_host_loss:0.03098 discriminator_loss:0.72058 host_net_loss:0.00344 
+Evaluation starts
+host_net_non-trigger_acc:0.8739 host_net_trigger_success_rate:0.7695 host_net_error_trigged_rate:0.1224 discriminator acc:0.0000
+Epoch:52 elapse:1.5min ETA:74.3min losses:encoder_loss:0.87334 encoder_mse_loss:0.00190 encoder_ssim:0.96126 encoder_adv_loss:0.66197 encoder_host_loss:0.11932 discriminator_loss:0.84566 host_net_loss:0.00472 
+batch:[0/109] losses:encoder_loss:0.97300 encoder_mse_loss:0.00286 encoder_ssim:0.95561 encoder_adv_loss:0.72635 encoder_host_loss:0.16133 discriminator_loss:0.73003 host_net_loss:0.00116 
+batch:[50/109] losses:encoder_loss:0.79719 encoder_mse_loss:0.00163 encoder_ssim:0.95648 encoder_adv_loss:0.56839 encoder_host_loss:0.06339 discriminator_loss:0.96847 host_net_loss:0.02428 
+batch:[100/109] losses:encoder_loss:0.85454 encoder_mse_loss:0.00236 encoder_ssim:0.96934 encoder_adv_loss:0.68096 encoder_host_loss:0.13221 discriminator_loss:0.83375 host_net_loss:0.00066 
+Evaluation starts
+host_net_non-trigger_acc:0.8550 host_net_trigger_success_rate:0.8753 host_net_error_trigged_rate:0.1436 discriminator acc:0.0000
+Epoch:53 elapse:1.5min ETA:72.4min losses:encoder_loss:0.86413 encoder_mse_loss:0.00193 encoder_ssim:0.96135 encoder_adv_loss:0.65576 encoder_host_loss:0.09347 discriminator_loss:0.84839 host_net_loss:0.00471 
+batch:[0/109] losses:encoder_loss:0.87029 encoder_mse_loss:0.00176 encoder_ssim:0.96607 encoder_adv_loss:0.69494 encoder_host_loss:0.00400 discriminator_loss:0.80952 host_net_loss:0.00147 
+batch:[50/109] losses:encoder_loss:0.77105 encoder_mse_loss:0.00186 encoder_ssim:0.97008 encoder_adv_loss:0.59571 encoder_host_loss:0.20181 discriminator_loss:0.92626 host_net_loss:0.00130 
+batch:[100/109] losses:encoder_loss:0.98596 encoder_mse_loss:0.00198 encoder_ssim:0.96380 encoder_adv_loss:0.79756 encoder_host_loss:0.01481 discriminator_loss:0.62200 host_net_loss:0.00050 
+Evaluation starts
+host_net_non-trigger_acc:0.8584 host_net_trigger_success_rate:0.8565 host_net_error_trigged_rate:0.1398 discriminator acc:0.0000
+Epoch:54 elapse:1.6min ETA:71.3min losses:encoder_loss:0.87575 encoder_mse_loss:0.00193 encoder_ssim:0.96141 encoder_adv_loss:0.66380 encoder_host_loss:0.13214 discriminator_loss:0.85096 host_net_loss:0.00508 
+batch:[0/109] losses:encoder_loss:0.79842 encoder_mse_loss:0.00234 encoder_ssim:0.95799 encoder_adv_loss:0.54716 encoder_host_loss:0.34189 discriminator_loss:1.07015 host_net_loss:0.00264 
+batch:[50/109] losses:encoder_loss:0.75415 encoder_mse_loss:0.00103 encoder_ssim:0.96785 encoder_adv_loss:0.58231 encoder_host_loss:0.07985 discriminator_loss:0.96666 host_net_loss:0.00263 
+batch:[100/109] losses:encoder_loss:1.07384 encoder_mse_loss:0.00222 encoder_ssim:0.96037 encoder_adv_loss:0.86168 encoder_host_loss:0.07345 discriminator_loss:0.65531 host_net_loss:0.00241 
+Evaluation starts
+host_net_non-trigger_acc:0.8733 host_net_trigger_success_rate:0.7702 host_net_error_trigged_rate:0.1228 discriminator acc:0.0000
+Epoch:55 elapse:1.5min ETA:69.1min losses:encoder_loss:0.87445 encoder_mse_loss:0.00197 encoder_ssim:0.96109 encoder_adv_loss:0.66241 encoder_host_loss:0.11587 discriminator_loss:0.84190 host_net_loss:0.00395 
+batch:[0/109] losses:encoder_loss:0.99117 encoder_mse_loss:0.00165 encoder_ssim:0.96532 encoder_adv_loss:0.81167 encoder_host_loss:0.01156 discriminator_loss:0.63718 host_net_loss:0.00057 
+batch:[50/109] losses:encoder_loss:0.87258 encoder_mse_loss:0.00129 encoder_ssim:0.96667 encoder_adv_loss:0.69398 encoder_host_loss:0.08067 discriminator_loss:0.76189 host_net_loss:0.00077 
+batch:[100/109] losses:encoder_loss:1.06412 encoder_mse_loss:0.00147 encoder_ssim:0.96172 encoder_adv_loss:0.86772 encoder_host_loss:0.00614 discriminator_loss:0.60600 host_net_loss:0.00156 
+Evaluation starts
+host_net_non-trigger_acc:0.8642 host_net_trigger_success_rate:0.8243 host_net_error_trigged_rate:0.1335 discriminator acc:0.0000
+Epoch:56 elapse:1.5min ETA:68.1min losses:encoder_loss:0.86388 encoder_mse_loss:0.00193 encoder_ssim:0.96113 encoder_adv_loss:0.65500 encoder_host_loss:0.08721 discriminator_loss:0.83898 host_net_loss:0.00369 
+batch:[0/109] losses:encoder_loss:0.86403 encoder_mse_loss:0.00177 encoder_ssim:0.96021 encoder_adv_loss:0.64662 encoder_host_loss:0.13173 discriminator_loss:0.86620 host_net_loss:0.00473 
+batch:[50/109] losses:encoder_loss:0.95654 encoder_mse_loss:0.00219 encoder_ssim:0.95842 encoder_adv_loss:0.73958 encoder_host_loss:0.02476 discriminator_loss:0.70788 host_net_loss:0.00128 
+batch:[100/109] losses:encoder_loss:0.83203 encoder_mse_loss:0.00168 encoder_ssim:0.96906 encoder_adv_loss:0.67212 encoder_host_loss:0.00189 discriminator_loss:0.95589 host_net_loss:0.00096 
+Evaluation starts
+host_net_non-trigger_acc:0.8651 host_net_trigger_success_rate:0.8172 host_net_error_trigged_rate:0.1320 discriminator acc:0.0000
+Epoch:57 elapse:1.5min ETA:66.3min losses:encoder_loss:0.87625 encoder_mse_loss:0.00189 encoder_ssim:0.96145 encoder_adv_loss:0.66876 encoder_host_loss:0.09084 discriminator_loss:0.84237 host_net_loss:0.00439 
+batch:[0/109] losses:encoder_loss:0.64922 encoder_mse_loss:0.00119 encoder_ssim:0.96485 encoder_adv_loss:0.46771 encoder_host_loss:0.02200 discriminator_loss:1.14310 host_net_loss:0.00070 
+batch:[50/109] losses:encoder_loss:1.10778 encoder_mse_loss:0.00183 encoder_ssim:0.96320 encoder_adv_loss:0.91630 encoder_host_loss:0.01999 discriminator_loss:0.58238 host_net_loss:0.00502 
+batch:[100/109] losses:encoder_loss:1.21500 encoder_mse_loss:0.00194 encoder_ssim:0.96198 encoder_adv_loss:1.01656 encoder_host_loss:0.02514 discriminator_loss:0.51333 host_net_loss:0.02777 
+Evaluation starts
+host_net_non-trigger_acc:0.8653 host_net_trigger_success_rate:0.8196 host_net_error_trigged_rate:0.1323 discriminator acc:0.0000
+Epoch 00058: reducing learning rate of group 0 to 1.6000e-06.
+Epoch:58 elapse:1.5min ETA:64.5min losses:encoder_loss:0.86543 encoder_mse_loss:0.00188 encoder_ssim:0.96165 encoder_adv_loss:0.65777 encoder_host_loss:0.10249 discriminator_loss:0.84853 host_net_loss:0.00410 
+batch:[0/109] losses:encoder_loss:0.87437 encoder_mse_loss:0.00360 encoder_ssim:0.93200 encoder_adv_loss:0.51369 encoder_host_loss:0.09883 discriminator_loss:1.03134 host_net_loss:0.00095 
+batch:[50/109] losses:encoder_loss:1.14876 encoder_mse_loss:0.00126 encoder_ssim:0.95498 encoder_adv_loss:0.91456 encoder_host_loss:0.05315 discriminator_loss:0.60162 host_net_loss:0.00115 
+batch:[100/109] losses:encoder_loss:0.80216 encoder_mse_loss:0.00127 encoder_ssim:0.96370 encoder_adv_loss:0.61658 encoder_host_loss:0.00294 discriminator_loss:0.82476 host_net_loss:0.02460 
+Evaluation starts
+host_net_non-trigger_acc:0.8891 host_net_trigger_success_rate:0.6747 host_net_error_trigged_rate:0.1038 discriminator acc:0.0000
+Epoch:59 elapse:1.6min ETA:63.7min losses:encoder_loss:0.87674 encoder_mse_loss:0.00194 encoder_ssim:0.96093 encoder_adv_loss:0.66606 encoder_host_loss:0.09516 discriminator_loss:0.83305 host_net_loss:0.00402 
+batch:[0/109] losses:encoder_loss:0.98372 encoder_mse_loss:0.00186 encoder_ssim:0.95833 encoder_adv_loss:0.75522 encoder_host_loss:0.14561 discriminator_loss:0.70182 host_net_loss:0.00889 
+batch:[50/109] losses:encoder_loss:0.95823 encoder_mse_loss:0.00125 encoder_ssim:0.96230 encoder_adv_loss:0.76223 encoder_host_loss:0.03757 discriminator_loss:0.72827 host_net_loss:0.00508 
+batch:[100/109] losses:encoder_loss:0.73687 encoder_mse_loss:0.00164 encoder_ssim:0.96129 encoder_adv_loss:0.52056 encoder_host_loss:0.17814 discriminator_loss:1.47316 host_net_loss:0.00224 
+Evaluation starts
+host_net_non-trigger_acc:0.8712 host_net_trigger_success_rate:0.7816 host_net_error_trigged_rate:0.1252 discriminator acc:0.0000
+Epoch:60 elapse:1.5min ETA:61.7min losses:encoder_loss:0.87604 encoder_mse_loss:0.00201 encoder_ssim:0.96066 encoder_adv_loss:0.66192 encoder_host_loss:0.11360 discriminator_loss:0.84007 host_net_loss:0.00465 
+batch:[0/109] losses:encoder_loss:0.69755 encoder_mse_loss:0.00143 encoder_ssim:0.96318 encoder_adv_loss:0.50831 encoder_host_loss:0.00827 discriminator_loss:1.03925 host_net_loss:0.00606 
+batch:[50/109] losses:encoder_loss:0.80973 encoder_mse_loss:0.00256 encoder_ssim:0.96658 encoder_adv_loss:0.63336 encoder_host_loss:0.01570 discriminator_loss:0.81676 host_net_loss:0.00108 
+batch:[100/109] losses:encoder_loss:0.92394 encoder_mse_loss:0.00141 encoder_ssim:0.96561 encoder_adv_loss:0.73944 encoder_host_loss:0.08327 discriminator_loss:0.75337 host_net_loss:0.00129 
+Evaluation starts
+host_net_non-trigger_acc:0.8580 host_net_trigger_success_rate:0.8542 host_net_error_trigged_rate:0.1398 discriminator acc:0.0000
+Epoch:61 elapse:1.5min ETA:60.0min losses:encoder_loss:0.86972 encoder_mse_loss:0.00204 encoder_ssim:0.96070 encoder_adv_loss:0.65748 encoder_host_loss:0.09644 discriminator_loss:0.84816 host_net_loss:0.00403 
+batch:[0/109] losses:encoder_loss:0.79356 encoder_mse_loss:0.00176 encoder_ssim:0.95319 encoder_adv_loss:0.54973 encoder_host_loss:0.04523 discriminator_loss:0.94567 host_net_loss:0.00254 
+batch:[50/109] losses:encoder_loss:0.71610 encoder_mse_loss:0.00162 encoder_ssim:0.96188 encoder_adv_loss:0.51489 encoder_host_loss:0.05754 discriminator_loss:1.04710 host_net_loss:0.00250 
+batch:[100/109] losses:encoder_loss:0.70565 encoder_mse_loss:0.00087 encoder_ssim:0.96402 encoder_adv_loss:0.52016 encoder_host_loss:0.02984 discriminator_loss:1.05283 host_net_loss:0.00187 
+Evaluation starts
+host_net_non-trigger_acc:0.8724 host_net_trigger_success_rate:0.7776 host_net_error_trigged_rate:0.1241 discriminator acc:0.0000
+Epoch 00062: reducing learning rate of group 0 to 6.4000e-08.
+Epoch:62 elapse:1.5min ETA:58.5min losses:encoder_loss:0.86446 encoder_mse_loss:0.00197 encoder_ssim:0.95939 encoder_adv_loss:0.64445 encoder_host_loss:0.11064 discriminator_loss:0.86267 host_net_loss:0.00327 
+batch:[0/109] losses:encoder_loss:1.08065 encoder_mse_loss:0.00164 encoder_ssim:0.95717 encoder_adv_loss:0.85690 encoder_host_loss:0.04661 discriminator_loss:0.60710 host_net_loss:0.00110 
+batch:[50/109] losses:encoder_loss:0.81253 encoder_mse_loss:0.00298 encoder_ssim:0.95640 encoder_adv_loss:0.57424 encoder_host_loss:0.11315 discriminator_loss:0.89307 host_net_loss:0.01333 
+batch:[100/109] losses:encoder_loss:0.94070 encoder_mse_loss:0.00146 encoder_ssim:0.96386 encoder_adv_loss:0.75366 encoder_host_loss:0.01941 discriminator_loss:0.71956 host_net_loss:0.00266 
+Evaluation starts
+host_net_non-trigger_acc:0.8566 host_net_trigger_success_rate:0.8656 host_net_error_trigged_rate:0.1415 discriminator acc:0.0000
+Epoch:63 elapse:1.6min ETA:57.8min losses:encoder_loss:0.87907 encoder_mse_loss:0.00191 encoder_ssim:0.95948 encoder_adv_loss:0.66159 encoder_host_loss:0.09155 discriminator_loss:0.84490 host_net_loss:0.00342 
+batch:[0/109] losses:encoder_loss:0.88947 encoder_mse_loss:0.00229 encoder_ssim:0.96747 encoder_adv_loss:0.70323 encoder_host_loss:0.16742 discriminator_loss:0.85184 host_net_loss:0.00072 
+batch:[50/109] losses:encoder_loss:0.79822 encoder_mse_loss:0.00202 encoder_ssim:0.96457 encoder_adv_loss:0.61191 encoder_host_loss:0.03103 discriminator_loss:0.88358 host_net_loss:0.00151 
+batch:[100/109] losses:encoder_loss:1.01499 encoder_mse_loss:0.00209 encoder_ssim:0.96364 encoder_adv_loss:0.82449 encoder_host_loss:0.02447 discriminator_loss:0.68670 host_net_loss:0.01842 
+Evaluation starts
+host_net_non-trigger_acc:0.8566 host_net_trigger_success_rate:0.8679 host_net_error_trigged_rate:0.1419 discriminator acc:0.0000
+Epoch:64 elapse:1.5min ETA:55.5min losses:encoder_loss:0.87449 encoder_mse_loss:0.00188 encoder_ssim:0.96058 encoder_adv_loss:0.66101 encoder_host_loss:0.10750 discriminator_loss:0.85472 host_net_loss:0.00331 
+batch:[0/109] losses:encoder_loss:0.82618 encoder_mse_loss:0.00183 encoder_ssim:0.96444 encoder_adv_loss:0.63733 encoder_host_loss:0.05549 discriminator_loss:0.79486 host_net_loss:0.00410 
+batch:[50/109] losses:encoder_loss:0.87119 encoder_mse_loss:0.00149 encoder_ssim:0.96486 encoder_adv_loss:0.68809 encoder_host_loss:0.02917 discriminator_loss:0.78423 host_net_loss:0.02586 
+batch:[100/109] losses:encoder_loss:1.09201 encoder_mse_loss:0.00256 encoder_ssim:0.94325 encoder_adv_loss:0.79765 encoder_host_loss:0.02945 discriminator_loss:0.74909 host_net_loss:0.00047 
+Evaluation starts
+host_net_non-trigger_acc:0.8444 host_net_trigger_success_rate:0.9298 host_net_error_trigged_rate:0.1545 discriminator acc:0.0000
+Epoch:65 elapse:1.6min ETA:54.3min losses:encoder_loss:0.87370 encoder_mse_loss:0.00197 encoder_ssim:0.96037 encoder_adv_loss:0.66027 encoder_host_loss:0.09354 discriminator_loss:0.84810 host_net_loss:0.00357 
+batch:[0/109] losses:encoder_loss:0.93311 encoder_mse_loss:0.00213 encoder_ssim:0.95687 encoder_adv_loss:0.69202 encoder_host_loss:0.19076 discriminator_loss:0.81906 host_net_loss:0.00277 
+batch:[50/109] losses:encoder_loss:0.97415 encoder_mse_loss:0.00172 encoder_ssim:0.95910 encoder_adv_loss:0.75435 encoder_host_loss:0.10160 discriminator_loss:0.76107 host_net_loss:0.00233 
+batch:[100/109] losses:encoder_loss:0.71105 encoder_mse_loss:0.00159 encoder_ssim:0.96630 encoder_adv_loss:0.52405 encoder_host_loss:0.13697 discriminator_loss:0.97696 host_net_loss:0.00248 
+Evaluation starts
+host_net_non-trigger_acc:0.8705 host_net_trigger_success_rate:0.7856 host_net_error_trigged_rate:0.1255 discriminator acc:0.0000
+Epoch:66 elapse:1.5min ETA:52.2min losses:encoder_loss:0.86652 encoder_mse_loss:0.00191 encoder_ssim:0.96022 encoder_adv_loss:0.65152 encoder_host_loss:0.10376 discriminator_loss:0.84706 host_net_loss:0.00377 
+batch:[0/109] losses:encoder_loss:0.80389 encoder_mse_loss:0.00212 encoder_ssim:0.96003 encoder_adv_loss:0.59020 encoder_host_loss:0.07484 discriminator_loss:0.87015 host_net_loss:0.00064 
+batch:[50/109] losses:encoder_loss:0.65418 encoder_mse_loss:0.00139 encoder_ssim:0.95781 encoder_adv_loss:0.43159 encoder_host_loss:0.07476 discriminator_loss:1.10380 host_net_loss:0.00327 
+batch:[100/109] losses:encoder_loss:0.81453 encoder_mse_loss:0.00251 encoder_ssim:0.95732 encoder_adv_loss:0.56755 encoder_host_loss:0.26045 discriminator_loss:0.93481 host_net_loss:0.00183 
+Evaluation starts
+host_net_non-trigger_acc:0.8671 host_net_trigger_success_rate:0.8085 host_net_error_trigged_rate:0.1302 discriminator acc:0.0000
+Epoch 00067: reducing learning rate of group 0 to 3.2000e-07.
+Epoch:67 elapse:1.6min ETA:51.4min losses:encoder_loss:0.87755 encoder_mse_loss:0.00202 encoder_ssim:0.95999 encoder_adv_loss:0.66051 encoder_host_loss:0.10923 discriminator_loss:0.85069 host_net_loss:0.00428 
+batch:[0/109] losses:encoder_loss:1.04331 encoder_mse_loss:0.00172 encoder_ssim:0.95988 encoder_adv_loss:0.83156 encoder_host_loss:0.05987 discriminator_loss:0.73383 host_net_loss:0.00121 
+batch:[50/109] losses:encoder_loss:0.88085 encoder_mse_loss:0.00147 encoder_ssim:0.96688 encoder_adv_loss:0.70821 encoder_host_loss:0.02642 discriminator_loss:0.77520 host_net_loss:0.00083 
+batch:[100/109] losses:encoder_loss:0.80280 encoder_mse_loss:0.00216 encoder_ssim:0.95463 encoder_adv_loss:0.55794 encoder_host_loss:0.11556 discriminator_loss:1.06716 host_net_loss:0.00770 
+Evaluation starts
+host_net_non-trigger_acc:0.8648 host_net_trigger_success_rate:0.8206 host_net_error_trigged_rate:0.1327 discriminator acc:0.0000
+Epoch 00068: reducing learning rate of group 0 to 1.2800e-08.
+Epoch:68 elapse:1.5min ETA:49.6min losses:encoder_loss:0.86947 encoder_mse_loss:0.00185 encoder_ssim:0.96079 encoder_adv_loss:0.65611 encoder_host_loss:0.11781 discriminator_loss:0.85558 host_net_loss:0.00366 
+batch:[0/109] losses:encoder_loss:0.88703 encoder_mse_loss:0.00149 encoder_ssim:0.95785 encoder_adv_loss:0.65238 encoder_host_loss:0.19436 discriminator_loss:0.93010 host_net_loss:0.00285 
+batch:[50/109] losses:encoder_loss:0.94017 encoder_mse_loss:0.00153 encoder_ssim:0.96778 encoder_adv_loss:0.76954 encoder_host_loss:0.04917 discriminator_loss:0.83643 host_net_loss:0.01917 
+batch:[100/109] losses:encoder_loss:1.06061 encoder_mse_loss:0.00234 encoder_ssim:0.96019 encoder_adv_loss:0.84841 encoder_host_loss:0.06088 discriminator_loss:0.59420 host_net_loss:0.00109 
+Evaluation starts
+host_net_non-trigger_acc:0.8429 host_net_trigger_success_rate:0.9388 host_net_error_trigged_rate:0.1560 discriminator acc:0.0000
+Epoch:69 elapse:1.6min ETA:48.2min losses:encoder_loss:0.87502 encoder_mse_loss:0.00203 encoder_ssim:0.95926 encoder_adv_loss:0.65343 encoder_host_loss:0.11798 discriminator_loss:0.84672 host_net_loss:0.00334 
+batch:[0/109] losses:encoder_loss:0.98640 encoder_mse_loss:0.00329 encoder_ssim:0.94722 encoder_adv_loss:0.70582 encoder_host_loss:0.06780 discriminator_loss:0.72652 host_net_loss:0.00030 
+batch:[50/109] losses:encoder_loss:0.73704 encoder_mse_loss:0.00231 encoder_ssim:0.96701 encoder_adv_loss:0.55055 encoder_host_loss:0.14610 discriminator_loss:0.90811 host_net_loss:0.00889 
+batch:[100/109] losses:encoder_loss:0.95273 encoder_mse_loss:0.00168 encoder_ssim:0.95544 encoder_adv_loss:0.72020 encoder_host_loss:0.04691 discriminator_loss:0.74617 host_net_loss:0.00127 
+Evaluation starts
+host_net_non-trigger_acc:0.8530 host_net_trigger_success_rate:0.8847 host_net_error_trigged_rate:0.1455 discriminator acc:0.0000
+Epoch:70 elapse:1.5min ETA:46.2min losses:encoder_loss:0.88141 encoder_mse_loss:0.00194 encoder_ssim:0.95998 encoder_adv_loss:0.66442 encoder_host_loss:0.11056 discriminator_loss:0.83259 host_net_loss:0.00303 
+batch:[0/109] losses:encoder_loss:0.79071 encoder_mse_loss:0.00131 encoder_ssim:0.96483 encoder_adv_loss:0.60902 encoder_host_loss:0.01892 discriminator_loss:0.88424 host_net_loss:0.00092 
+batch:[50/109] losses:encoder_loss:0.91630 encoder_mse_loss:0.00165 encoder_ssim:0.95936 encoder_adv_loss:0.70450 encoder_host_loss:0.03632 discriminator_loss:0.91873 host_net_loss:0.00093 
+batch:[100/109] losses:encoder_loss:0.98728 encoder_mse_loss:0.00101 encoder_ssim:0.96884 encoder_adv_loss:0.81991 encoder_host_loss:0.08539 discriminator_loss:0.71990 host_net_loss:0.01754 
+Evaluation starts
+host_net_non-trigger_acc:0.8504 host_net_trigger_success_rate:0.8992 host_net_error_trigged_rate:0.1482 discriminator acc:0.0000
+Epoch:71 elapse:1.5min ETA:44.7min losses:encoder_loss:0.88151 encoder_mse_loss:0.00196 encoder_ssim:0.95985 encoder_adv_loss:0.66475 encoder_host_loss:0.10149 discriminator_loss:0.83330 host_net_loss:0.00350 
+batch:[0/109] losses:encoder_loss:0.92159 encoder_mse_loss:0.00124 encoder_ssim:0.96780 encoder_adv_loss:0.75339 encoder_host_loss:0.03453 discriminator_loss:0.76366 host_net_loss:0.00109 
+batch:[50/109] losses:encoder_loss:0.91130 encoder_mse_loss:0.00196 encoder_ssim:0.96361 encoder_adv_loss:0.72297 encoder_host_loss:0.00539 discriminator_loss:0.76680 host_net_loss:0.00166 
+batch:[100/109] losses:encoder_loss:0.70543 encoder_mse_loss:0.00248 encoder_ssim:0.95590 encoder_adv_loss:0.47555 encoder_host_loss:0.01969 discriminator_loss:1.09961 host_net_loss:0.00081 
+Evaluation starts
+host_net_non-trigger_acc:0.8576 host_net_trigger_success_rate:0.8585 host_net_error_trigged_rate:0.1402 discriminator acc:0.0000
+Epoch:72 elapse:1.5min ETA:43.3min losses:encoder_loss:0.87819 encoder_mse_loss:0.00189 encoder_ssim:0.96079 encoder_adv_loss:0.66595 encoder_host_loss:0.10501 discriminator_loss:0.83891 host_net_loss:0.00318 
+batch:[0/109] losses:encoder_loss:0.62354 encoder_mse_loss:0.00160 encoder_ssim:0.96817 encoder_adv_loss:0.45576 encoder_host_loss:0.03817 discriminator_loss:1.18506 host_net_loss:0.00296 
+batch:[50/109] losses:encoder_loss:0.61868 encoder_mse_loss:0.00215 encoder_ssim:0.96264 encoder_adv_loss:0.42031 encoder_host_loss:0.05124 discriminator_loss:1.24909 host_net_loss:0.00169 
+batch:[100/109] losses:encoder_loss:1.01079 encoder_mse_loss:0.00141 encoder_ssim:0.96273 encoder_adv_loss:0.81959 encoder_host_loss:0.00597 discriminator_loss:0.62294 host_net_loss:0.00107 
+Evaluation starts
+host_net_non-trigger_acc:0.8427 host_net_trigger_success_rate:0.9365 host_net_error_trigged_rate:0.1559 discriminator acc:0.0000
+Epoch:73 elapse:1.5min ETA:41.7min losses:encoder_loss:0.87750 encoder_mse_loss:0.00188 encoder_ssim:0.96008 encoder_adv_loss:0.66222 encoder_host_loss:0.10059 discriminator_loss:0.84369 host_net_loss:0.00348 
+batch:[0/109] losses:encoder_loss:0.94960 encoder_mse_loss:0.00369 encoder_ssim:0.95792 encoder_adv_loss:0.72620 encoder_host_loss:0.01916 discriminator_loss:0.82834 host_net_loss:0.00093 
+batch:[50/109] losses:encoder_loss:1.12128 encoder_mse_loss:0.00202 encoder_ssim:0.96372 encoder_adv_loss:0.91462 encoder_host_loss:0.19217 discriminator_loss:0.58713 host_net_loss:0.01758 
+batch:[100/109] losses:encoder_loss:0.83351 encoder_mse_loss:0.00091 encoder_ssim:0.96847 encoder_adv_loss:0.67252 encoder_host_loss:0.00622 discriminator_loss:0.94774 host_net_loss:0.02122 
+Evaluation starts
+host_net_non-trigger_acc:0.8522 host_net_trigger_success_rate:0.8898 host_net_error_trigged_rate:0.1462 discriminator acc:0.0000
+Epoch:74 elapse:1.5min ETA:40.1min losses:encoder_loss:0.87326 encoder_mse_loss:0.00185 encoder_ssim:0.96083 encoder_adv_loss:0.66390 encoder_host_loss:0.07939 discriminator_loss:0.83587 host_net_loss:0.00319 
+batch:[0/109] losses:encoder_loss:1.05111 encoder_mse_loss:0.00263 encoder_ssim:0.96022 encoder_adv_loss:0.81408 encoder_host_loss:0.30236 discriminator_loss:0.68902 host_net_loss:0.00163 
+batch:[50/109] losses:encoder_loss:0.64422 encoder_mse_loss:0.00082 encoder_ssim:0.97198 encoder_adv_loss:0.49458 encoder_host_loss:0.07091 discriminator_loss:1.06576 host_net_loss:0.00034 
+batch:[100/109] losses:encoder_loss:0.81300 encoder_mse_loss:0.00146 encoder_ssim:0.95985 encoder_adv_loss:0.60317 encoder_host_loss:0.04669 discriminator_loss:0.84082 host_net_loss:0.00046 
+Evaluation starts
+host_net_non-trigger_acc:0.8655 host_net_trigger_success_rate:0.8169 host_net_error_trigged_rate:0.1319 discriminator acc:0.0000
+Epoch:75 elapse:1.5min ETA:38.4min losses:encoder_loss:0.85651 encoder_mse_loss:0.00185 encoder_ssim:0.96011 encoder_adv_loss:0.64074 encoder_host_loss:0.10786 discriminator_loss:0.85942 host_net_loss:0.00391 
+batch:[0/109] losses:encoder_loss:1.02250 encoder_mse_loss:0.00222 encoder_ssim:0.95151 encoder_adv_loss:0.77185 encoder_host_loss:0.01524 discriminator_loss:0.68716 host_net_loss:0.00150 
+batch:[50/109] losses:encoder_loss:0.85465 encoder_mse_loss:0.00125 encoder_ssim:0.96730 encoder_adv_loss:0.68618 encoder_host_loss:0.01194 discriminator_loss:0.86482 host_net_loss:0.00049 
+batch:[100/109] losses:encoder_loss:0.74373 encoder_mse_loss:0.00143 encoder_ssim:0.96272 encoder_adv_loss:0.53780 encoder_host_loss:0.15232 discriminator_loss:0.93777 host_net_loss:0.00131 
+Evaluation starts
+host_net_non-trigger_acc:0.8532 host_net_trigger_success_rate:0.8824 host_net_error_trigged_rate:0.1448 discriminator acc:0.0000
+Epoch 00076: reducing learning rate of group 0 to 6.4000e-08.
+Epoch:76 elapse:1.6min ETA:37.3min losses:encoder_loss:0.87626 encoder_mse_loss:0.00198 encoder_ssim:0.96089 encoder_adv_loss:0.66575 encoder_host_loss:0.09021 discriminator_loss:0.83748 host_net_loss:0.00239 
+batch:[0/109] losses:encoder_loss:0.92573 encoder_mse_loss:0.00202 encoder_ssim:0.96336 encoder_adv_loss:0.73449 encoder_host_loss:0.01993 discriminator_loss:0.73428 host_net_loss:0.00127 
+batch:[50/109] losses:encoder_loss:0.71234 encoder_mse_loss:0.00241 encoder_ssim:0.96132 encoder_adv_loss:0.49162 encoder_host_loss:0.20110 discriminator_loss:0.98939 host_net_loss:0.00115 
+batch:[100/109] losses:encoder_loss:0.78875 encoder_mse_loss:0.00151 encoder_ssim:0.96417 encoder_adv_loss:0.58984 encoder_host_loss:0.15192 discriminator_loss:0.98082 host_net_loss:0.03099 
+Evaluation starts
+host_net_non-trigger_acc:0.8723 host_net_trigger_success_rate:0.7722 host_net_error_trigged_rate:0.1231 discriminator acc:0.0000
+Epoch:77 elapse:1.5min ETA:35.4min losses:encoder_loss:0.87893 encoder_mse_loss:0.00197 encoder_ssim:0.96062 encoder_adv_loss:0.66796 encoder_host_loss:0.08161 discriminator_loss:0.83192 host_net_loss:0.00278 
+batch:[0/109] losses:encoder_loss:0.92775 encoder_mse_loss:0.00181 encoder_ssim:0.95268 encoder_adv_loss:0.67573 encoder_host_loss:0.10002 discriminator_loss:0.78729 host_net_loss:0.00091 
+batch:[50/109] losses:encoder_loss:0.97217 encoder_mse_loss:0.00145 encoder_ssim:0.95898 encoder_adv_loss:0.75308 encoder_host_loss:0.09631 discriminator_loss:0.78437 host_net_loss:0.00157 
+batch:[100/109] losses:encoder_loss:0.79165 encoder_mse_loss:0.00197 encoder_ssim:0.95178 encoder_adv_loss:0.54357 encoder_host_loss:0.01071 discriminator_loss:0.98761 host_net_loss:0.00058 
+Evaluation starts
+host_net_non-trigger_acc:0.8569 host_net_trigger_success_rate:0.8606 host_net_error_trigged_rate:0.1407 discriminator acc:0.0000
+Epoch:78 elapse:1.6min ETA:34.1min losses:encoder_loss:0.87451 encoder_mse_loss:0.00195 encoder_ssim:0.95982 encoder_adv_loss:0.65753 encoder_host_loss:0.10245 discriminator_loss:0.84833 host_net_loss:0.00375 
+batch:[0/109] losses:encoder_loss:0.75977 encoder_mse_loss:0.00144 encoder_ssim:0.96655 encoder_adv_loss:0.58465 encoder_host_loss:0.03550 discriminator_loss:0.88445 host_net_loss:0.00031 
+batch:[50/109] losses:encoder_loss:0.99749 encoder_mse_loss:0.00210 encoder_ssim:0.96352 encoder_adv_loss:0.79663 encoder_host_loss:0.12161 discriminator_loss:0.71380 host_net_loss:0.00094 
+batch:[100/109] losses:encoder_loss:0.98773 encoder_mse_loss:0.00279 encoder_ssim:0.93908 encoder_adv_loss:0.67183 encoder_host_loss:0.02907 discriminator_loss:0.79573 host_net_loss:0.00511 
+Evaluation starts
+host_net_non-trigger_acc:0.8476 host_net_trigger_success_rate:0.9113 host_net_error_trigged_rate:0.1508 discriminator acc:0.0000
+Epoch:79 elapse:1.5min ETA:32.3min losses:encoder_loss:0.87194 encoder_mse_loss:0.00191 encoder_ssim:0.95941 encoder_adv_loss:0.65466 encoder_host_loss:0.08619 discriminator_loss:0.85211 host_net_loss:0.00291 
+batch:[0/109] losses:encoder_loss:1.10898 encoder_mse_loss:0.00154 encoder_ssim:0.95724 encoder_adv_loss:0.88765 encoder_host_loss:0.02924 discriminator_loss:0.59616 host_net_loss:0.00101 
+batch:[50/109] losses:encoder_loss:0.78047 encoder_mse_loss:0.00127 encoder_ssim:0.95882 encoder_adv_loss:0.57004 encoder_host_loss:0.00709 discriminator_loss:0.98541 host_net_loss:0.00095 
+batch:[100/109] losses:encoder_loss:0.98080 encoder_mse_loss:0.00205 encoder_ssim:0.96101 encoder_adv_loss:0.77941 encoder_host_loss:0.00295 discriminator_loss:0.65815 host_net_loss:0.00069 
+Evaluation starts
+host_net_non-trigger_acc:0.8662 host_net_trigger_success_rate:0.8112 host_net_error_trigged_rate:0.1307 discriminator acc:0.0000
+Epoch:80 elapse:1.5min ETA:31.0min losses:encoder_loss:0.88490 encoder_mse_loss:0.00195 encoder_ssim:0.96054 encoder_adv_loss:0.67377 encoder_host_loss:0.07995 discriminator_loss:0.82524 host_net_loss:0.00310 
+batch:[0/109] losses:encoder_loss:0.94583 encoder_mse_loss:0.00196 encoder_ssim:0.95570 encoder_adv_loss:0.69871 encoder_host_loss:0.19729 discriminator_loss:0.72279 host_net_loss:0.00033 
+batch:[50/109] losses:encoder_loss:0.81655 encoder_mse_loss:0.00138 encoder_ssim:0.96431 encoder_adv_loss:0.62795 encoder_host_loss:0.05996 discriminator_loss:0.87998 host_net_loss:0.00063 
+batch:[100/109] losses:encoder_loss:0.76025 encoder_mse_loss:0.00198 encoder_ssim:0.96414 encoder_adv_loss:0.56841 encoder_host_loss:0.06605 discriminator_loss:1.05982 host_net_loss:0.00051 
+Evaluation starts
+host_net_non-trigger_acc:0.8523 host_net_trigger_success_rate:0.8888 host_net_error_trigged_rate:0.1462 discriminator acc:0.0000
+Epoch 00081: reducing learning rate of group 0 to 2.5600e-09.
+Epoch:81 elapse:1.5min ETA:29.3min losses:encoder_loss:0.85412 encoder_mse_loss:0.00197 encoder_ssim:0.95976 encoder_adv_loss:0.63592 encoder_host_loss:0.11069 discriminator_loss:0.86528 host_net_loss:0.00238 
+batch:[0/109] losses:encoder_loss:0.95050 encoder_mse_loss:0.00213 encoder_ssim:0.95786 encoder_adv_loss:0.71216 encoder_host_loss:0.21236 discriminator_loss:0.77322 host_net_loss:0.00137 
+batch:[50/109] losses:encoder_loss:1.10788 encoder_mse_loss:0.00216 encoder_ssim:0.96040 encoder_adv_loss:0.87378 encoder_host_loss:0.29643 discriminator_loss:0.64527 host_net_loss:0.00144 
+batch:[100/109] losses:encoder_loss:0.95375 encoder_mse_loss:0.00154 encoder_ssim:0.94453 encoder_adv_loss:0.66945 encoder_host_loss:0.02335 discriminator_loss:0.86593 host_net_loss:0.00077 
+Evaluation starts
+host_net_non-trigger_acc:0.8655 host_net_trigger_success_rate:0.8159 host_net_error_trigged_rate:0.1315 discriminator acc:0.0000
+Epoch:82 elapse:1.5min ETA:27.9min losses:encoder_loss:0.88124 encoder_mse_loss:0.00188 encoder_ssim:0.96062 encoder_adv_loss:0.66895 encoder_host_loss:0.09736 discriminator_loss:0.83758 host_net_loss:0.00248 
+batch:[0/109] losses:encoder_loss:1.06433 encoder_mse_loss:0.00172 encoder_ssim:0.96375 encoder_adv_loss:0.85758 encoder_host_loss:0.20329 discriminator_loss:0.61171 host_net_loss:0.00043 
+batch:[50/109] losses:encoder_loss:0.94358 encoder_mse_loss:0.00183 encoder_ssim:0.96228 encoder_adv_loss:0.74735 encoder_host_loss:0.02135 discriminator_loss:0.70649 host_net_loss:0.01978 
+batch:[100/109] losses:encoder_loss:1.13333 encoder_mse_loss:0.00246 encoder_ssim:0.93239 encoder_adv_loss:0.78543 encoder_host_loss:0.02467 discriminator_loss:0.88164 host_net_loss:0.00081 
+Evaluation starts
+host_net_non-trigger_acc:0.8657 host_net_trigger_success_rate:0.8135 host_net_error_trigged_rate:0.1311 discriminator acc:0.0000
+Epoch:83 elapse:1.5min ETA:26.3min losses:encoder_loss:0.85877 encoder_mse_loss:0.00195 encoder_ssim:0.95991 encoder_adv_loss:0.64237 encoder_host_loss:0.10076 discriminator_loss:0.86045 host_net_loss:0.00275 
+batch:[0/109] losses:encoder_loss:1.00077 encoder_mse_loss:0.00137 encoder_ssim:0.95864 encoder_adv_loss:0.78955 encoder_host_loss:0.00315 discriminator_loss:0.79197 host_net_loss:0.00756 
+batch:[50/109] losses:encoder_loss:0.95335 encoder_mse_loss:0.00221 encoder_ssim:0.95800 encoder_adv_loss:0.72418 encoder_host_loss:0.12522 discriminator_loss:0.70572 host_net_loss:0.00131 
+batch:[100/109] losses:encoder_loss:0.88855 encoder_mse_loss:0.00322 encoder_ssim:0.95488 encoder_adv_loss:0.64462 encoder_host_loss:0.08662 discriminator_loss:0.79808 host_net_loss:0.00057 
+Evaluation starts
+host_net_non-trigger_acc:0.8528 host_net_trigger_success_rate:0.8831 host_net_error_trigged_rate:0.1452 discriminator acc:0.0000
+Epoch:84 elapse:1.6min ETA:24.9min losses:encoder_loss:0.87086 encoder_mse_loss:0.00201 encoder_ssim:0.96005 encoder_adv_loss:0.65555 encoder_host_loss:0.09540 discriminator_loss:0.85444 host_net_loss:0.00249 
+batch:[0/109] losses:encoder_loss:0.94640 encoder_mse_loss:0.00190 encoder_ssim:0.95689 encoder_adv_loss:0.72448 encoder_host_loss:0.00699 discriminator_loss:0.72291 host_net_loss:0.00083 
+batch:[50/109] losses:encoder_loss:0.90477 encoder_mse_loss:0.00165 encoder_ssim:0.96489 encoder_adv_loss:0.71699 encoder_host_loss:0.07280 discriminator_loss:0.77346 host_net_loss:0.00084 
+batch:[100/109] losses:encoder_loss:0.79009 encoder_mse_loss:0.00129 encoder_ssim:0.96531 encoder_adv_loss:0.61168 encoder_host_loss:0.01064 discriminator_loss:0.88279 host_net_loss:0.00681 
+Evaluation starts
+host_net_non-trigger_acc:0.8471 host_net_trigger_success_rate:0.9177 host_net_error_trigged_rate:0.1519 discriminator acc:0.0000
+Epoch 00085: reducing learning rate of group 0 to 1.2800e-08.
+Epoch:85 elapse:1.6min ETA:23.3min losses:encoder_loss:0.85854 encoder_mse_loss:0.00178 encoder_ssim:0.96166 encoder_adv_loss:0.65057 encoder_host_loss:0.10934 discriminator_loss:0.84874 host_net_loss:0.00229 
+batch:[0/109] losses:encoder_loss:0.90817 encoder_mse_loss:0.00175 encoder_ssim:0.96758 encoder_adv_loss:0.73750 encoder_host_loss:0.03300 discriminator_loss:0.77078 host_net_loss:0.00121 
+batch:[50/109] losses:encoder_loss:0.84894 encoder_mse_loss:0.00178 encoder_ssim:0.95427 encoder_adv_loss:0.61308 encoder_host_loss:0.01891 discriminator_loss:0.88928 host_net_loss:0.00150 
+batch:[100/109] losses:encoder_loss:1.01869 encoder_mse_loss:0.00171 encoder_ssim:0.94512 encoder_adv_loss:0.73577 encoder_host_loss:0.03366 discriminator_loss:0.72636 host_net_loss:0.00096 
+Evaluation starts
+host_net_non-trigger_acc:0.8628 host_net_trigger_success_rate:0.8317 host_net_error_trigged_rate:0.1347 discriminator acc:0.0000
+Epoch:86 elapse:1.6min ETA:21.7min losses:encoder_loss:0.87765 encoder_mse_loss:0.00190 encoder_ssim:0.96088 encoder_adv_loss:0.66795 encoder_host_loss:0.08387 discriminator_loss:0.83564 host_net_loss:0.00204 
+batch:[0/109] losses:encoder_loss:0.84042 encoder_mse_loss:0.00169 encoder_ssim:0.96590 encoder_adv_loss:0.65651 encoder_host_loss:0.08350 discriminator_loss:0.75900 host_net_loss:0.00046 
+batch:[50/109] losses:encoder_loss:0.89708 encoder_mse_loss:0.00130 encoder_ssim:0.96775 encoder_adv_loss:0.72587 encoder_host_loss:0.06084 discriminator_loss:0.81344 host_net_loss:0.00110 
+batch:[100/109] losses:encoder_loss:0.90076 encoder_mse_loss:0.00177 encoder_ssim:0.96493 encoder_adv_loss:0.71567 encoder_host_loss:0.04398 discriminator_loss:0.75165 host_net_loss:0.01195 
+Evaluation starts
+host_net_non-trigger_acc:0.8575 host_net_trigger_success_rate:0.8585 host_net_error_trigged_rate:0.1401 discriminator acc:0.0000
+Epoch:87 elapse:1.6min ETA:20.3min losses:encoder_loss:0.87645 encoder_mse_loss:0.00193 encoder_ssim:0.95956 encoder_adv_loss:0.65866 encoder_host_loss:0.09793 discriminator_loss:0.84458 host_net_loss:0.00258 
+batch:[0/109] losses:encoder_loss:0.98002 encoder_mse_loss:0.00230 encoder_ssim:0.96418 encoder_adv_loss:0.79014 encoder_host_loss:0.03845 discriminator_loss:0.74893 host_net_loss:0.00129 
+batch:[50/109] losses:encoder_loss:0.88084 encoder_mse_loss:0.00190 encoder_ssim:0.96090 encoder_adv_loss:0.66431 encoder_host_loss:0.15309 discriminator_loss:0.87753 host_net_loss:0.00093 
+batch:[100/109] losses:encoder_loss:0.94136 encoder_mse_loss:0.00140 encoder_ssim:0.96621 encoder_adv_loss:0.75981 encoder_host_loss:0.08423 discriminator_loss:0.74018 host_net_loss:0.00055 
+Evaluation starts
+host_net_non-trigger_acc:0.8496 host_net_trigger_success_rate:0.9015 host_net_error_trigged_rate:0.1487 discriminator acc:0.0000
+Epoch:88 elapse:1.6min ETA:18.6min losses:encoder_loss:0.87295 encoder_mse_loss:0.00206 encoder_ssim:0.95965 encoder_adv_loss:0.65447 encoder_host_loss:0.10549 discriminator_loss:0.85595 host_net_loss:0.00231 
+batch:[0/109] losses:encoder_loss:0.68142 encoder_mse_loss:0.00162 encoder_ssim:0.96340 encoder_adv_loss:0.46665 encoder_host_loss:0.26916 discriminator_loss:1.07335 host_net_loss:0.00288 
+batch:[50/109] losses:encoder_loss:0.84587 encoder_mse_loss:0.00186 encoder_ssim:0.96584 encoder_adv_loss:0.66830 encoder_host_loss:0.01183 discriminator_loss:0.78917 host_net_loss:0.00207 
+batch:[100/109] losses:encoder_loss:0.59316 encoder_mse_loss:0.00174 encoder_ssim:0.96617 encoder_adv_loss:0.39521 encoder_host_loss:0.23587 discriminator_loss:1.36847 host_net_loss:0.00091 
+Evaluation starts
+host_net_non-trigger_acc:0.8499 host_net_trigger_success_rate:0.8985 host_net_error_trigged_rate:0.1481 discriminator acc:0.0000
+Epoch:89 elapse:1.5min ETA:16.9min losses:encoder_loss:0.86602 encoder_mse_loss:0.00189 encoder_ssim:0.96091 encoder_adv_loss:0.65561 encoder_host_loss:0.09289 discriminator_loss:0.85084 host_net_loss:0.00252 
+batch:[0/109] losses:encoder_loss:0.94069 encoder_mse_loss:0.00159 encoder_ssim:0.96575 encoder_adv_loss:0.75955 encoder_host_loss:0.05129 discriminator_loss:0.66001 host_net_loss:0.00092 
+batch:[50/109] losses:encoder_loss:0.95364 encoder_mse_loss:0.00125 encoder_ssim:0.96756 encoder_adv_loss:0.78561 encoder_host_loss:0.02065 discriminator_loss:0.74384 host_net_loss:0.00025 
+batch:[100/109] losses:encoder_loss:0.83514 encoder_mse_loss:0.00262 encoder_ssim:0.96133 encoder_adv_loss:0.63289 encoder_host_loss:0.01035 discriminator_loss:0.89785 host_net_loss:0.00229 
+Evaluation starts
+host_net_non-trigger_acc:0.8511 host_net_trigger_success_rate:0.8945 host_net_error_trigged_rate:0.1472 discriminator acc:0.0000
+Epoch:90 elapse:1.5min ETA:15.4min losses:encoder_loss:0.85441 encoder_mse_loss:0.00193 encoder_ssim:0.96038 encoder_adv_loss:0.64055 encoder_host_loss:0.09978 discriminator_loss:0.87048 host_net_loss:0.00283 
+batch:[0/109] losses:encoder_loss:0.87966 encoder_mse_loss:0.00130 encoder_ssim:0.96322 encoder_adv_loss:0.68926 encoder_host_loss:0.02617 discriminator_loss:0.75248 host_net_loss:0.00061 
+batch:[50/109] losses:encoder_loss:0.78626 encoder_mse_loss:0.00150 encoder_ssim:0.96664 encoder_adv_loss:0.60254 encoder_host_loss:0.12416 discriminator_loss:0.85153 host_net_loss:0.00056 
+batch:[100/109] losses:encoder_loss:0.89306 encoder_mse_loss:0.00182 encoder_ssim:0.96099 encoder_adv_loss:0.68523 encoder_host_loss:0.07314 discriminator_loss:0.78217 host_net_loss:0.00048 
+Evaluation starts
+host_net_non-trigger_acc:0.8552 host_net_trigger_success_rate:0.8716 host_net_error_trigged_rate:0.1427 discriminator acc:0.0000
+Epoch:91 elapse:1.6min ETA:14.0min losses:encoder_loss:0.85431 encoder_mse_loss:0.00197 encoder_ssim:0.95984 encoder_adv_loss:0.63838 encoder_host_loss:0.09195 discriminator_loss:0.86905 host_net_loss:0.00237 
+batch:[0/109] losses:encoder_loss:0.98963 encoder_mse_loss:0.00209 encoder_ssim:0.95362 encoder_adv_loss:0.73953 encoder_host_loss:0.11895 discriminator_loss:0.73188 host_net_loss:0.00082 
+batch:[50/109] losses:encoder_loss:0.89941 encoder_mse_loss:0.00166 encoder_ssim:0.95551 encoder_adv_loss:0.66871 encoder_host_loss:0.03271 discriminator_loss:0.86189 host_net_loss:0.00064 
+batch:[100/109] losses:encoder_loss:0.95539 encoder_mse_loss:0.00263 encoder_ssim:0.95836 encoder_adv_loss:0.71304 encoder_host_loss:0.26235 discriminator_loss:0.74468 host_net_loss:0.00100 
+Evaluation starts
+host_net_non-trigger_acc:0.8522 host_net_trigger_success_rate:0.8861 host_net_error_trigged_rate:0.1457 discriminator acc:0.0000
+Epoch:92 elapse:1.5min ETA:12.4min losses:encoder_loss:0.88210 encoder_mse_loss:0.00188 encoder_ssim:0.96035 encoder_adv_loss:0.66774 encoder_host_loss:0.10432 discriminator_loss:0.83153 host_net_loss:0.00260 
+batch:[0/109] losses:encoder_loss:0.64159 encoder_mse_loss:0.00130 encoder_ssim:0.95339 encoder_adv_loss:0.40270 encoder_host_loss:0.01908 discriminator_loss:1.19242 host_net_loss:0.00032 
+batch:[50/109] losses:encoder_loss:0.80608 encoder_mse_loss:0.00146 encoder_ssim:0.96298 encoder_adv_loss:0.61156 encoder_host_loss:0.05053 discriminator_loss:0.93381 host_net_loss:0.00079 
+batch:[100/109] losses:encoder_loss:0.78087 encoder_mse_loss:0.00158 encoder_ssim:0.95944 encoder_adv_loss:0.56395 encoder_host_loss:0.09384 discriminator_loss:1.02229 host_net_loss:0.00097 
+Evaluation starts
+host_net_non-trigger_acc:0.8619 host_net_trigger_success_rate:0.8350 host_net_error_trigged_rate:0.1356 discriminator acc:0.0000
+Epoch:93 elapse:1.6min ETA:10.9min losses:encoder_loss:0.87162 encoder_mse_loss:0.00207 encoder_ssim:0.95827 encoder_adv_loss:0.64720 encoder_host_loss:0.09595 discriminator_loss:0.86569 host_net_loss:0.00253 
+batch:[0/109] losses:encoder_loss:0.86918 encoder_mse_loss:0.00171 encoder_ssim:0.96007 encoder_adv_loss:0.63611 encoder_host_loss:0.28299 discriminator_loss:0.81275 host_net_loss:0.00295 
+batch:[50/109] losses:encoder_loss:0.97648 encoder_mse_loss:0.00172 encoder_ssim:0.96390 encoder_adv_loss:0.78275 encoder_host_loss:0.08057 discriminator_loss:0.74157 host_net_loss:0.00166 
+batch:[100/109] losses:encoder_loss:1.24706 encoder_mse_loss:0.00184 encoder_ssim:0.96000 encoder_adv_loss:1.03600 encoder_host_loss:0.05571 discriminator_loss:0.51351 host_net_loss:0.00097 
+Evaluation starts
+host_net_non-trigger_acc:0.8537 host_net_trigger_success_rate:0.8763 host_net_error_trigged_rate:0.1439 discriminator acc:0.0000
+Epoch 00094: reducing learning rate of group 0 to 2.5600e-09.
+Epoch:94 elapse:1.5min ETA:9.2min losses:encoder_loss:0.89806 encoder_mse_loss:0.00188 encoder_ssim:0.96029 encoder_adv_loss:0.68453 encoder_host_loss:0.09347 discriminator_loss:0.81387 host_net_loss:0.00263 
+batch:[0/109] losses:encoder_loss:0.92366 encoder_mse_loss:0.00350 encoder_ssim:0.95738 encoder_adv_loss:0.69921 encoder_host_loss:0.00870 discriminator_loss:0.78780 host_net_loss:0.00078 
+batch:[50/109] losses:encoder_loss:0.95070 encoder_mse_loss:0.00193 encoder_ssim:0.96547 encoder_adv_loss:0.76680 encoder_host_loss:0.05441 discriminator_loss:0.68302 host_net_loss:0.00184 
+batch:[100/109] losses:encoder_loss:0.80578 encoder_mse_loss:0.00134 encoder_ssim:0.96364 encoder_adv_loss:0.60531 encoder_host_loss:0.14654 discriminator_loss:0.88979 host_net_loss:0.00055 
+Evaluation starts
+host_net_non-trigger_acc:0.8457 host_net_trigger_success_rate:0.9224 host_net_error_trigged_rate:0.1528 discriminator acc:0.0000
+Epoch:95 elapse:1.5min ETA:7.7min losses:encoder_loss:0.86737 encoder_mse_loss:0.00193 encoder_ssim:0.96034 encoder_adv_loss:0.65455 encoder_host_loss:0.08758 discriminator_loss:0.85010 host_net_loss:0.00270 
+batch:[0/109] losses:encoder_loss:0.90919 encoder_mse_loss:0.00147 encoder_ssim:0.96703 encoder_adv_loss:0.73798 encoder_host_loss:0.01972 discriminator_loss:0.73941 host_net_loss:0.00070 
+batch:[50/109] losses:encoder_loss:0.83868 encoder_mse_loss:0.00118 encoder_ssim:0.96435 encoder_adv_loss:0.65282 encoder_host_loss:0.04071 discriminator_loss:0.78394 host_net_loss:0.00307 
+batch:[100/109] losses:encoder_loss:0.99504 encoder_mse_loss:0.00183 encoder_ssim:0.96572 encoder_adv_loss:0.81465 encoder_host_loss:0.03525 discriminator_loss:0.62477 host_net_loss:0.00116 
+Evaluation starts
+host_net_non-trigger_acc:0.8452 host_net_trigger_success_rate:0.9261 host_net_error_trigged_rate:0.1538 discriminator acc:0.0000
+Epoch:96 elapse:1.5min ETA:6.2min losses:encoder_loss:0.87210 encoder_mse_loss:0.00188 encoder_ssim:0.96074 encoder_adv_loss:0.66196 encoder_host_loss:0.08176 discriminator_loss:0.83350 host_net_loss:0.00228 
+batch:[0/109] losses:encoder_loss:0.89101 encoder_mse_loss:0.00148 encoder_ssim:0.96425 encoder_adv_loss:0.70140 encoder_host_loss:0.06424 discriminator_loss:0.75743 host_net_loss:0.00167 
+batch:[50/109] losses:encoder_loss:0.90111 encoder_mse_loss:0.00290 encoder_ssim:0.96212 encoder_adv_loss:0.70157 encoder_host_loss:0.01418 discriminator_loss:0.79811 host_net_loss:0.00330 
+batch:[100/109] losses:encoder_loss:0.92725 encoder_mse_loss:0.00233 encoder_ssim:0.95785 encoder_adv_loss:0.70580 encoder_host_loss:0.03719 discriminator_loss:0.81894 host_net_loss:0.00034 
+Evaluation starts
+host_net_non-trigger_acc:0.8482 host_net_trigger_success_rate:0.9079 host_net_error_trigged_rate:0.1501 discriminator acc:0.0000
+Epoch:97 elapse:1.5min ETA:4.6min losses:encoder_loss:0.88383 encoder_mse_loss:0.00194 encoder_ssim:0.96126 encoder_adv_loss:0.67436 encoder_host_loss:0.09960 discriminator_loss:0.82786 host_net_loss:0.00227 
+batch:[0/109] losses:encoder_loss:0.90657 encoder_mse_loss:0.00174 encoder_ssim:0.96349 encoder_adv_loss:0.70413 encoder_host_loss:0.14660 discriminator_loss:0.82691 host_net_loss:0.00209 
+batch:[50/109] losses:encoder_loss:0.69558 encoder_mse_loss:0.00185 encoder_ssim:0.95709 encoder_adv_loss:0.46853 encoder_host_loss:0.06980 discriminator_loss:1.02964 host_net_loss:0.00032 
+batch:[100/109] losses:encoder_loss:0.97043 encoder_mse_loss:0.00142 encoder_ssim:0.96544 encoder_adv_loss:0.78668 encoder_host_loss:0.06679 discriminator_loss:0.64764 host_net_loss:0.00384 
+Evaluation starts
+host_net_non-trigger_acc:0.8488 host_net_trigger_success_rate:0.9049 host_net_error_trigged_rate:0.1496 discriminator acc:0.0000
+Epoch:98 elapse:1.5min ETA:3.1min losses:encoder_loss:0.86834 encoder_mse_loss:0.00195 encoder_ssim:0.96013 encoder_adv_loss:0.65416 encoder_host_loss:0.08964 discriminator_loss:0.84707 host_net_loss:0.00237 
+batch:[0/109] losses:encoder_loss:1.04306 encoder_mse_loss:0.00196 encoder_ssim:0.94798 encoder_adv_loss:0.75003 encoder_host_loss:0.27059 discriminator_loss:0.74701 host_net_loss:0.01543 
+batch:[50/109] losses:encoder_loss:0.80648 encoder_mse_loss:0.00169 encoder_ssim:0.96493 encoder_adv_loss:0.61277 encoder_host_loss:0.13287 discriminator_loss:0.88175 host_net_loss:0.00093 
+batch:[100/109] losses:encoder_loss:0.98869 encoder_mse_loss:0.00193 encoder_ssim:0.96586 encoder_adv_loss:0.81042 encoder_host_loss:0.01748 discriminator_loss:0.65862 host_net_loss:0.00044 
+Evaluation starts
+host_net_non-trigger_acc:0.8564 host_net_trigger_success_rate:0.8659 host_net_error_trigged_rate:0.1416 discriminator acc:0.0000
+Epoch:99 elapse:1.5min ETA:1.5min losses:encoder_loss:0.87450 encoder_mse_loss:0.00197 encoder_ssim:0.95911 encoder_adv_loss:0.65458 encoder_host_loss:0.09555 discriminator_loss:0.84944 host_net_loss:0.00276 
+batch:[0/109] losses:encoder_loss:0.81939 encoder_mse_loss:0.00219 encoder_ssim:0.95943 encoder_adv_loss:0.60303 encoder_host_loss:0.06950 discriminator_loss:0.84320 host_net_loss:0.00126 
+batch:[50/109] losses:encoder_loss:0.98116 encoder_mse_loss:0.00260 encoder_ssim:0.96178 encoder_adv_loss:0.77937 encoder_host_loss:0.02901 discriminator_loss:0.72067 host_net_loss:0.00258 
+batch:[100/109] losses:encoder_loss:0.95792 encoder_mse_loss:0.00166 encoder_ssim:0.96417 encoder_adv_loss:0.77165 encoder_host_loss:0.02132 discriminator_loss:0.67698 host_net_loss:0.00106 
+Evaluation starts
+host_net_non-trigger_acc:0.8462 host_net_trigger_success_rate:0.9197 host_net_error_trigged_rate:0.1523 discriminator acc:0.0000
+Epoch:100 elapse:1.5min ETA:0.0min losses:encoder_loss:0.87009 encoder_mse_loss:0.00193 encoder_ssim:0.95997 encoder_adv_loss:0.65501 encoder_host_loss:0.09145 discriminator_loss:0.84973 host_net_loss:0.00239 

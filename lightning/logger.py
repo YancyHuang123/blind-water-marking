@@ -52,7 +52,7 @@ class Logger():
             pickle.dump(self.loss_dict, handle, protocol=pickle.HIGHEST_PROTOCOL)
         with open(f'{self.save_folder}/{file_name}.txt', 'w') as f:
             f.write(info)
-        draw_learning_curve(self.save_folder,'train_history.plk')
+        draw_learning_curve(self.save_folder,file_name+'.plk')
 
     def time_start(self):
         self.start_time = time.time()
