@@ -8,9 +8,9 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import time
 from random import randint
-from lightning import evaluator
+from utils import evaluator
 
-from lightning.evaluator import Evaluator
+from utils.evaluator import Evaluator
 from . import loss as L
 import statistics
 from torch.nn.parallel import DistributedDataParallel as DDP

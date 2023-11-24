@@ -1,6 +1,6 @@
 import torchvision
 import torchvision.transforms as transforms
-from lightning.dataloader import MyLoader
+from utils.dataloader import MyLoader
 import torchvision.io as io
 import cv2
 import torchvision.transforms as transforms

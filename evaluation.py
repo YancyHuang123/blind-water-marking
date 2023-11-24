@@ -1,7 +1,7 @@
 from math import e
-from lightning.evaluator import Evaluator
-from lightning.trainer import Trainer
-from lightning.dataloader import MyLoader
+from utils.evaluator import Evaluator
+from utils.trainer import Trainer
+from utils.dataloader import MyLoader
 from models.main_model_satellite import MainModel
 from data_preprocess.satellite_dataset import get_dataset, get_watermark
 import os

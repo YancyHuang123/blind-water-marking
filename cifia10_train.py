@@ -1,5 +1,5 @@
-from lightning.trainer import Trainer
-from lightning.dataloader import MyLoader
+from utils.trainer import Trainer
+from utils.dataloader import MyLoader
 from models.main_model import MainModel
 from data_preprocess.cifar_dataset import get_dataset, get_watermark
 import torch.nn as nn
