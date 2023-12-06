@@ -87,7 +87,7 @@ class MainModel(L.LightningModule):  # type: ignore
             + hyper_parameters[2] * loss_adv
             + hyper_parameters[3] * loss_dnn
         )
-        loss_H.backward()
+        self.manual_backward(loss_H)
         opt_encoder.step()
 
         # train host net
@@ -99,11 +99,15 @@ class MainModel(L.LightningModule):  # type: ignore
         dnn_output = self.host_net(inputs)
 
         loss_DNN = self.host_net_loss(dnn_output, labels)
-        loss_DNN.backward()
+        self.manual_backward(loss_DNN)
         opt_host_net.step()
 
-        self.log_dict({"loss_D": loss_D, 'loss_H': loss_H, 'loss_mse': loss_mse, 'loss_ssim': loss_ssim,
+        if self.current_epoch ==0:
+
+            self.log_dict({"loss_D": loss_D, 'loss_H': loss_H, 'loss_mse': loss_mse, 'loss_ssim': loss_ssim,
                       'loss_adv': loss_adv, 'loss_DNN': loss_DNN}, prog_bar=True, on_step=False, on_epoch=True,sync_dist=True)
+        else:
+            self.log_dict({'fdg':123,'dfgdf':65})
 
     def validation_step(self, batch, batch_idx):
         X, Y = batch
