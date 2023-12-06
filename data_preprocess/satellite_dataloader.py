@@ -20,29 +20,25 @@ class SatelliteLoader(pl.LightningDataModule):
             self.train_val_set, train_size=0.8)
         self.trigger_train, self.trigger_val = train_test_split(
             self.trigger_trainval, train_size=0.8)
-        # val_loader=DataLoader(self.val_set,self.batch_size,shuffle=False,pin_memory=True)
-        # test_set=DataLoader(self.test_set,self.batch_size,shuffle=False,pin_memory=True)
 
-        # trigger_val_loader=DataLoader(self.trigger_val,self.trigger_size,shuffle=True,pin_memory=True)
-        # trigger_test_loader=DataLoader(self.trigger_test,self.trigger_size,shuffle=False,pin_memory=True)
 
     def train_dataloader(self):
         train_loader = DataLoader(
-            self.train_set, self.batch_size, num_workers=3, shuffle=True, pin_memory=True)
+            self.train_set, self.batch_size, num_workers=self.num_workers, shuffle=True, pin_memory=True)
         trigger_train_loader = DataLoader(
-            self.trigger_train, self.trigger_size, num_workers=3, shuffle=True, pin_memory=True)
+            self.trigger_train, self.trigger_size, num_workers=self.num_workers, shuffle=True, pin_memory=True)
         return CombinedLoader([train_loader, trigger_train_loader])
 
     def val_dataloader(self):
         val_loader = DataLoader(
-            self.val_set, self.batch_size, shuffle=True, pin_memory=True)
+            self.val_set, self.batch_size, shuffle=True, num_workers=self.num_workers, pin_memory=True)
         trigger_val_loader = DataLoader(
-            self.trigger_val, self.trigger_size, shuffle=True, pin_memory=True)
+            self.trigger_val, self.trigger_size, shuffle=True, num_workers=self.num_workers, pin_memory=True)
         return CombinedLoader([val_loader, trigger_val_loader])
 
-    def test_dataloader(self):
-        pass
+    #def test_dataloader(self):
+    #    test_set=DataLoader(self.test_set,self.batch_size,shuffle=False,num_workers=self.num_workers,pin_memory=True)
+    #    trigger_test_loader=DataLoader(self.trigger_test,self.trigger_size,shuffle=False,num_workers=self.num_workers,pin_memory=True)
 
     def predict_dataloader(self):
         pass
-

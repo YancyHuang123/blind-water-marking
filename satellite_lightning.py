@@ -7,14 +7,13 @@ from lightning.pytorch import seed_everything
 
 batch_size = 128
 trigger_size = 32
-
 logo = get_watermark("./datas/logo/secret1.jpg")
+loaders = SatelliteLoader()
 
 if __name__ == '__main__':
-    loaders = SatelliteLoader()
     seed_everything(42, workers=True)
     model = MainModel(logo)
 
     trainer = L.Trainer(max_epochs=1, accelerator='gpu',
-                        devices=1, logger=True)  # type: ignore
+                        devices=1)  # type: ignore
     trainer.fit(model, loaders)
