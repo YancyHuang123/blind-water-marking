@@ -1,4 +1,3 @@
-from idna import valid_contextj
 from torch import optim, nn, utils, Tensor
 from torchvision.transforms import ToTensor
 import lightning as L
@@ -18,7 +17,7 @@ from utils.loss import SSIM
 class MainModel(L.LightningModule): # type: ignore
     def __init__(self,logo):
         super().__init__()
-        self.automatic_optimization=False   
+        self.automatic_optimization=False
 
         self.encoder=UnetGenerator()
         self.discriminator=DiscriminatorNet()
@@ -29,7 +28,7 @@ class MainModel(L.LightningModule): # type: ignore
         self.encoder_SSIM_loss=SSIM()
         self.host_net_loss=nn.CrossEntropyLoss()
         self.discriminator_loss=nn.BCELoss()
-        
+
     def training_step(self, batch, batch_idx):
         opt_encoder,opt_discriminator,opt_host_net = self.optimizers() # type: ignore
         # training_step defines the train loop.
@@ -38,6 +37,8 @@ class MainModel(L.LightningModule): # type: ignore
         batch_size=X.shape[0]
         trigger_size=X_trigger.shape[0]
 
+        wm_labels = torch.full((X_trigger.shape[0],1), 1).to(self.device)
+        wm_labels=torch.squeeze(wm_labels)
         valid = torch.ones((trigger_size,1), device=self.device)
         fake = torch.zeros((trigger_size,1), device=self.device)
         logo_batch = self.logo.repeat(X_trigger.shape[0], 1, 1, 1).to(self.device)
@@ -53,9 +54,44 @@ class MainModel(L.LightningModule): # type: ignore
         self.manual_backward(loss_D)
         opt_discriminator.step()
 
+        # train encoder
+        opt_encoder.zero_grad() # type: ignore
+        opt_discriminator.zero_grad() # type: ignore
+        opt_host_net.zero_grad() # type: ignore
+
+        wm_dis_output = self.discriminator(wm_img)
+        wm_dnn_output = self.host_net(wm_img)
+        loss_mse = self.encoder_mse_loss(X_trigger, wm_img)
+        loss_ssim = self.encoder_SSIM_loss(X_trigger, wm_img)
+        loss_adv = self.discriminator_loss(wm_dis_output, valid)
+
+        hyper_parameters = [3, 5, 1, 0.1]
+
+        loss_dnn = self.host_net_loss(wm_dnn_output, wm_labels)
+        loss_H = (
+            hyper_parameters[0] * loss_mse
+            + hyper_parameters[1] * (1 - loss_ssim)
+            + hyper_parameters[2] * loss_adv
+            + hyper_parameters[3] * loss_dnn
+        )
+        loss_H.backward()
+        opt_encoder.step()
+
+        # train host net
+        opt_host_net.zero_grad() # type: ignore
+
+        inputs = torch.cat([X, wm_img.detach()], dim=0)  # type: ignore
+
+        labels = torch.cat([Y, wm_labels], dim=0)
+        dnn_output = self.host_net(inputs)
+
+        loss_DNN = self.host_net_loss(dnn_output, labels)
+        loss_DNN.backward()
+        opt_host_net.step()
+
         #loss = nn.functional.mse_loss(x_hat, x)
-        # Logging to TensorBoard (if installed) by default
-        self.log_dict({"loss_D_wm": loss_D_wm, "loss_D":loss_D}, prog_bar=True)
+        #Logging to TensorBoard (if installed) by default
+        self.log_dict({"loss_D_wm": loss_D_wm, "loss_D":loss_D}, prog_bar=True,on_step=False,on_epoch=True)
         
 
     def configure_optimizers(self):

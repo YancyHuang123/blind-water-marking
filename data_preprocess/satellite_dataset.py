@@ -22,7 +22,6 @@ def get_dataset():
     # load trainset and testset
     trainset = torchvision.datasets.ImageFolder(
         root='./datas/IntelImage/seg_train/seg_train', transform=transform_train)
-
     testset = torchvision.datasets.ImageFolder(
         root='./datas/IntelImage/seg_test/seg_test', transform=transform_test)
     

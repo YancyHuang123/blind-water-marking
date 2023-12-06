@@ -11,7 +11,7 @@ def draw_learning_curve(folder,file_name):
         losses = pickle.load(handle)
 
     for name,v in losses.items():
-        plt.plot(range(1, len(v[0])+1), v[0],label=f'{name}') 
+        plt.plot(range(1, len(v[0])+1), v[0],label=f'{name}')
 
 
     ax=plt.gca()
@@ -19,7 +19,7 @@ def draw_learning_curve(folder,file_name):
 
     plt.xlabel('epoch') #设置坐标标注
     plt.ylabel('loss')
-
+    
 
     ax = plt.subplot(111)
     box = ax.get_position()
@@ -31,3 +31,6 @@ def draw_learning_curve(folder,file_name):
     plt.title("losses by epoch") # 设置title
 
     plt.savefig(f'{folder}/{file_name}_learning_curve.jpg')
+    
+#def draw_learning_curve(folder,file_name):
+    
