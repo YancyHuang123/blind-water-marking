@@ -23,3 +23,4 @@ if __name__ == '__main__':
                         devices=2,num_sanity_val_steps=0,strategy=DDPStrategy(find_unused_parameters=True))
     trainer.fit(model, loaders)
 
+    

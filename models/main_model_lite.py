@@ -11,12 +11,13 @@ from models.resnet_satellite import Resnet18, Resnet34
 from models.vgg import VGG
 from torch.optim import SGD, Adam
 import torch.nn as nn
+import torch.nn.functional as F
 from .loss import SSIM
 from torch.optim.lr_scheduler import MultiStepLR, ReduceLROnPlateau
 import torch
 from utils.loss import SSIM
 from torchmetrics.classification import MulticlassAccuracy
-from ..Wrapper.WrapperModule import WrapperModule
+from Wrapper.WrapperModule import WrapperModule
 # define the LightningModule
 
 
@@ -30,19 +31,23 @@ class MainModel(WrapperModule):  # type: ignore
         self.host_net = Resnet34()
         self.logo = logo
 
-        self.encoder_mse_loss = nn.MSELoss()
-        self.encoder_SSIM_loss = SSIM()
-        self.host_net_loss = nn.CrossEntropyLoss()
-        self.discriminator_loss = nn.BCELoss()
-
         self.host_net_no_trigger_acc = MulticlassAccuracy(num_classes=6)
         self.host_net_trigged_rate = MulticlassAccuracy(num_classes=6)
         self.host_net_error_trigged_rate = MulticlassAccuracy(num_classes=6)
         self.discriminator_acc = MulticlassAccuracy(num_classes=2)
         self.hyper_parameters = [3, 5, 1, 0.1]
 
+    def configure_losses(self):
+        encoder_mse_loss = nn.MSELoss()
+        encoder_SSIM_loss = SSIM()
+        host_net_loss = nn.CrossEntropyLoss()
+        discriminator_loss = nn.BCELoss()
+        return encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss
+
     def training_step(self, batch, batch_idx):
-        opt_encoder, opt_discriminator, opt_host_net = self.optimizers()  # type: ignore
+
+        opt_encoder, opt_discriminator, opt_host_net = self.configure_optimizers()  # type: ignore
+        encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss = self.configure_losses()
         # training_step defines the train loop.
         # it is independent of forward
         (X, Y), (X_trigger, _) = batch
@@ -61,8 +66,8 @@ class MainModel(WrapperModule):  # type: ignore
         wm_dis_output = self.discriminator(wm_img.detach())
         real_dis_output = self.discriminator(X_trigger)
 
-        loss_D_wm = self.discriminator_loss(wm_dis_output, fake)
-        loss_D_real = self.discriminator_loss(real_dis_output, valid)
+        loss_D_wm = discriminator_loss(wm_dis_output, fake)
+        loss_D_real = discriminator_loss(real_dis_output, valid)
         loss_D = loss_D_wm + loss_D_real
         self.manual_backward(loss_D)
         opt_discriminator.step()
@@ -74,13 +79,13 @@ class MainModel(WrapperModule):  # type: ignore
 
         wm_dis_output = self.discriminator(wm_img)
         wm_dnn_output = self.host_net(wm_img)
-        loss_mse = self.encoder_mse_loss(X_trigger, wm_img)
-        loss_ssim = self.encoder_SSIM_loss(X_trigger, wm_img)
-        loss_adv = self.discriminator_loss(wm_dis_output, valid)
+        loss_mse = encoder_mse_loss(X_trigger, wm_img)
+        loss_ssim = encoder_SSIM_loss(X_trigger, wm_img)
+        loss_adv = discriminator_loss(wm_dis_output, valid)
 
         hyper_parameters = self.hyper_parameters
 
-        loss_dnn = self.host_net_loss(wm_dnn_output, wm_labels)
+        loss_dnn = host_net_loss(wm_dnn_output, wm_labels)
         loss_H = (
             hyper_parameters[0] * loss_mse
             + hyper_parameters[1] * (1 - loss_ssim)
@@ -98,19 +103,16 @@ class MainModel(WrapperModule):  # type: ignore
         labels = torch.cat([Y, wm_labels], dim=0)
         dnn_output = self.host_net(inputs)
 
-        loss_DNN = self.host_net_loss(dnn_output, labels)
+        loss_DNN = host_net_loss(dnn_output, labels)
         self.manual_backward(loss_DNN)
         opt_host_net.step()
 
-        if self.current_epoch ==0:
-
-            self.log_dict({"loss_D": loss_D, 'loss_H': loss_H, 'loss_mse': loss_mse, 'loss_ssim': loss_ssim,
-                      'loss_adv': loss_adv, 'loss_DNN': loss_DNN}, prog_bar=True, on_step=False, on_epoch=True,sync_dist=True)
-        else:
-            self.log_dict({'fdg':123,'dfgdf':65})
+        self.log_dict({"loss_D": loss_D, 'loss_H': loss_H, 'loss_mse': loss_mse, 'loss_ssim': loss_ssim,
+                      'loss_adv': loss_adv, 'loss_DNN': loss_DNN}, prog_bar=True, on_step=False, on_epoch=True)
 
     def validation_step(self, batch, batch_idx):
         X, Y = batch
+        encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss = self.configure_losses()
         (X, Y), (X_trigger, Y_trigger) = batch
 
         wm_labels = torch.full((X_trigger.shape[0],), 1).to(self.device)
@@ -133,8 +135,8 @@ class MainModel(WrapperModule):  # type: ignore
         wm_dis_output = torch.squeeze(wm_dis_output)
         real_dis_output = torch.squeeze(real_dis_output)
 
-        loss_D_wm = self.discriminator_loss(wm_dis_output, fake)
-        loss_D_real = self.discriminator_loss(real_dis_output, valid)
+        loss_D_wm = discriminator_loss(wm_dis_output, fake)
+        loss_D_real = discriminator_loss(real_dis_output, valid)
         loss_D = loss_D_wm + loss_D_real
 
         self.discriminator_acc(
@@ -148,10 +150,10 @@ class MainModel(WrapperModule):  # type: ignore
         wm_dis_output = torch.squeeze(wm_dis_output)
         wm_dnn_output = torch.squeeze(wm_dnn_output)
 
-        loss_mse = self.encoder_mse_loss(X_trigger, wm_img)
-        loss_ssim = self.encoder_SSIM_loss(X_trigger, wm_img)
-        loss_adv = self.discriminator_loss(wm_dis_output, valid)
-        loss_dnn = self.host_net_loss(wm_dnn_output, wm_labels)
+        loss_mse = encoder_mse_loss(X_trigger, wm_img)
+        loss_ssim = encoder_SSIM_loss(X_trigger, wm_img)
+        loss_adv = discriminator_loss(wm_dis_output, valid)
+        loss_dnn = host_net_loss(wm_dnn_output, wm_labels)
 
         hyper_parameters = self.hyper_parameters
 
@@ -172,7 +174,7 @@ class MainModel(WrapperModule):  # type: ignore
 
         error_trigger_labels = torch.where(original_labels == 1, 2, 1)
 
-        loss_DNN = self.host_net_loss(dnn_output, original_labels)
+        loss_DNN = host_net_loss(dnn_output, original_labels)
 
         # update accuracies
         self.host_net_no_trigger_acc(dnn_output, original_labels)

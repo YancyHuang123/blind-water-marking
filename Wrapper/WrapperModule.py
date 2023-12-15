@@ -35,6 +35,14 @@ class WrapperModule(nn.Module):
     @abstractmethod
     def on_validation_end(self):
         pass
+
+    @abstractmethod
+    def configure_optimizers(self):
+        pass
+
+    @abstractmethod
+    def configure_losses(self):
+        pass
     
-    def log_dict(self,dict:Dict,on_step,on_epoch):
+    def log_dict(self,dict:Dict,on_step=False,on_epoch=True,prog_bar=True):
         pass
