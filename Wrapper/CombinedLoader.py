@@ -22,6 +22,7 @@ class CombinedLoader():
         self.batch_idx += 1
         if self.batch_idx == self.dataset_len-1:
             self.reset()
+            raise StopIteration()
         return tuple([next(x) for x in self.item_list])
 
     def __len__(self):
@@ -30,4 +31,3 @@ class CombinedLoader():
     def reset(self):
         self.batch_idx = -1
         self.item_list = [iter(x) for x in self.iterables]
-

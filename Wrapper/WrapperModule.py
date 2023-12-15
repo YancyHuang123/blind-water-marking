@@ -3,13 +3,14 @@ from typing import List, Dict, Union, Optional
 import torch
 import torch.nn as nn
 
+from Wrapper.WrapperLogger import WrapperLogger
+
 
 class WrapperModule(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         self.current_epoch=0
         self.device='cpu'
-        #self.logger=WrapperLogger()
 
     def save(self):
         pass
