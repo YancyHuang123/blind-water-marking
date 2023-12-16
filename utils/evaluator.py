@@ -130,8 +130,11 @@ class Evaluator:
 
         logger.update_epoch_losses()
         print(
-            f"host_net_non-trigger_acc:{host_net_no_trigger_acc.compute():.4f} host_net_trigger_success_rate:{host_net_trigged_rate.compute():.4f} host_net_error_trigged_rate:{host_net_error_trigged_rate.compute():.4f} discriminator acc:{discriminator_acc.compute():.4f}"
+            f"host_net_non-trigger_acc:{host_net_no_trigger_acc.compute():.4f} host_net_trigger_success_rate:{host_net_trigged_rate.compute():.4f} host_net_error_trigged_rate:{host_net_error_trigged_rate.compute():.4f}"
         )
+        #print(
+        #    f"host_net_non-trigger_acc:{host_net_no_trigger_acc.compute():.4f} host_net_trigger_success_rate:{host_net_trigged_rate.compute():.4f} host_net_error_trigged_rate:{host_net_error_trigged_rate.compute():.4f} discriminator acc:{discriminator_acc.compute():.4f}"
+        #)
         
 
     def embeding_visualization(self, X, logo):

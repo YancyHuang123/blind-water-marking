@@ -5,7 +5,7 @@ from utils.dataloader import MyLoader
 from models.main_model_satellite import MainModel
 from data_preprocess.satellite_dataset import get_dataset, get_watermark
 import os
-
+from utils import logger
 batch_size = 128
 wm_batch_size = 32
 
@@ -25,12 +25,12 @@ if __name__ == "__main__":
     logo_decoy = get_watermark("./datas/logo/ieee_256.png")
 
     model = MainModel()
-    model.load_checkpoint('/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_18-03-13/main_model.pt')
+    model.load_checkpoint('./check_points/2023-11-15_15-27-59/main_model.pt')
 
-    save_folder='/home/huangyanbin/0A__SoftwareProjects/Blind_watermark_DNN/check_points/2023-11-14_18-03-13'
-    
-    evaluator=Evaluator(model,save_folder)
+    save_folder='./check_points/2023-11-15_15-27-59'
+
+    logger=logger.Logger(save_folder)
+    evaluator=Evaluator(model,logger)
     
     evaluator.evaluate(test_loader,trigger_test_loader,logo_true)
-    
     
