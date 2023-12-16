@@ -46,4 +46,7 @@ class WrapperModule(nn.Module):
         pass
     
     def log_dict(self,dict:Dict,on_step=False,on_epoch=True,prog_bar=True):
-        pass
+        if on_epoch:
+            self.logger.add_epoch_log(dict)
+        if on_step:
+            self.logger.log(dict)

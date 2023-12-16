@@ -21,6 +21,6 @@ if __name__ == '__main__':
 
     model = MainModel(logo)
 
-    trainer = Trainer(max_epochs=2, accelerator='gpu', devices=1)
+    trainer = Trainer(max_epochs=100, accelerator='gpu', devices=1)
 
     trainer.fit(model, train_loader, val_loader)

@@ -47,8 +47,10 @@ class WrapperTrainer():
             for batch_idx, batch in enumerate(train_loader):
                 batch = self._to_device(batch, model.device)
                 model.training_step(batch, batch_idx)
+                
                 self.step_idx += 1
                 tq.update(1)
+                tq.postfix(self.logger.last_log)
 
             epoch_elapse = tq.format_dict['elapsed']
 
@@ -62,6 +64,7 @@ class WrapperTrainer():
 
             model.on_epoch_end()
             self.logger.reduce_epoch_log(epoch_idx, self.step_idx)
+            
 
     # move batch data to device
     def _to_device(self, batch, device):
