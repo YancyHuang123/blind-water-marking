@@ -1,5 +1,5 @@
 from asyncio import Task
-from typing import Any
+from typing import Any, List, Optional
 from lightning.pytorch.utilities.types import STEP_OUTPUT
 from torch import optim, nn, utils, Tensor
 from torchvision.transforms import ToTensor
@@ -31,11 +31,19 @@ class MainModel(WrapperModule):  # type: ignore
         self.host_net = Resnet34()
         self.logo = logo
 
-        self.host_net_no_trigger_acc = MulticlassAccuracy(num_classes=6)
-        self.host_net_trigged_rate = MulticlassAccuracy(num_classes=6)
-        self.host_net_error_trigged_rate = MulticlassAccuracy(num_classes=6)
-        self.discriminator_acc = MulticlassAccuracy(num_classes=2)
         self.hyper_parameters = [3, 5, 1, 0.1]
+
+        self.opt_encoder = Adam(self.encoder.parameters(), lr=0.001, betas=(0.5, 0.999))
+        self.opt_discriminator = Adam(self.discriminator.parameters(), lr=0.001, betas=(0.5, 0.999))
+        self.opt_host_net = SGD(self.host_net.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4)
+
+        self.encoder_scheduler=ReduceLROnPlateau(self.opt_encoder,
+                                                mode='min', factor=0.2, patience=5, verbose=True)
+        
+        self.discriminator_scheduler=ReduceLROnPlateau(self.opt_discriminator, 
+                                                mode='min', factor=0.2, patience=8, verbose=True)
+        
+        self.host_net_scheduler=MultiStepLR(self.opt_host_net, milestones=[40, 80], gamma=0.1)
 
     def configure_losses(self):
         encoder_mse_loss = nn.MSELoss()
@@ -44,8 +52,15 @@ class MainModel(WrapperModule):  # type: ignore
         discriminator_loss = nn.BCELoss()
         return encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss
 
+    def configure_metrics(self):
+        host_net_no_trigger_acc = MulticlassAccuracy(num_classes=6).to(self.device)
+        host_net_trigged_rate = MulticlassAccuracy(num_classes=6).to(self.device)
+        host_net_error_trigged_rate = MulticlassAccuracy(num_classes=6).to(self.device)
+        discriminator_acc = MulticlassAccuracy(num_classes=2).to(self.device)
+        return host_net_no_trigger_acc, host_net_trigged_rate, host_net_error_trigged_rate, discriminator_acc
+
     def training_step(self, batch, batch_idx):
-        opt_encoder, opt_discriminator, opt_host_net = self.configure_optimizers()  # type: ignore
+        opt_encoder, opt_discriminator, opt_host_net = self.opt_encoder,self.opt_discriminator,self.opt_host_net
         encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss = self.configure_losses()
         # training_step defines the train loop.
         # it is independent of forward
@@ -110,8 +125,8 @@ class MainModel(WrapperModule):  # type: ignore
                       'loss_adv': loss_adv, 'loss_DNN': loss_DNN}, prog_bar=True, on_step=False, on_epoch=True)
 
     def validation_step(self, batch, batch_idx):
-        X, Y = batch
         encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss = self.configure_losses()
+        host_net_no_trigger_acc, host_net_trigged_rate, host_net_error_trigged_rate, discriminator_acc = self.configure_metrics()
         (X, Y), (X_trigger, Y_trigger) = batch
 
         wm_labels = torch.full((X_trigger.shape[0],), 1).to(self.device)
@@ -138,7 +153,7 @@ class MainModel(WrapperModule):  # type: ignore
         loss_D_real = discriminator_loss(real_dis_output, valid)
         loss_D = loss_D_wm + loss_D_real
 
-        self.discriminator_acc(
+        discriminator_acc(
             torch.cat([wm_dis_output, real_dis_output], dim=0),
             torch.cat([fake, valid], dim=0),
         )
@@ -176,21 +191,32 @@ class MainModel(WrapperModule):  # type: ignore
         loss_DNN = host_net_loss(dnn_output, original_labels)
 
         # update accuracies
-        self.host_net_no_trigger_acc(dnn_output, original_labels)
-        self.host_net_trigged_rate(dnn_trigger_pred, wm_labels)
-        self.host_net_error_trigged_rate(dnn_output, error_trigger_labels)
+        host_net_no_trigger_acc(dnn_output, original_labels)
+        host_net_trigged_rate(dnn_trigger_pred, wm_labels)
+        host_net_error_trigged_rate(dnn_output, error_trigger_labels)
 
         # log losses
         self.log_dict({"loss_D_val": loss_D, 'loss_H_val': loss_H, 'loss_mse_val': loss_mse, 'loss_ssim_val': loss_ssim,
                        'loss_adv_val': loss_adv, 'loss_DNN_val': loss_DNN}, on_step=False, on_epoch=True)
-        self.log_dict({'host_net_no_trigger_acc': self.host_net_no_trigger_acc.compute(), 'host_net_trigged_rate':
-                      self.host_net_trigged_rate.compute(), 'host_net_error_trigged_rate': self.host_net_error_trigged_rate.compute(), 'discriminator_acc': self.discriminator_acc.compute()}, on_step=False, on_epoch=True)
-
-    def on_validation_end(self):
-        self.host_net_error_trigged_rate.reset()
-        self.host_net_no_trigger_acc.reset()
-        self.host_net_trigged_rate.reset()
-        self.discriminator_acc.reset()
+        self.log_dict({'host_net_no_trigger_acc': host_net_no_trigger_acc.compute(), 'host_net_trigged_rate':
+                      host_net_trigged_rate.compute(), 'host_net_error_trigged_rate': host_net_error_trigged_rate.compute(), 'discriminator_acc': discriminator_acc.compute()}, on_step=False, on_epoch=True)
+        return loss_D.item(),loss_H.item(),loss_DNN.item()
+    
+    def on_validation_end(self, results:List):
+        loss_D=0
+        loss_H=0
+        loss_DNN=0
+        for x in results:
+            loss_D+=x[0]
+            loss_H+=x[1]
+            loss_DNN+=x[2]
+        l=len(results)
+        loss_D/=l
+        loss_H/=l
+        loss_DNN/=l
+        self.encoder_scheduler.step(loss_H)
+        self.discriminator_scheduler.step(loss_D)
+        self.host_net_scheduler.step()
 
     def configure_optimizers(self):
         opt_encoder = Adam(self.encoder.parameters(),

@@ -11,16 +11,16 @@ from Wrapper.CombinedLoader import CombinedLoader
 batch_size = 128
 trigger_size = 32
 logo = get_watermark("./datas/logo/secret1.jpg")
-loaders = SatelliteLoader()
+loaders = SatelliteLoader(batch_size=batch_size,trigger_size=trigger_size)
 train_loader = loaders.train_dataloader()
 val_loader = loaders.val_dataloader()
 
 
 if __name__ == '__main__':
     # seed_everything(42, workers=True)
-
+    print(123)
     model = MainModel(logo)
 
-    trainer = Trainer(max_epochs=5, accelerator='gpu', devices=3)
+    trainer = Trainer(max_epochs=100, accelerator='gpu', devices=3)
 
     trainer.fit(model, train_loader, val_loader)

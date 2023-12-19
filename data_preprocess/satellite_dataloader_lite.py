@@ -26,7 +26,7 @@ class SatelliteLoader():
         train_loader = DataLoader(
             self.train_set, self.batch_size, num_workers=self.num_workers, shuffle=True, pin_memory=True,persistent_workers=True)
         trigger_train_loader = DataLoader(
-            self.trigger_train, self.trigger_size, num_workers=self.num_workers, shuffle=True, pin_memory=True,persistent_workers=True)
+            self.trigger_train, self.trigger_size, num_workers=self.num_workers, shuffle=False, pin_memory=True,persistent_workers=True)
         return CombinedLoader([train_loader, trigger_train_loader])
 
     def val_dataloader(self):

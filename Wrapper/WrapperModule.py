@@ -30,11 +30,15 @@ class WrapperModule(nn.Module):
         pass
 
     @abstractmethod
-    def on_epoch_end(self):
+    def on_epoch_end(self,training_results:Optional[List]=None,val_results:Optional[List]=None):
         pass
 
     @abstractmethod
-    def on_validation_end(self):
+    def on_validation_end(self,results:Optional[List]=None):
+        pass
+
+    @abstractmethod
+    def on_training_end(self,results:Optional[List]=None):
         pass
 
     @abstractmethod

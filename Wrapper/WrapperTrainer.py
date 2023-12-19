@@ -1,20 +1,14 @@
 from abc import abstractmethod
 from ast import Module
 from datetime import datetime
-import enum
 import os
 import time
-from click import progressbar
-from numpy import RAISE
 import torch
 import torch.nn as nn
-from typing import List, Dict, Union, Optional
 
 from .WrapperPrinter import WrapperPrinter
 from .WrapperModule import WrapperModule
 from .WrapperLogger import WrapperLogger
-from tqdm import tqdm
-
 
 class WrapperTrainer():
     def __init__(self, max_epochs, accelerator: str, devices, output_interval=50, save_folder_path='lite_logs') -> None:
@@ -28,7 +22,7 @@ class WrapperTrainer():
         self.output_interval = output_interval
 
         self.create_saving_folder()
-        self.logger = WrapperLogger(self.save_folder_path)
+        self.logger = WrapperLogger(self.save_folder)
         self.printer = WrapperPrinter(output_interval, max_epochs)
 
     def fit(self, model: WrapperModule, train_loader, val_loader):
@@ -48,28 +42,30 @@ class WrapperTrainer():
 
             # training batch loop
             loader_len = len(train_loader)
+            training_results=[]
             for batch_idx, batch in enumerate(train_loader):
                 batch = self._to_device(batch, model.device)
-                model.training_step(batch, batch_idx)
+                result=model.training_step(batch, batch_idx) # DO NOT return tensors directly, this can lead to gpu menory shortage !!
+                training_results.append(result)
                 self.step_idx += 1
 
                 # due to the potential display error of progress bar, use standard output is a wiser option.
                 self.printer.batch_output(
                     'trining', epoch_idx, batch_idx, loader_len, self.logger.last_log)
+            model.on_training_end(training_results)
 
             # validation batch loop
             loader_len = len(val_loader)
+            val_results=[]
             for batch_idx, batch in enumerate(val_loader):
                 batch = self._to_device(batch, model.device)
-                model.validation_step(batch, batch_idx)
-
+                result=model.validation_step(batch, batch_idx) # DO NOT return tensors directly, this can lead to gpu menory shortage !!
+                val_results.append(result)
                 self.printer.batch_output(
-                    'validatiing', epoch_idx, batch_idx, loader_len, self.logger.last_log)
-
+                    'validating', epoch_idx, batch_idx, loader_len, self.logger.last_log)
+            model.on_validation_end(val_results)
             # epoch end
-            model.on_validation_end()
-
-            model.on_epoch_end()
+            model.on_epoch_end(training_results,val_results)
             self.logger.reduce_epoch_log(epoch_idx, self.step_idx)
             epoch_elapse = time.time() - epoch_elapse
 
@@ -99,15 +95,13 @@ class WrapperTrainer():
 
     def model_distribute(self, model: WrapperModule) -> WrapperModule:
         if self.acceletator == 'gpu':
-            for attr in model._modules:
+            for attr in model._modules: 
                 # get the value of the attribute
                 value = getattr(model, attr)
-                # check if the value is an instance of nn.Module
-                if isinstance(value, nn.Module):
-                    # convert the value to nn.DataParallel
-                    value = nn.DataParallel(value).to('cuda')
-                    # set the attribute with the new value
-                    setattr(model, attr, value)
+                # convert the value to nn.DataParallel
+                value = nn.DataParallel(value).to('cuda')
+                # set the attribute with the new value
+                setattr(model, attr, value)
             model.device = 'cuda'
         return model
 
