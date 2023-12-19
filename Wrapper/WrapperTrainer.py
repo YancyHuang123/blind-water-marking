@@ -9,7 +9,7 @@ import torch.nn as nn
 from .WrapperPrinter import WrapperPrinter
 from .WrapperModule import WrapperModule
 from .WrapperLogger import WrapperLogger
-
+from .WrapperTimer import WrapperTimer
 class WrapperTrainer():
     def __init__(self, max_epochs, accelerator: str, devices, output_interval=50, save_folder_path='lite_logs') -> None:
         super().__init__()
@@ -21,20 +21,25 @@ class WrapperTrainer():
         self.step_idx = 0
         self.output_interval = output_interval
 
+        '''
+        the three key elements to a deep learning experiment: 
+        1. timer: gives you the full control of how long the experiment will take
+        2. printer: gives you the immediate info of current experiment
+        3. logger: gives you full info of the whole experiment
+        '''
         self.create_saving_folder()
         self.logger = WrapperLogger(self.save_folder)
+        self.timer=WrapperTimer()
         self.printer = WrapperPrinter(output_interval, max_epochs)
 
     def fit(self, model: WrapperModule, train_loader, val_loader):
-        '''
-        the key elements to a fit function: 1. timer 2. printer 3. logger
-        '''
+        
         model.train()
         model = self.model_distribute(model)  # distribute model to accelerator
         model.logger = self.logger  # type:ignore
 
         # epoch loop
-        time_consumption = time.time()
+        self.timer.training_start()
         print('Training started')
         for epoch_idx in range(self.max_epochs):
             model.current_epoch = epoch_idx
@@ -59,10 +64,11 @@ class WrapperTrainer():
             val_results=[]
             for batch_idx, batch in enumerate(val_loader):
                 batch = self._to_device(batch, model.device)
-                result=model.validation_step(batch, batch_idx) # DO NOT return tensors directly, this can lead to gpu menory shortage !!
+                result=model.validation_step(batch, batch_idx) # !!DO NOT return tensors directly, this can lead to gpu menory shortage !!
                 val_results.append(result)
                 self.printer.batch_output(
                     'validating', epoch_idx, batch_idx, loader_len, self.logger.last_log)
+                
             model.on_validation_end(val_results)
             # epoch end
             model.on_epoch_end(training_results,val_results)
