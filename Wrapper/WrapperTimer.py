@@ -6,14 +6,13 @@ class WrapperTimer():
         self.epoch_cost=0
 
     def epoch_start(self):
-        pass
+        self.epoch_cost=time.time()
 
     def training_start(self):
         self.total_cost=time.time()
 
     def training_end(self):
-        pass
+        self.total_cost=time.time()-self.total_cost
 
     def epoch_end(self):
-        pass
-
+        self.epoch_cost=time.time()-self.epoch_cost

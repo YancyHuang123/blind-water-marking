@@ -10,6 +10,7 @@ from .WrapperPrinter import WrapperPrinter
 from .WrapperModule import WrapperModule
 from .WrapperLogger import WrapperLogger
 from .WrapperTimer import WrapperTimer
+
 class WrapperTrainer():
     def __init__(self, max_epochs, accelerator: str, devices, output_interval=50, save_folder_path='lite_logs') -> None:
         super().__init__()
@@ -33,7 +34,6 @@ class WrapperTrainer():
         self.printer = WrapperPrinter(output_interval, max_epochs)
 
     def fit(self, model: WrapperModule, train_loader, val_loader):
-        
         model.train()
         model = self.model_distribute(model)  # distribute model to accelerator
         model.logger = self.logger  # type:ignore
@@ -43,7 +43,7 @@ class WrapperTrainer():
         print('Training started')
         for epoch_idx in range(self.max_epochs):
             model.current_epoch = epoch_idx
-            epoch_elapse = time.time()  # how long a epoch takes
+            self.timer.epoch_start()
 
             # training batch loop
             loader_len = len(train_loader)
@@ -72,17 +72,17 @@ class WrapperTrainer():
             model.on_validation_end(val_results)
             # epoch end
             model.on_epoch_end(training_results,val_results)
+            
             self.logger.reduce_epoch_log(epoch_idx, self.step_idx)
-            epoch_elapse = time.time() - epoch_elapse
-
             self.logger.save_log()
             model.save(self.save_folder)
+            self.timer.epoch_end()
             self.printer.epoch_output(
-                epoch_idx, epoch_elapse, self.logger.last_log)
+                epoch_idx, self.timer.epoch_cost, self.logger.last_log)
 
         # training end
-        time_consumption = time.time() - time_consumption
-        self.printer.end_output('Traning', time_consumption)
+        self.timer.training_end()
+        self.printer.end_output('Traning', self.timer.total_cost)
 
     # move batch data to device
     def _to_device(self, batch, device):
@@ -117,3 +117,4 @@ class WrapperTrainer():
         os.makedirs(f'{folder}', exist_ok=True)
         os.mkdir(f"{folder}/{time}")
         self.save_folder = f"{folder}/{time}"
+    
