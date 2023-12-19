@@ -3,65 +3,84 @@ from ast import Module
 from datetime import datetime
 import enum
 import os
+import time
 from click import progressbar
 from numpy import RAISE
 import torch
 import torch.nn as nn
 from typing import List, Dict, Union, Optional
+
+from .WrapperPrinter import WrapperPrinter
 from .WrapperModule import WrapperModule
 from .WrapperLogger import WrapperLogger
 from tqdm import tqdm
 
 
-def is_loss(instance):  # check if instance is both a nn.module and a loss
-    if isinstance(instance.forward(torch.randn(10), torch.randn(10)), torch.Tensor):
-        return True
-    return False
-
-
 class WrapperTrainer():
-    def __init__(self, max_epochs, accelerator: str, devices, save_folder_path='lite_logs') -> None:
+    def __init__(self, max_epochs, accelerator: str, devices, output_interval=50, save_folder_path='lite_logs') -> None:
         super().__init__()
         self.max_epochs = max_epochs
         self.acceletator = accelerator
         self.devices = devices
         self.save_folder_path = save_folder_path  # folder keeps all training logs
+        self.save_folder = ''  # folder keeps current training log
         self.step_idx = 0
+        self.output_interval = output_interval
 
-        self.create_save_folder()
+        self.create_saving_folder()
         self.logger = WrapperLogger(self.save_folder_path)
+        self.printer = WrapperPrinter(output_interval, max_epochs)
 
     def fit(self, model: WrapperModule, train_loader, val_loader):
+        '''
+        the key elements to a fit function: 1. timer 2. printer 3. logger
+        '''
+        model.train()
         model = self.model_distribute(model)  # distribute model to accelerator
         model.logger = self.logger  # type:ignore
-        print('train starts')
-        epoch_elapse = 0  # how long a epoch takes
-        for epoch_idx in range(self.max_epochs):  # epoch loop
-            model.current_epoch = epoch_idx
 
-            tq = tqdm(total=len(train_loader)-1)
-            tq.set_description(
-                f'Epoch:{epoch_idx}/{self.max_epochs-1} ETA:{epoch_elapse/3600.*(self.max_epochs-epoch_idx-1):.02f}h')
+        # epoch loop
+        time_consumption = time.time()
+        print('Training started')
+        for epoch_idx in range(self.max_epochs):
+            model.current_epoch = epoch_idx
+            epoch_elapse = time.time()  # how long a epoch takes
 
             # training batch loop
+            loader_len = len(train_loader)
             for batch_idx, batch in enumerate(train_loader):
                 batch = self._to_device(batch, model.device)
                 model.training_step(batch, batch_idx)
                 self.step_idx += 1
-                tq.update(1)
 
-            epoch_elapse = tq.format_dict['elapsed']
+                # due to the potential display error of progress bar, use standard output is a wiser option.
+                self.printer.batch_output(
+                    'trining', epoch_idx, batch_idx, loader_len, self.logger.last_log)
 
-            print(f'val starts')
             # validation batch loop
+            loader_len = len(val_loader)
             for batch_idx, batch in enumerate(val_loader):
                 batch = self._to_device(batch, model.device)
-                model.training_step(batch, batch_idx)
+                model.validation_step(batch, batch_idx)
 
+                self.printer.batch_output(
+                    'validatiing', epoch_idx, batch_idx, loader_len, self.logger.last_log)
+
+            # epoch end
             model.on_validation_end()
 
             model.on_epoch_end()
             self.logger.reduce_epoch_log(epoch_idx, self.step_idx)
+            epoch_elapse = time.time() - epoch_elapse
+
+            self.logger.save_log()
+            model.save(self.save_folder)
+            self.printer.epoch_output(
+                epoch_idx, epoch_elapse, self.logger.last_log)
+
+        # training end
+        time_consumption = time.time() - time_consumption
+        self.printer.end_output('Traning', time_consumption)
 
     # move batch data to device
     def _to_device(self, batch, device):
@@ -92,7 +111,7 @@ class WrapperTrainer():
             model.device = 'cuda'
         return model
 
-    def create_save_folder(self):
+    def create_saving_folder(self):
         time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         folder = self.save_folder_path
         os.makedirs(f'{folder}', exist_ok=True)

@@ -12,11 +12,11 @@ class WrapperModule(nn.Module):
         self.current_epoch=0
         self.device='cpu'
 
-    def save(self):
-        pass
+    def save(self,save_folder):
+        torch.save(self.state_dict(),f'{save_folder}/model.pt')
 
-    def load(self):
-        pass
+    def load(self,path):
+        torch.load(path)
 
     def manual_backward(self,x:torch.Tensor):
         x.backward()
@@ -46,4 +46,7 @@ class WrapperModule(nn.Module):
         pass
     
     def log_dict(self,dict:Dict,on_step=False,on_epoch=True,prog_bar=True):
-        pass
+        if on_epoch:
+            self.logger.add_epoch_log(dict)
+        if on_step:
+            self.logger.log(dict)

@@ -12,7 +12,7 @@ class CombinedLoader():
         self.min_len = min([len(x) for x in self.iterables])
         self.max_len = max([len(x) for x in self.iterables])
         self.dataset_len = {'min_size': self.min_len,
-                            'max_len': self.max_len}[self.mode]
+                            'max_len': self.max_len}[self.mode] 
         self.reset()
     
     def __iter__(self):

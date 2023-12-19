@@ -45,7 +45,6 @@ class MainModel(WrapperModule):  # type: ignore
         return encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss
 
     def training_step(self, batch, batch_idx):
-
         opt_encoder, opt_discriminator, opt_host_net = self.configure_optimizers()  # type: ignore
         encoder_mse_loss, encoder_SSIM_loss, host_net_loss, discriminator_loss = self.configure_losses()
         # training_step defines the train loop.
@@ -187,7 +186,7 @@ class MainModel(WrapperModule):  # type: ignore
         self.log_dict({'host_net_no_trigger_acc': self.host_net_no_trigger_acc.compute(), 'host_net_trigged_rate':
                       self.host_net_trigged_rate.compute(), 'host_net_error_trigged_rate': self.host_net_error_trigged_rate.compute(), 'discriminator_acc': self.discriminator_acc.compute()}, on_step=False, on_epoch=True)
 
-    def on_validation_epoch_end(self):
+    def on_validation_end(self):
         self.host_net_error_trigged_rate.reset()
         self.host_net_no_trigger_acc.reset()
         self.host_net_trigged_rate.reset()
