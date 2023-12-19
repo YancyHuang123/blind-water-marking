@@ -2,3 +2,4 @@ datas/*
 check_points/*
 *.pyc
 lightning_logs/*
+lite_logs/*
